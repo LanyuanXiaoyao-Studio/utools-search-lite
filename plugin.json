@@ -1,0 +1,127 @@
+{
+  "pluginName": "开发者搜索",
+  "version": "0.0.9",
+  "description": "集合 npm, Maven 等库的搜索",
+  "author": "lanyuanxiaoyao",
+  "homepage": "http://lanyuanxiaoyao.com",
+  "logo": "logo.png",
+  "preload": "preload.js",
+  "pluginSetting": {
+    "single": true
+  },
+  "features": [
+    {
+      "code": "npm",
+      "icon": "icon/npm.png",
+      "explain": "npm 搜索",
+      "cmds": [
+        "npm",
+        "JavaScript"
+      ]
+    },
+    {
+      "code": "maven",
+      "icon": "icon/maven.png",
+      "explain": "Maven 搜索",
+      "cmds": [
+        "Maven",
+        "mvn"
+      ]
+    },
+    {
+      "code": "maven-sonatype",
+      "icon": "icon/maven.png",
+      "explain": "Maven (Sonatype) 搜索",
+      "cmds": [
+        "Maven (Sonatype)",
+        "mvn (Sonatype)"
+      ]
+    },
+    {
+      "code": "github",
+      "icon": "icon/github.png",
+      "explain": "Github 搜索",
+      "cmds": [
+        "Github"
+      ]
+    },
+    {
+      "code": "gitee",
+      "icon": "icon/gitee.png",
+      "explain": "Gitee(码云) 搜索",
+      "cmds": [
+        "Gitee",
+        "码云"
+      ]
+    },
+    {
+      "code": "dockerhub",
+      "icon": "icon/docker.png",
+      "explain": "Docker Hub 搜索",
+      "cmds": [
+        "Docker Hub"
+      ]
+    },
+    {
+      "code": "pypi",
+      "icon": "icon/pypi.png",
+      "explain": "PyPI 搜索",
+      "cmds": [
+        "PyPI",
+        "Python"
+      ]
+    },
+    {
+      "code": "rubygem",
+      "icon": "icon/gems.png",
+      "explain": "RubyGems 搜索",
+      "cmds": [
+        "RubyGems"
+      ]
+    },
+    {
+      "code": "pub",
+      "icon": "icon/pub.png",
+      "explain": "Flutter pub 搜索",
+      "cmds": [
+        "pub",
+        "Flutter"
+      ]
+    },
+    {
+      "code": "pub-cn",
+      "icon": "icon/pub.png",
+      "explain": "Flutter pub 搜索 (国内镜像站)",
+      "cmds": [
+        "pub (CN)",
+        "Flutter (CN)"
+      ]
+    },
+    {
+      "code": "nuget",
+      "icon": "icon/nuget.png",
+      "explain": "Nuget 搜索",
+      "cmds": [
+        "Nuget",
+        "C#"
+      ]
+    },
+    {
+      "code": "cargo",
+      "icon": "icon/cargo.png",
+      "explain": "Cargo 搜索 (crates.io)",
+      "cmds": [
+        "Cargo",
+        "Rust"
+      ]
+    },
+    {
+      "code": "lua",
+      "icon": "icon/lua.png",
+      "explain": "LuaRocks 搜索",
+      "cmds": [
+        "LuaRocks"
+      ]
+    }
+  ]
+}

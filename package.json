@@ -1,0 +1,14 @@
+{
+  "name": "utools-developer-search",
+  "version": "0.0.9",
+  "description": "开发者搜索",
+  "author": "lanyuanxiaoyao",
+  "dependencies": {
+    "a11y-dialog": "^5.3.2",
+    "https-proxy-agent": "^5.0.0",
+    "iconv-lite": "^0.6.2",
+    "mousetrap": "^1.6.5",
+    "nanobar": "^0.4.2",
+    "phin": "^3.5.0"
+  }
+}
