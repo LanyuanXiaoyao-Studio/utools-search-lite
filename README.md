@@ -1,4 +1,8 @@
 # 开发者搜索
+![GitHub package.json version](https://img.shields.io/github/package-json/v/LanyuanXiaoyao-Studio/utools-developer-search?label=%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/LanyuanXiaoyao-Studio/utools-developer-search?label=%E4%BB%A3%E7%A0%81%E4%BD%93%E7%A7%AF)
+![uTools version](https://img.shields.io/badge/uTools%20%E7%89%88%E6%9C%AC-%3E%3D1.3.2-green)
+
 在模板插件里直接搜索开发者仓库资源, 目前支持
 - Maven
 - Maven (Sonatype)
