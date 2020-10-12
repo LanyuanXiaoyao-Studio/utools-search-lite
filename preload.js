@@ -45,7 +45,7 @@ utools.onPluginReady(() => {
           loadingBar.go(45)
           let data = await squirrel.page({
             code: code,
-            url: site.search.replace('{query}', text)
+            search: text
           })
           loadingBar.go(100)
           if (data && data.list && data.list.length > 0) {
