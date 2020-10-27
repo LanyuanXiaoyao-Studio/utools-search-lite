@@ -43,14 +43,17 @@ utools.onPluginReady(() => {
         if (site && text !== '') {
           callback([])
           loadingBar.go(45)
-          let data = await squirrel.page({
+          let result = await squirrel.page({
             code: code,
             search: text
           })
           loadingBar.go(100)
-          if (data && data.list && data.list.length > 0) {
-            callback(data.list)
-            utools.subInputBlur()
+          if (result.code === 0) {
+            let data = result.data
+            if (data && data.list && data.list.length > 0) {
+              callback(data.list)
+              utools.subInputBlur()
+            }
           }
           else {
             callback([])
@@ -94,15 +97,15 @@ const initialObserver = () => {
       if (m.addedNodes && m.addedNodes.length > 0) {
         let node = m.addedNodes[0]
         let html = node.innerHTML
-        html = html.replace(/#link\{(\n*.*?\n*)\}/m, '<span class="link">$1</span>')
-        html = html.replace(/#star\{(\n*.*?\n*)\}/m, `<span class="star"><img class="label-logo" src="${icons.like}" />$1</span>`)
-        html = html.replace(/#title\{(\n*.*?\n*)\}/m, '<span class="title">$1</span>')
-        html = html.replace(/#author\{(\n*.*?\n*)\}/m, `<span class="author"><img class="label-logo" src="${icons.author}" />$1</span>`)
-        html = html.replace(/#version\{(\n*.*?\n*)\}/m, `<span class="version"><img class="label-logo" src="${icons.version}" />$1</span>`)
-        html = html.replace(/#datetime\{(\n*.*?\n*)\}/m, `<span class="datetime"><img class="label-logo" src="${icons.time}" />$1</span>`)
-        html = html.replace(/#language\{(\n*.*?\n*)\}/m, `<span class="language"><img class="label-logo" src="${icons.language}" />$1</span>`)
-        html = html.replace(/#download\{(\n*.*?\n*)\}/m, `<span class="download"><img class="label-logo" src="${icons.download}" />$1</span>`)
-        html = html.replace(/#description\{(\n*.*?\n*)\}/m, `<span class="description">$1</span>`)
+        html = html.replace(/#link{(\n*.*?\n*)}/m, '<span class="link">$1</span>')
+        html = html.replace(/#star{(\n*.*?\n*)}/m, `<span class="star"><img class="label-logo" src="${icons.like}" alt=""/>$1</span>`)
+        html = html.replace(/#title{(\n*.*?\n*)}/m, '<span class="title">$1</span>')
+        html = html.replace(/#author{(\n*.*?\n*)}/m, `<span class="author"><img class="label-logo" src="${icons.author}" alt=""/>$1</span>`)
+        html = html.replace(/#version{(\n*.*?\n*)}/m, `<span class="version"><img class="label-logo" src="${icons.version}" alt=""/>$1</span>`)
+        html = html.replace(/#datetime{(\n*.*?\n*)}/m, `<span class="datetime"><img class="label-logo" src="${icons.time}" alt=""/>$1</span>`)
+        html = html.replace(/#language{(\n*.*?\n*)}/m, `<span class="language"><img class="label-logo" src="${icons.language}" alt=""/>$1</span>`)
+        html = html.replace(/#download{(\n*.*?\n*)}/m, `<span class="download"><img class="label-logo" src="${icons.download}" alt=""/>$1</span>`)
+        html = html.replace(/#description{(\n*.*?\n*)}/m, `<span class="description">$1</span>`)
         node.innerHTML = html
       }
     })
@@ -367,6 +370,25 @@ window.exports = {
           callback: list => callbackSetList(list.map(i => {
             return {
               title: `#title{${i.title}}#author{${i.author}}#download{${i.download}}`,
+              description: `#description{${i.description}}#link{${i.link}}`,
+            }
+          }))
+        }
+      },
+      placeholder: placeholder
+    },
+  },
+  'packagist': {
+    mode: 'list',
+    args: {
+      enter: () => initialObserver(),
+      search: async (action, text, callbackSetList) => {
+        input = {
+          code: '97081e97-54e1-49ad-8558-4adce0f99f9f',
+          text: text,
+          callback: list => callbackSetList(list.map(i => {
+            return {
+              title: `#title{${i.title}}#author{${i.author}}#star{${i.star}}#download{${i.download}}`,
               description: `#description{${i.description}}#link{${i.link}}`,
             }
           }))

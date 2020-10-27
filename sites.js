@@ -306,7 +306,7 @@ module.exports = [
     'rules': {
       'https://pypi\\.org/search/\\?q=.+': {
         'list': {
-          'expression': '#content ul[aria-label~=Search.*] > li',
+          'expression': '#content ul.unstyled[aria-label] > li',
           'title': {
             'expression': 'a.package-snippet h3 span.package-snippet__name'
           },
@@ -567,7 +567,7 @@ module.exports = [
     'target': 'SEARCH',
     'home': 'https://crates.io',
     'author': 'lanyuanxiaoyao',
-    'parser': 'CSS',
+    'parser': 'JSON',
     'rules': {
       'https://crates\\.io/api/v1/crates\\?.*q=.+': {
         'list': {
@@ -645,5 +645,41 @@ module.exports = [
       }
     },
     'search': '{home}/search?q={query}'
-  }
+  },
+  {
+    "code": "97081e97-54e1-49ad-8558-4adce0f99f9f",
+    "name": "Packagist",
+    "category": "开发",
+    "icon": "data:image/png;base64,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",
+    "target": "SEARCH",
+    "home": "https://packagist.org",
+    "author": "lanyuanxiaoyao",
+    "description": "The PHP Package Repository.",
+    "parser": "JSON",
+    "rules": {
+      "https://packagist\\.org/search\\.json\\?q=.+": {
+        "list": {
+          "expression": "$.results",
+          "title": {
+            "expression": "$.name"
+          },
+          "description": {
+            "expression": "$.description"
+          },
+          "link": {
+            "expression": "$.url"
+          },
+          "extra": {
+            "download": {
+              "expression": "$.downloads"
+            },
+            "star": {
+              "expression": "$.favers"
+            }
+          }
+        }
+      }
+    },
+    "search": "{home}/search.json?q={query}"
+  },
 ]

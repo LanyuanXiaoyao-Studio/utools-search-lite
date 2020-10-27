@@ -17,6 +17,7 @@
 - Nuget
 - cartes.io
 - LuaRocks
+- Packagist
 
 # 使用
 `enter(回车)` 搜索/选择

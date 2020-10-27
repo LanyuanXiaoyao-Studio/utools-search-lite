@@ -122,6 +122,15 @@
       "cmds": [
         "LuaRocks"
       ]
+    },
+    {
+      "code": "packagist",
+      "icon": "icon/packagist.png",
+      "explain": "Packagist 搜索",
+      "cmds": [
+        "Packagist",
+        "PHP"
+      ]
     }
   ]
 }

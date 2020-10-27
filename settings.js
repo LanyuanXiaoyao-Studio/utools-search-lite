@@ -66,11 +66,17 @@ module.exports = {
         let hostname = valueSplit[0]
         let port = parseInt(valueSplit[1])
         if (hostname && port && hostname !== '' && port > 0) {
-          let information = squirrel.fetch()
-          information.proxy.hostname = hostname
-          information.proxy.port = port
-          squirrel.save(information)
-          alert('设置成功')
+          let result = squirrel.fetch()
+          if (result.code === 0) {
+            let information = result.data
+            information.proxy.hostname = hostname
+            information.proxy.port = port
+            squirrel.save(information)
+            alert('设置成功')
+          }
+          else {
+            alert('设置失败')
+          }
         }
         else {
           alert('设置失败')
@@ -81,12 +87,18 @@ module.exports = {
     }
     document.querySelector('#setting-dialog .setting-dialog-container .proxy-resets-button').onclick = () => {
       try {
-        let information = squirrel.fetch()
-        information.proxy.hostname = ''
-        information.proxy.port = -1
-        squirrel.save(information)
-        alert('设置成功')
-        proxyInput.value = ''
+        let result = squirrel.fetch()
+        if (result.code === 0) {
+          let information = squirrel.fetch()
+          information.proxy.hostname = ''
+          information.proxy.port = -1
+          squirrel.save(information)
+          alert('设置成功')
+          proxyInput.value = ''
+        }
+        else {
+          alert('设置失败')
+        }
       } catch (e) {
         alert('设置失败')
       }
@@ -151,13 +163,19 @@ module.exports = {
     })
   },
   open() {
-    let information = squirrel.fetch()
-    let proxy = information.proxy
-    if (proxy.hostname !== '' && proxy.port !== -1) {
-      dialog.proxyInput.value = `${proxy.hostname}:${proxy.port}`
+    let result = squirrel.fetch()
+    if (result.code !== 0) {
+      dialog.proxyInput.value = ''
     }
     else {
-      dialog.proxyInput.value = ''
+      let information = result.data
+      let proxy = information.proxy
+      if (proxy.hostname !== '' && proxy.port !== -1) {
+        dialog.proxyInput.value = `${proxy.hostname}:${proxy.port}`
+      }
+      else {
+        dialog.proxyInput.value = ''
+      }
     }
     let height = document.documentElement.clientHeight
     lastHeight = height
