@@ -388,7 +388,7 @@ window.exports = {
           text: text,
           callback: list => callbackSetList(list.map(i => {
             return {
-              title: `#title{${i.title}}#author{${i.author}}#star{${i.star}}#download{${i.download}}`,
+              title: `#title{${i.title}}#star{${i.star}}#download{${i.download}}`,
               description: `#description{${i.description}}#link{${i.link}}`,
             }
           }))

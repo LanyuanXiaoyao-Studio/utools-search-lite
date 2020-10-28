@@ -13,6 +13,7 @@ file_name_list=(
   README.md
   settings.js
   sites.js
+  node_modules
 )
 for name in "${file_name_list[@]}" ; do
   cp -r "${name}" ./build
