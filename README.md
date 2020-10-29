@@ -5,6 +5,8 @@
 
 [![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=LanyuanXiaoyao-Studio&repo=utools-developer-search&theme=dracula&locale=cn&hide_border=false)](https://github.com/LanyuanXiaoyao-Studio/utools-developer-search)
 
+> 图标来源: <a target="_blank" href="https://icons8.com/icons/set/spider">Spider icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
 在模板插件里直接搜索开发者仓库资源, 目前支持
 - Maven
 - Maven (Sonatype)

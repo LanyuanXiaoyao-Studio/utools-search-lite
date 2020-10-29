@@ -1,7 +1,7 @@
 {
-  "name": "utools-developer-search",
-  "version": "0.0.10",
-  "description": "开发者搜索",
+  "name": "utools-torrent-lite",
+  "version": "0.1.0",
+  "description": "资源搜索 Lite",
   "author": "lanyuanxiaoyao",
   "dependencies": {
     "a11y-dialog": "^5.3.2",
