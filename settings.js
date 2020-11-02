@@ -18,6 +18,7 @@ const createElement = (parent, name, inner, attributes) => {
 
 let squirrel, lastHeight, isOpen = false
 
+// language=HTML
 let contentHtml = `
 <div tabindex="-1" data-a11y-dialog-hide></div>
 <dialog aria-labelledby="setting-dialog-title">

@@ -1,4 +1,7 @@
-# 开发者搜索
+![](https://s1.ax1x.com/2020/11/02/BBLuU1.png)
+# 资源搜索 Lite
+> 原插件「开发者搜索」更名为「资源搜索 Lite」, 其实际上为 [资源搜索](https://yuanliao.info/d/1875-0-0-3) 插件的简化版, 后续将不局限于开发者仓库搜索
+
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/LanyuanXiaoyao-Studio/utools-developer-search?label=%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/LanyuanXiaoyao-Studio/utools-developer-search?label=%E4%BB%A3%E7%A0%81%E4%BD%93%E7%A7%AF)
 ![uTools version](https://img.shields.io/badge/uTools%20%E7%89%88%E6%9C%AC-%3E%3D1.3.2-green)
@@ -20,6 +23,7 @@
 - cartes.io
 - LuaRocks
 - Packagist
+- Gradle Plugins
 
 # 使用
 `enter(回车)` 搜索/选择
