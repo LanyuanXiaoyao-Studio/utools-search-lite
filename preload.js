@@ -161,7 +161,6 @@ window.exports = {
             return {
               title: `#title{${i.title}}#author{${i.author}}#datetime{${i.datetime}}`,
               description: `#description{${i.description}}#link{${i.link}}`,
-              icon: i.image
             }
           }))
         }
@@ -409,7 +408,7 @@ window.exports = {
           text: text,
           callback: list => callbackSetList(list.map(i => {
             return {
-              title: `#title{${i.title}}#version{${i.version}}#datetime{${i.datetime}}`,
+              title: `#title{${i.title}}#version{${i.version}}`,
               description: `#description{${i.description}}#link{${i.link}}`,
             }
           }))
