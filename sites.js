@@ -184,42 +184,40 @@ module.exports = [
     'target': 'SEARCH',
     'home': 'https://gitee.com',
     'author': 'lanyuanxiaoyao',
-    'parser': 'CSS',
+    'description': 'Gitee.com 是 OSCHINA.NET 推出的代码托管平台，支持 Git 和 SVN，提供免费的私有仓库托管。目前已有超过 500 万的开发者选择 Gitee。',
+    'parser': 'JSON',
     'rules': {
-      'https://search\\.gitee\\.com\\?type=repository&q=.+': {
+      'https://gitee\\.com/api/v5/search/repositories\\?q=.+': {
         'list': {
-          'expression': '#hits-list .item',
+          'expression': '$',
           'title': {
-            'expression': '.header .title a'
+            'expression': '$.human_name'
           },
           'description': {
-            'expression': '.desc'
+            'expression': '$.description'
           },
           'dateTime': {
-            'expression': '.attr span.tag:contains(更新)',
-            'replace': [
-              {
-                'regex': '更新于 ',
-                'text': ''
-              }
-            ]
+            'expression': '$.updated_at',
+            'script': 'let date = new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + \'-\' + (date.getMonth() + 1) + \'-\' + date.getDate() + \' \' + date.getHours() + \':\' + date.getMinutes() + \':\' + date.getSeconds()\n}\nreturn text'
           },
           'link': {
-            'expression': '.header .title a',
-            'attribute': 'href'
+            'expression': '$.html_url'
           },
           'extra': {
             'star': {
-              'expression': '.attr span.icon-star + em'
+              'expression': '$.stargazers_count'
             },
             'language': {
-              'expression': '.attr span.lang'
+              'expression': '$.language'
+            },
+            'license': {
+              'expression': '$.license'
             }
           }
         }
       }
     },
-    'search': 'https://search.gitee.com?type=repository&q={query}'
+    'search': '{home}/api/v5/search/repositories?q={query}'
   },
   {
     'code': 'de83842d-4d2f-485c-be5a-02ad2a443664',

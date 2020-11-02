@@ -98,14 +98,16 @@ const initialObserver = () => {
         let node = m.addedNodes[0]
         let html = node.innerHTML
         html = html.replace(/#link{(\n*.*?\n*)}/m, '<span class="link">$1</span>')
-        html = html.replace(/#star{(\n*.*?\n*)}/m, `<span class="star"><img class="label-logo" src="${icons.like}" alt=""/>$1</span>`)
         html = html.replace(/#title{(\n*.*?\n*)}/m, '<span class="title">$1</span>')
-        html = html.replace(/#author{(\n*.*?\n*)}/m, `<span class="author"><img class="label-logo" src="${icons.author}" alt=""/>$1</span>`)
-        html = html.replace(/#version{(\n*.*?\n*)}/m, `<span class="version"><img class="label-logo" src="${icons.version}" alt=""/>$1</span>`)
-        html = html.replace(/#datetime{(\n*.*?\n*)}/m, `<span class="datetime"><img class="label-logo" src="${icons.time}" alt=""/>$1</span>`)
-        html = html.replace(/#language{(\n*.*?\n*)}/m, `<span class="language"><img class="label-logo" src="${icons.language}" alt=""/>$1</span>`)
-        html = html.replace(/#download{(\n*.*?\n*)}/m, `<span class="download"><img class="label-logo" src="${icons.download}" alt=""/>$1</span>`)
         html = html.replace(/#description{(\n*.*?\n*)}/m, `<span class="description">$1</span>`)
+
+        html = html.replace(/#star{(\n*.*?\n*)}/m, `<span class="label-tag star"><img class="label-logo" src="${icons.like}" alt=""/>$1</span>`)
+        html = html.replace(/#author{(\n*.*?\n*)}/m, `<span class="label-tag author"><img class="label-logo" src="${icons.author}" alt=""/>$1</span>`)
+        html = html.replace(/#version{(\n*.*?\n*)}/m, `<span class="label-tag version"><img class="label-logo" src="${icons.version}" alt=""/>$1</span>`)
+        html = html.replace(/#license{(\n*.*?\n*)}/m, `<span class="label-tag license"><img class="label-logo" src="${icons.license}" alt=""/>$1</span>`)
+        html = html.replace(/#datetime{(\n*.*?\n*)}/m, `<span class="label-tag datetime"><img class="label-logo" src="${icons.time}" alt=""/>$1</span>`)
+        html = html.replace(/#language{(\n*.*?\n*)}/m, `<span class="label-tag language"><img class="label-logo" src="${icons.language}" alt=""/>$1</span>`)
+        html = html.replace(/#download{(\n*.*?\n*)}/m, `<span class="label-tag download"><img class="label-logo" src="${icons.download}" alt=""/>$1</span>`)
         node.innerHTML = html
       }
     })
@@ -121,7 +123,7 @@ const placeholder = 'Enter(回车): 搜索/选择  Ctrl + T: 打开设置'
 /**
  * 行模板
  {
-    title: `#title{${i.title}}#version{${i.version}}#author{${i.author}}#star{${i.star}}#language{${i.language}}#download{${i.download}}#datetime{${i.datetime}}`,
+    title: `#title{${i.title}}#version{${i.version}}#author{${i.author}}#star{${i.star}}#language{${i.language}}#license{${i.license}}#download{${i.download}}#datetime{${i.datetime}}`,
     description: `#description{${i.description}}#link{${i.link}}`,
     icon: i.image
  }
@@ -196,7 +198,7 @@ window.exports = {
           text: text,
           callback: list => callbackSetList(list.map(i => {
             return {
-              title: `#title{${i.title}}#star{${i.star}}#language{${i.language}}#datetime{${i.datetime}}`,
+              title: `#title{${i.title}}#star{${i.star}}#language{${i.language}}#license{${i.license}}#datetime{${i.datetime}}`,
               description: `#description{${i.description}}#link{${i.link}}`
             }
           }))
