@@ -131,6 +131,14 @@
         "Packagist",
         "PHP"
       ]
+    },
+    {
+      "code": "gradle",
+      "icon": "icon/gradle.png",
+      "explain": "Gradle Plugins 搜索",
+      "cmds": [
+        "Gradle"
+      ]
     }
   ]
 }

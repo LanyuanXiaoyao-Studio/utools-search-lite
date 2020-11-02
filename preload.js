@@ -399,4 +399,23 @@ window.exports = {
       placeholder: placeholder
     },
   },
+  'gradle': {
+    mode: 'list',
+    args: {
+      enter: () => initialObserver(),
+      search: async (action, text, callbackSetList) => {
+        input = {
+          code: '407e4687-094e-4ce4-86ef-bb30e2cf6612',
+          text: text,
+          callback: list => callbackSetList(list.map(i => {
+            return {
+              title: `#title{${i.title}}#version{${i.version}}#datetime{${i.datetime}}`,
+              description: `#description{${i.description}}#link{${i.link}}`,
+            }
+          }))
+        }
+      },
+      placeholder: placeholder
+    },
+  },
 }
