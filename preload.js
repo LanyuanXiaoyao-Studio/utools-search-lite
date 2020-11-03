@@ -139,7 +139,7 @@ window.exports = {
           text: text,
           callback: list => callbackSetList(list.map(i => {
             return {
-              title: `#title{${i.title}}#version{${i.version}}#author{${i.author}}#datetime{${i.datetime}}`,
+              title: eval("`#title{${i.title}}#version{${i.version}}#author{${i.author}}#datetime{${i.datetime}}`"),
               description: `#description{${i.description}}#link{${i.link}}`,
               icon: i.image
             }
