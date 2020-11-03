@@ -2,3 +2,7 @@
 # yarn lockfile v1
 
 
+licia@^1.27.0:
+  version "1.27.0"
+  resolved "https://registry.npm.taobao.org/licia/download/licia-1.27.0.tgz#80751d8811a3e7ab2a547ab23eceec5df417d4f6"
+  integrity sha1-gHUdiBGj56sqVHqyPs7sXfQX1PY=

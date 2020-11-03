@@ -120,301 +120,36 @@ const initialObserver = () => {
 
 const placeholder = 'Enter(回车): 搜索/选择  Ctrl + T: 打开设置'
 
-/**
- * 行模板
- {
-    title: `#title{${i.title}}#version{${i.version}}#author{${i.author}}#star{${i.star}}#language{${i.language}}#license{${i.license}}#download{${i.download}}#datetime{${i.datetime}}`,
-    description: `#description{${i.description}}#link{${i.link}}`,
-    icon: i.image
- }
- */
-window.exports = {
-  'npm': {
-    mode: 'list',
-    args: {
-      enter: () => initialObserver(),
-      search: async (action, text, callbackSetList) => {
-        input = {
-          code: '21288140-5491-4aac-a827-e084bfa70ae2',
-          text: text,
-          callback: list => callbackSetList(list.map(i => {
-            return {
-              title: eval("`#title{${i.title}}#version{${i.version}}#author{${i.author}}#datetime{${i.datetime}}`"),
-              description: `#description{${i.description}}#link{${i.link}}`,
-              icon: i.image
+let exportList = {}
+sites
+    .filter(s => s.properties !== null)
+    .filter(s => s.properties.SEARCH_LITE_SUPPORT !== null && s.properties.SEARCH_LITE_SUPPORT === 'true')
+    .filter(s => s.properties.SEARCH_LITE_TITLE_TEMPLATE !== null && s.properties.SEARCH_LITE_TITLE_TEMPLATE !== '')
+    .filter(s => s.properties.SEARCH_LITE_DESC_TEMPLATE !== null && s.properties.SEARCH_LITE_DESC_TEMPLATE !== '')
+    .forEach(s => {
+      exportList[s.code] = {
+        mode: 'list',
+        args: {
+          enter: () => initialObserver(),
+          search: async (action, text, callbackSetList) => {
+            input = {
+              code: s.code,
+              text: text,
+              callback: list => callbackSetList(list.map(i => {
+                let item = {
+                  title: eval('`' + s.properties.SEARCH_LITE_TITLE_TEMPLATE + '`'),
+                  description: eval('`' + s.properties.SEARCH_LITE_DESC_TEMPLATE + '`'),
+                }
+                if (s.properties.SEARCH_LITE_IMAGE_TEMPLATE !== null && s.properties.SEARCH_LITE_IMAGE_TEMPLATE !== '') {
+                  item.icon = i.image
+                }
+                return item
+              }))
             }
-          }))
+          },
+          placeholder: placeholder
         }
-      },
-      placeholder: placeholder
-    }
-  },
-  'maven': {
-    mode: 'list',
-    args: {
-      enter: () => initialObserver(),
-      search: async (action, text, callbackSetList) => {
-        input = {
-          code: '1f5443c7-9b0a-43e8-9420-83b7d49e16eb',
-          text: text,
-          callback: list => callbackSetList(list.map(i => {
-            return {
-              title: `#title{${i.title}}#author{${i.author}}#datetime{${i.datetime}}`,
-              description: `#description{${i.description}}#link{${i.link}}`,
-            }
-          }))
-        }
-      },
-      placeholder: placeholder
-    }
-  },
-  'maven-sonatype': {
-    mode: 'list',
-    args: {
-      enter: () => initialObserver(),
-      search: async (action, text, callbackSetList) => {
-        input = {
-          code: 'a2387be5-1b9d-41df-b28a-246c972e492f',
-          text: text,
-          callback: list => callbackSetList(list.map(i => {
-            return {
-              title: `#title{${i.title}}#version{${i.version}}#author{${i.author}}#datetime{${i.datetime}}`,
-              description: `#description{${i.description}}#link{${i.link}}`
-            }
-          }))
-        }
-      },
-      placeholder: placeholder
-    }
-  },
-  'github': {
-    mode: 'list',
-    args: {
-      enter: () => initialObserver(),
-      search: async (action, text, callbackSetList) => {
-        input = {
-          code: '3a3d7617-80ef-44f7-a369-9032f13aa9a0',
-          text: text,
-          callback: list => callbackSetList(list.map(i => {
-            return {
-              title: `#title{${i.title}}#star{${i.star}}#language{${i.language}}#license{${i.license}}#datetime{${i.datetime}}`,
-              description: `#description{${i.description}}#link{${i.link}}`
-            }
-          }))
-        }
-      },
-      placeholder: placeholder
-    }
-  },
-  'gitee': {
-    mode: 'list',
-    args: {
-      enter: () => initialObserver(),
-      search: async (action, text, callbackSetList) => {
-        input = {
-          code: '19880471-f92d-4d14-9705-45c9e8ded084',
-          text: text,
-          callback: list => callbackSetList(list.map(i => {
-            return {
-              title: `#title{${i.title}}#star{${i.star}}#language{${i.language}}#datetime{${i.datetime}}`,
-              description: `#description{${i.description}}#link{${i.link}}`
-            }
-          }))
-        }
-      },
-      placeholder: placeholder
-    }
-  },
-  'dockerhub': {
-    mode: 'list',
-    args: {
-      enter: () => initialObserver(),
-      search: async (action, text, callbackSetList) => {
-        input = {
-          code: 'de83842d-4d2f-485c-be5a-02ad2a443664',
-          text: text,
-          callback: list => callbackSetList(list.map(i => {
-            return {
-              title: `#title{${i.title}}#author{${i.author}}#star{${i.star}}#datetime{${i.datetime}}`,
-              description: `#description{${i.description}}#link{${i.link}}`,
-              icon: i.image
-            }
-          }))
-        }
-      },
-      placeholder: placeholder
-    }
-  },
-  'pypi': {
-    mode: 'list',
-    args: {
-      enter: () => initialObserver(),
-      search: async (action, text, callbackSetList) => {
-        input = {
-          code: '651c444e-1c66-457c-895d-2eea27c9a306',
-          text: text,
-          callback: list => callbackSetList(list.map(i => {
-            return {
-              title: `#title{${i.title}}#version{${i.version}}#datetime{${i.datetime}}`,
-              description: `#description{${i.description}}#link{${i.link}}`
-            }
-          }))
-        }
-      },
-      placeholder: placeholder
-    }
-  },
-  'rubygem': {
-    mode: 'list',
-    args: {
-      enter: () => initialObserver(),
-      search: async (action, text, callbackSetList) => {
-        input = {
-          code: '2ebf794a-fb1c-4f55-9737-0db9da3878fe',
-          text: text,
-          callback: list => callbackSetList(list.map(i => {
-            return {
-              title: `#title{${i.title}}#version{${i.version}}#star{${i.star}}`,
-              description: `#description{${i.description}}#link{${i.link}}`
-            }
-          }))
-        }
-      },
-      placeholder: placeholder
-    }
-  },
-  'pub': {
-    mode: 'list',
-    args: {
-      enter: () => initialObserver(),
-      search: async (action, text, callbackSetList) => {
-        input = {
-          code: '9b429345-b2a3-4530-b726-d3395b2221a4',
-          text: text,
-          callback: list => callbackSetList(list.map(i => {
-            return {
-              title: `#title{${i.title}}#version{${i.version}}#star{${i.star}}#datetime{${i.datetime}}`,
-              description: `#description{${i.description}}#link{${i.link}}`
-            }
-          }))
-        }
-      },
-      placeholder: placeholder
-    },
-  },
-  'pub-cn': {
-    mode: 'list',
-    args: {
-      enter: () => initialObserver(),
-      search: async (action, text, callbackSetList) => {
-        input = {
-          code: '3e0cc26f-a96a-4f23-ac1c-48b9b87d825b',
-          text: text,
-          callback: list => callbackSetList(list.map(i => {
-            return {
-              title: `#title{${i.title}}#version{${i.version}}#star{${i.star}}#datetime{${i.datetime}}`,
-              description: `#description{${i.description}}#link{${i.link}}`
-            }
-          }))
-        }
-      },
-      placeholder: placeholder
-    },
-  },
-  'nuget': {
-    mode: 'list',
-    args: {
-      enter: () => initialObserver(),
-      search: async (action, text, callbackSetList) => {
-        input = {
-          code: '055ae385-097a-4598-8c7b-e3d43e1f404e',
-          text: text,
-          callback: list => callbackSetList(list.map(i => {
-            return {
-              title: `#title{${i.title}}#version{${i.version}}#author{${i.author}}#download{${i.download}}#datetime{${i.datetime}}`,
-              description: `#description{${i.description}}#link{${i.link}}`,
-              icon: i.image
-            }
-          }))
-        }
-      },
-      placeholder: placeholder
-    },
-  },
-  'cargo': {
-    mode: 'list',
-    args: {
-      enter: () => initialObserver(),
-      search: async (action, text, callbackSetList) => {
-        input = {
-          code: 'e0c9c31c-14c6-4c0d-a66f-b2a06e8b1a82',
-          text: text,
-          callback: list => callbackSetList(list.map(i => {
-            return {
-              title: `#title{${i.title}}#version{${i.version}}#download{${i.download}}#datetime{${i.datetime}}`,
-              description: `#description{${i.description}}#link{${i.link}}`
-            }
-          }))
-        }
-      },
-      placeholder: placeholder
-    },
-  },
-  'lua': {
-    mode: 'list',
-    args: {
-      enter: () => initialObserver(),
-      search: async (action, text, callbackSetList) => {
-        input = {
-          code: '23934197-14c3-4ad9-879f-ca27527711b2',
-          text: text,
-          callback: list => callbackSetList(list.map(i => {
-            return {
-              title: `#title{${i.title}}#author{${i.author}}#download{${i.download}}`,
-              description: `#description{${i.description}}#link{${i.link}}`,
-            }
-          }))
-        }
-      },
-      placeholder: placeholder
-    },
-  },
-  'packagist': {
-    mode: 'list',
-    args: {
-      enter: () => initialObserver(),
-      search: async (action, text, callbackSetList) => {
-        input = {
-          code: '97081e97-54e1-49ad-8558-4adce0f99f9f',
-          text: text,
-          callback: list => callbackSetList(list.map(i => {
-            return {
-              title: `#title{${i.title}}#star{${i.star}}#download{${i.download}}`,
-              description: `#description{${i.description}}#link{${i.link}}`,
-            }
-          }))
-        }
-      },
-      placeholder: placeholder
-    },
-  },
-  'gradle': {
-    mode: 'list',
-    args: {
-      enter: () => initialObserver(),
-      search: async (action, text, callbackSetList) => {
-        input = {
-          code: '407e4687-094e-4ce4-86ef-bb30e2cf6612',
-          text: text,
-          callback: list => callbackSetList(list.map(i => {
-            return {
-              title: `#title{${i.title}}#version{${i.version}}`,
-              description: `#description{${i.description}}#link{${i.link}}`,
-            }
-          }))
-        }
-      },
-      placeholder: placeholder
-    },
-  },
-}
+      }
+    })
+
+window.exports = exportList

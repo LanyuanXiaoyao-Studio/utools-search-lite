@@ -1,8 +1,9 @@
 {
   "name": "utools-search-lite",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "资源搜索 Lite",
   "author": "lanyuanxiaoyao",
   "dependencies": {
+    "licia": "^1.27.0"
   }
 }
