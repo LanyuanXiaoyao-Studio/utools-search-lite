@@ -11,6 +11,23 @@
   },
   "features": [
     {
+      "code": "97542cba-e5d3-41fd-b990-46e9a4a5c5d4",
+      "icon": "icon/97542cba-e5d3-41fd-b990-46e9a4a5c5d4.png",
+      "explain": "A BitTorrent Library for Japanese Media",
+      "cmds": [
+        "東京 図書館",
+        "tokyotosho"
+      ]
+    },
+    {
+      "code": "43e259b9-abd3-465f-bd22-7bdc8ad907a2",
+      "icon": "icon/43e259b9-abd3-465f-bd22-7bdc8ad907a2.png",
+      "explain": "A BitTorrent community focused on Eastern Asian media including anime, manga, music, and more",
+      "cmds": [
+        "Nyaa"
+      ]
+    },
+    {
       "code": "21288140-5491-4aac-a827-e084bfa70ae2",
       "icon": "icon/21288140-5491-4aac-a827-e084bfa70ae2.png",
       "explain": "npm is the world’s largest software registry. Open source developers from every continent use npm to share and borrow packages, and many organizations use npm to manage development as well.",

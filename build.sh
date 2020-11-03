@@ -18,6 +18,8 @@ done
 
 cp -r node_modules_build ./build/node_modules
 
+rm -rf ./icon/*.png
+
 # 复杂操作交给 js 脚本
 node ./build.js
 

@@ -1,5 +1,181 @@
 module.exports = [
   {
+    'code': '97542cba-e5d3-41fd-b990-46e9a4a5c5d4',
+    'name': '東京 図書館',
+    'category': 'ACG',
+    'icon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAASUlEQVQ4jWNkYGD4z0ABYKJEM1UMYPn/H7sPGBkZ4WxcaqjiAsq9QKxCZC/BwP///4k3ABYOjIyMKGEy8GEwBA1AT1RD0AvoAACTnxMcNsBFEAAAAABJRU5ErkJggg==',
+    'target': 'SEARCH',
+    'home': 'https://www.tokyotosho.info',
+    'author': 'lanyuanxiaoyao',
+    'description': 'A BitTorrent Library for Japanese Media',
+    'parser': 'CSS',
+    'rules': {
+      'https:\\/\\/www\\.tokyotosho\\.info\\/search\\.php\\?searchName=true&terms=.+&page=\\d+': {
+        'parser': 'REGEX',
+        'list': {
+          'expression': '<tr class=".*?category_0">.+?</tr><tr class=".*?category_0">.+?</tr>',
+          'title': {
+            'expression': '<a rel="nofollow".*?bittorrent.*?>(.+?)</a>',
+            'attribute': '1',
+            'replace': [
+              {
+                'regex': '<span.*?span>',
+                'text': ''
+              }
+            ]
+          },
+          'description': {
+            'expression': '\\s*Comment: (.+?)<',
+            'attribute': '1'
+          },
+          'author': {
+            'expression': 'Submitter.*?<a.*?>(.+?)</a>',
+            'attribute': '1'
+          },
+          'dateTime': {
+            'expression': '\\s*Date: (.+?)\\s+UTC',
+            'attribute': '1'
+          },
+          'link': {
+            'expression': '<a rel="nofollow" href="(.+?)">Details</a>',
+            'attribute': '1',
+            'prefix': 'https://www.tokyotosho.info/'
+          },
+          'extra': {
+            'size': {
+              'expression': '\\s*Size: (.+?)\\s+',
+              'attribute': '1'
+            }
+          }
+        },
+        'next': {
+          'script': 'var regex = /(.*)(\\d+)$/\nvar result = params.url.match(regex)\nif (result) {\n    return result[1] + (parseInt(result[2]) + 1)\n}\nreturn \'\''
+        }
+      },
+      'https:\\/\\/www\\.tokyotosho\\.info\\/details\\.php\\?id=\\d+': {
+        'text': {
+          'expression': '#main > .details > ul',
+          'title': {
+            'expression': 'li.detailsleft:contains(Torrent Name) + li'
+          },
+          'author': {
+            'expression': 'li.detailsleft:contains(Submitter) + li:has(a)',
+            'replace': [
+              {
+                'regex': 'Search.+',
+                'text': ''
+              }
+            ]
+          },
+          'dateTime': {
+            'expression': 'li.detailsleft:contains(Date Submitted) + li'
+          },
+          'extra': {
+            'size': {
+              'expression': 'li.detailsleft:contains(Filesize) + li'
+            }
+          }
+        },
+        'list': {
+          'expression': '#main > .details > ul',
+          'title': {
+            'expression': 'li.detailsleft:contains(Torrent Name) + li'
+          },
+          'content': {
+            'expression': 'li:contains(Magnet Link) > a',
+            'attribute': 'href'
+          }
+        }
+      }
+    },
+    'search': '{home}/search.php?searchName=true&terms={query}&page=1',
+    'properties': {
+      'SEARCH_LITE_SUPPORT': 'true',
+      'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#author{${i.author}}#datetime{${i.datetime}}',
+      'SEARCH_LITE_DESC_TEMPLATE': '#description{${i.description}}#link{${i.link}}',
+      'SEARCH_LITE_KEYS': '東京 図書館,tokyotosho'
+    }
+  },
+  {
+    'code': '43e259b9-abd3-465f-bd22-7bdc8ad907a2',
+    'name': 'Nyaa',
+    'category': 'ACG',
+    'icon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAABAlBMVEURbeMIN2////8hd+Xn9P4ofeYBefoAcfXX6/0op/84jOz4/P898v8dov845P8vg+cwq/8Chf9C//0AavJvxP7d7Pyw1vo3hegSmf/w+P4zu/87ovQ/+f856v8MkP9q4v4Zivgysv/O7P40zv7J5fy42vsqoPqgyvkYc+s4xP/C4PsqmvgPePIujfE43P821f8+qv2K3/yAyfzQ5fskf+4Fi/+76v2b3f1auv1ouf1Ls/2OzfuDwPqsz/l8vfmTvvVsrfWDtPE1lvFio+4/iOcq1/8kw/+Y8f5K3f563/1a1/xmy/xF7Pue1ft11PlRq/lcsPhL0PZDmfIysPAAS95YlOoND8hKAAACLElEQVQ4y4WR53LiQBCE5d2VWSSExKEEAiQTRTqTjpzBOdt37/8qNyMZkP3HDaXaqv6qe3ZWOPtBwhmlwheJolpyu8ERHADUr7b07tQ/3GeBUvHj8c0BQIz6UtXRLrLZO7eUzCd+gQCwThVqU1HicS173XWTyUQiFwJQiggV1bZtIwAR3fvfkAAEAtg2aJ2nUn8K9oGoly6RyOUQiMVi5yAECgW7ua1W4xdZIDAiAoREmwq0qmhTLVu/DEsASB8JzxJA1bg+hgwseTwCYYmEPnUmejjGlXuTTyDwGeGBj3KmMGdcf3i7k2+SAQDEYNBSDwvbdhRF0XV9SGQ3mcdr+mKr1Tpta6d3FE3vsWKm694mEaB+Om0dbKrOXzV73JuZfDS8v0KA+qq/P/pUNDv2mC01bcaH17dFBARLjD7nslA1ydTWy0/Z5wwLKk79FJ7lpfDCCHuqsN6IMBYknHy8qZfSCarICZE5JkQA6NqmUg30ZRm/owgQDiJ5nlckB8kPEYDin7altjcjR7HvCZIFv3loZiCpHAFUjJBUSdibZcIZAwI6ohUWpKgipTs26TcqZpnhVUJgZ272sENftUTaXi7IvMF5owKA3AsAy4BjbeDDs76vzQVjGcYZ57JcXjsBsAoHXlVWa0IMzgzCZG6UJx1JQoAKjASqNGoZAAwDF5Dh5qtKmwoAf/+RULUN+ISbeO7XWM0UhKaDwOIT2BiBhZRR6xsVTsWmBcAP+g8dajvM1EuD+QAAAABJRU5ErkJggg==',
+    'target': 'SEARCH',
+    'home': 'https://nyaa.si',
+    'author': 'lanyuanxiaoyao',
+    'description': 'A BitTorrent community focused on Eastern Asian media including anime, manga, music, and more',
+    'parser': 'CSS',
+    'rules': {
+      'https:\\/\\/nyaa\\.si\\/\\?q=.+&p=\\d+': {
+        'list': {
+          'expression': '.container table.torrent-list tbody > tr',
+          'title': {
+            'expression': 'td[colspan] > a[title]:not(.comments)',
+            'attribute': 'title'
+          },
+          'dateTime': {
+            'expression': 'td:nth-child(5)'
+          },
+          'link': {
+            'expression': 'td[colspan] > a[title]:not(.comments)',
+            'attribute': 'href',
+            'prefix': '{home}'
+          },
+          'extra': {
+            'size': {
+              'expression': 'td:nth-child(4)'
+            },
+            'view': {
+              'expression': 'td:nth-child(8)'
+            }
+          }
+        },
+        'next': {
+          'expression': 'ul.pagination > li.next > a',
+          'attribute': 'href',
+          'prefix': '{home}'
+        }
+      },
+      'https:\\/\\/nyaa\\.si\\/view\\/\\d+': {
+        'text': {
+          'expression': '.container > .panel:contains(Magnet)',
+          'title': {
+            'expression': 'h3.panel-title'
+          },
+          'author': {
+            'expression': 'a[title=User]'
+          },
+          'dateTime': {
+            'expression': 'div[data-timestamp]'
+          },
+          'extra': {
+            'size': {
+              'expression': 'div.col-md-1:contains(File size) + div'
+            }
+          }
+        },
+        'list': {
+          'expression': '.container > .panel:contains(Magnet)',
+          'title': {
+            'expression': 'h3.panel-title'
+          },
+          'content': {
+            'expression': '.panel-footer a:contains(Magnet)',
+            'attribute': 'href'
+          }
+        }
+      }
+    },
+    'search': '{home}/?q={query}&p=1',
+    'properties': {
+      'SEARCH_LITE_SUPPORT': 'true',
+      'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#datetime{${i.datetime}}',
+      'SEARCH_LITE_DESC_TEMPLATE': '#description{${i.link}}#link{${i.link}}',
+      'SEARCH_LITE_KEYS': 'Nyaa'
+    }
+  },
+  {
     'code': '21288140-5491-4aac-a827-e084bfa70ae2',
     'name': 'npm',
     'category': '开发',
