@@ -1,6 +1,6 @@
 {
   "pluginName": "资源搜索 Lite",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "海纳百川, 搜遍天下, 轻量版的资源搜索",
   "author": "lanyuanxiaoyao",
   "homepage": "http://lanyuanxiaoyao.com",
@@ -25,6 +25,38 @@
       "explain": "A BitTorrent community focused on Eastern Asian media including anime, manga, music, and more",
       "cmds": [
         "Nyaa"
+      ]
+    },
+    {
+      "code": "afee8741-8deb-4a34-8827-7ec0cc4fd651",
+      "icon": "icon/afee8741-8deb-4a34-8827-7ec0cc4fd651.png",
+      "explain": "网盘资源搜索，就用罗马盘 - 最好用的百度网盘搜索引擎",
+      "cmds": [
+        "罗马盘"
+      ]
+    },
+    {
+      "code": "52e8bdc3-84bc-495c-a406-b053a94fc825",
+      "icon": "icon/52e8bdc3-84bc-495c-a406-b053a94fc825.png",
+      "explain": "专业网盘搜索引擎-56网盘搜索为您带来最佳网盘搜索体验",
+      "cmds": [
+        "56网盘"
+      ]
+    },
+    {
+      "code": "bb32f4ff-06ad-4709-b0c3-fb648ea210bd",
+      "icon": "icon/bb32f4ff-06ad-4709-b0c3-fb648ea210bd.png",
+      "explain": "小白盘帮收录了大量的网盘资源,页面清新，实时检查失效资源.帮您省心快速找到想要的电影,电视剧,小说,文档,音乐,软件,种子等热门网盘资源",
+      "cmds": [
+        "小白盘"
+      ]
+    },
+    {
+      "code": "0d3e0c9f-a9c9-40c5-999a-e67519aabac4",
+      "icon": "icon/0d3e0c9f-a9c9-40c5-999a-e67519aabac4.png",
+      "explain": "小可搜搜，有你更方便",
+      "cmds": [
+        "小可搜搜"
       ]
     },
     {

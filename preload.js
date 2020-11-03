@@ -47,6 +47,7 @@ utools.onPluginReady(() => {
             code: code,
             search: text
           })
+          console.log(JSON.stringify(result))
           loadingBar.go(100)
           if (result.code === 0) {
             let data = result.data
@@ -101,17 +102,19 @@ const initialObserver = () => {
       if (m.addedNodes && m.addedNodes.length > 0) {
         let node = m.addedNodes[0]
         let html = node.innerHTML
-        html = html.replace(/#link{(\n*.*?\n*)}/m, '<span class="link">$1</span>')
-        html = html.replace(/#title{(\n*.*?\n*)}/m, '<span class="title">$1</span>')
-        html = html.replace(/#description{(\n*.*?\n*)}/m, `<span class="description">$1</span>`)
+        html = html.replace(/#link{(\s*.*?\s*)}/m, '<span class="link">$1</span>')
+        console.log(html)
+        html = html.replace(/#title{(\s*.*?\s*)}/m, '<span class="title">$1</span>')
+        console.log(html)
+        html = html.replace(/#description{(\s*.*\s*)}/m, `<span class="description">$1</span>`)
 
-        html = html.replace(/#star{(\n*.*?\n*)}/m, `<span class="label-tag star"><img class="label-logo" src="${icons.like}" alt=""/>$1</span>`)
-        html = html.replace(/#author{(\n*.*?\n*)}/m, `<span class="label-tag author"><img class="label-logo" src="${icons.author}" alt=""/>$1</span>`)
-        html = html.replace(/#version{(\n*.*?\n*)}/m, `<span class="label-tag version"><img class="label-logo" src="${icons.version}" alt=""/>$1</span>`)
-        html = html.replace(/#license{(\n*.*?\n*)}/m, `<span class="label-tag license"><img class="label-logo" src="${icons.license}" alt=""/>$1</span>`)
-        html = html.replace(/#datetime{(\n*.*?\n*)}/m, `<span class="label-tag datetime"><img class="label-logo" src="${icons.time}" alt=""/>$1</span>`)
-        html = html.replace(/#language{(\n*.*?\n*)}/m, `<span class="label-tag language"><img class="label-logo" src="${icons.language}" alt=""/>$1</span>`)
-        html = html.replace(/#download{(\n*.*?\n*)}/m, `<span class="label-tag download"><img class="label-logo" src="${icons.download}" alt=""/>$1</span>`)
+        html = html.replace(/#star{(\s*.*?\s*)}/m, `<span class="label-tag star"><img class="label-logo" src="${icons.like}" alt=""/>$1</span>`)
+        html = html.replace(/#author{(\s*.*?\s*)}/m, `<span class="label-tag author"><img class="label-logo" src="${icons.author}" alt=""/>$1</span>`)
+        html = html.replace(/#version{(\s*.*?\s*)}/m, `<span class="label-tag version"><img class="label-logo" src="${icons.version}" alt=""/>$1</span>`)
+        html = html.replace(/#license{(\s*.*?\s*)}/m, `<span class="label-tag license"><img class="label-logo" src="${icons.license}" alt=""/>$1</span>`)
+        html = html.replace(/#datetime{(\s*.*?\s*)}/m, `<span class="label-tag datetime"><img class="label-logo" src="${icons.time}" alt=""/>$1</span>`)
+        html = html.replace(/#language{(\s*.*?\s*)}/m, `<span class="label-tag language"><img class="label-logo" src="${icons.language}" alt=""/>$1</span>`)
+        html = html.replace(/#download{(\s*.*?\s*)}/m, `<span class="label-tag download"><img class="label-logo" src="${icons.download}" alt=""/>$1</span>`)
         node.innerHTML = html
       }
     })
