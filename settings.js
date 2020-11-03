@@ -83,14 +83,17 @@ module.exports = {
           alert('设置失败')
         }
       } catch (e) {
+        console.log(e)
         alert('设置失败')
       }
     }
     document.querySelector('#setting-dialog .setting-dialog-container .proxy-resets-button').onclick = () => {
       try {
         let result = squirrel.fetch()
+        console.log(result)
         if (result.code === 0) {
-          let information = squirrel.fetch()
+          let information = result.data
+          console.log(information)
           information.proxy.hostname = ''
           information.proxy.port = -1
           squirrel.save(information)
@@ -101,6 +104,7 @@ module.exports = {
           alert('设置失败')
         }
       } catch (e) {
+        console.log(e)
         alert('设置失败')
       }
     }

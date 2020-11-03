@@ -30,7 +30,7 @@
   - Gradle Plugins
 
 # 使用
-`enter(回车)` 搜索/选择
+`enter(回车)` 搜索/选择  
 `Ctrl + t` 打开设置
 
 # 下载

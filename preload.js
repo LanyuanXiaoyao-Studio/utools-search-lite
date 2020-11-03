@@ -54,8 +54,12 @@ utools.onPluginReady(() => {
               callback(data.list)
               utools.subInputBlur()
             }
+            else {
+              utools.showNotification('资源获取成功, 但没有找到更多内容, 请更换搜索词')
+            }
           }
           else {
+            utools.showNotification('资源获取失败, 可能是网络问题, 尝试设置代理使用')
             callback([])
           }
         }
