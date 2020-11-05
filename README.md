@@ -12,6 +12,15 @@
 - ACG
   - 東京 図書館
   - Nyaa
+- 网盘
+  - 罗马盘
+  - 56网盘
+  - 小白盘
+  - 小可搜搜
+- 磁力链接
+  - 雨花阁
+  - Torrent Kitty
+  - 超人搜索
 - 开发
   - Maven
   - Maven (Sonatype)
