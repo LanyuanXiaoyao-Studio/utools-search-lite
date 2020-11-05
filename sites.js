@@ -10,7 +10,7 @@ module.exports = [
     'description': 'A BitTorrent Library for Japanese Media',
     'parser': 'CSS',
     'rules': {
-      'https:\\/\\/www\\.tokyotosho\\.info\\/search\\.php\\?searchName=true&terms=.+&page=\\d+': {
+      'https://www\\.tokyotosho\\.info/search\\.php\\?searchName=true&terms=.+&page=\\d+': {
         'parser': 'REGEX',
         'list': {
           'expression': '<tr class=".*?category_0">.+?</tr><tr class=".*?category_0">.+?</tr>',
@@ -52,7 +52,7 @@ module.exports = [
           'script': 'var regex = /(.*)(\\d+)$/\nvar result = params.url.match(regex)\nif (result) {\n    return result[1] + (parseInt(result[2]) + 1)\n}\nreturn \'\''
         }
       },
-      'https:\\/\\/www\\.tokyotosho\\.info\\/details\\.php\\?id=\\d+': {
+      'https://www\\.tokyotosho\\.info/details\\.php\\?id=\\d+': {
         'text': {
           'expression': '#main > .details > ul',
           'title': {
@@ -91,9 +91,10 @@ module.exports = [
     'search': '{home}/search.php?searchName=true&terms={query}&page=1',
     'properties': {
       'SEARCH_LITE_SUPPORT': 'true',
-      'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#author{${i.author}}#datetime{${i.datetime}}',
+      'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#author{${i.author}}#size{${i.size}}#datetime{${i.datetime}}',
       'SEARCH_LITE_DESC_TEMPLATE': '#description{${i.description}}#link{${i.link}}',
-      'SEARCH_LITE_KEYS': '東京 図書館,tokyotosho'
+      'SEARCH_LITE_KEYS': '東京 図書館,tokyotosho',
+      'TEST_SEARCH_KEY': 'girl'
     }
   },
   {
@@ -107,7 +108,7 @@ module.exports = [
     'description': 'A BitTorrent community focused on Eastern Asian media including anime, manga, music, and more',
     'parser': 'CSS',
     'rules': {
-      'https:\\/\\/nyaa\\.si\\/\\?q=.+&p=\\d+': {
+      'https://nyaa\\.si/\\?q=.+&p=\\d+': {
         'list': {
           'expression': '.container table.torrent-list tbody > tr',
           'title': {
@@ -137,7 +138,7 @@ module.exports = [
           'prefix': '{home}'
         }
       },
-      'https:\\/\\/nyaa\\.si\\/view\\/\\d+': {
+      'https://nyaa\\.si/view/\\d+': {
         'text': {
           'expression': '.container > .panel:contains(Magnet)',
           'title': {
@@ -170,23 +171,24 @@ module.exports = [
     'search': '{home}/?q={query}&p=1',
     'properties': {
       'SEARCH_LITE_SUPPORT': 'true',
-      'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#datetime{${i.datetime}}',
+      'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#size{${i.size}}#view{${i.view}}#datetime{${i.datetime}}',
       'SEARCH_LITE_DESC_TEMPLATE': '#description{${i.link}}#link{${i.link}}',
-      'SEARCH_LITE_KEYS': 'Nyaa'
+      'SEARCH_LITE_KEYS': 'Nyaa',
+      'TEST_SEARCH_KEY': 'girl'
     }
   },
   {
     'code': 'afee8741-8deb-4a34-8827-7ec0cc4fd651',
     'name': '罗马盘',
     'category': '网盘',
-    'icon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAVFBMVEUAAAAAT7MAT7MAULQAT7QAULMAT7QAT7MAT7QAT7MAT7MAULQAT7MAULMAT7MAT7QAULQAULQAT7MAT7MAT7MAT7MAT7QAULMAULQAULQAULQAULT7gVfUAAAAHHRSTlMA3tKXcYVOsyXwwWHnjHxqV0Gi/sn2DrmqOhkyHHVTJAAAAZhJREFUOMt1k9mS6zAIRA1oMaDd8pb5//+8Se44GccVnlD1EerqQsOrnA8oW/MCQHW41L6y2JyTNdkQMI0fumEphRAeJbGkAO6k28nWxj0aVU0EwTqZyx89TdlBV6UOAGu6D5C6ze5tb0plpr0xbNZEzyE5hCrh8LGgr0wVQ749z2OcfMXuuL0MVll36G/jhb3jmKb9dwBlris8rr8ftYkdtP8HLkI6n7OJdznG8Lxk0UFZ/TmXkSP1zO7R+81gCfqRnBcDGsyj7TGKwv4BJFDISI8WLfkMl+yDQurtAMwFSHfAIH0HCDMo2K/Ags2CBv0KlEllSzx+A26w6pxFhi/ATdh10UnPgDugilyIneByBlqIbhx/1M/dxSnbyQ1n4CdigMChG+dnk6c4fADJupJTUqWAxXAbPoGM0P0mEDC5NvnhAtSiiYislhgAZbkALQjZSBvOAcRxugBjboIAQiguZMvjAURazbHiy3KfvM85QoXDZfnZ3ajL3yTbXY75WFON0UZzAkYmM7+SJLyXv533CetK7vmB/wGb0hXjWHPZKAAAAABJRU5ErkJggg==',
+    'icon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAOVBMVEUAAAAAT7MAULMAT7QAT7QAT7MAULQAT7MAT7MAT7QAT7MAULQAT7MAULQAT7QAT7MAT7QAULQAULQ9JC6sAAAAE3RSTlMA4YhuUdKXxLUl8GH7P6V8DhkykbkX9AAAAWhJREFUOMuVktuKwzAMRKO7bMl22v//2LXZ7cUNfdiBgIiOBzHM8RQ7iPXuBqDtuKh5NSQa8yOFquVjT9WYVWDJkAcAb3tMbH1ZRMRQAGTLd2IkMViE2jTwMQ2s9TeCc3DqtICOhF5hsEAzeNxxireqTYBux1LB9CbGtT8PbOYNrLwsq3PFke3PQCfiMJ+/iMRRGfofzqaRezY414i/j1AY2P3YVCqqUeU1e6eJxLHLjSCA1miIFvCZ/lhr0TUKqhNcsp/AsL4B/3NQWR74FTil4wTiK8AZ1kct34AbeCSZHV+Am1U2i4wd4AfUpLJORM4d6IBcyj08jTEJk48duOPqZAUj9iRKPD6Agcw0RoSCMM26fAIkYN4NQAb39OMCNI6hqhiME7LzAnQwRdQuCWBcxwUo1E1gUmIMhCvGa1DnOZ1bEkKDx5V8b1xi/n+pzzXSo6aBU3TujVTKZ5IqU37b+yTNlWFF+QP0Uw8hzrwjwgAAAABJRU5ErkJggg==',
     'target': 'SEARCH',
     'home': 'https://www.luomapan.com',
     'author': 'lanyuanxiaoyao',
     'description': '网盘资源搜索，就用罗马盘 - 最好用的百度网盘搜索引擎',
     'parser': 'CSS',
     'rules': {
-      'https:\\/\\/www\\.luomapan\\.com\\/search\\?keyword=.+&page=\\d+': {
+      'https://www\\.luomapan\\.com/search\\?keyword=.+&page=\\d+': {
         'list': {
           'expression': '.main .search-result .result-inner .result-wrapper .roma-item-wrapper',
           'title': {
@@ -227,7 +229,7 @@ module.exports = [
           'prefix': '{home}'
         }
       },
-      'https:\\/\\/www\\.luomapan\\.com\\/detail\\/.+': {
+      'https://www\\.luomapan\\.com/detail/.+': {
         'text': {
           'expression': '#info',
           'title': {
@@ -278,7 +280,7 @@ module.exports = [
     'search': '{home}/search?keyword={query}&page=1',
     'properties': {
       'SEARCH_LITE_SUPPORT': 'true',
-      'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#datetime{${i.datetime}}',
+      'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#size{${i.size}}#datetime{${i.datetime}}',
       'SEARCH_LITE_DESC_TEMPLATE': '#description{${i.description}}#link{${i.link}}',
       'SEARCH_LITE_KEYS': '罗马盘'
     }
@@ -294,7 +296,7 @@ module.exports = [
     'description': '专业网盘搜索引擎-56网盘搜索为您带来最佳网盘搜索体验',
     'parser': 'CSS',
     'rules': {
-      'https:\\/\\/www\\.56wangpan\\.com\\/search\\/kw.+pg\\d+': {
+      'https://www\\.56wangpan\\.com/search/kw.+pg\\d+': {
         'list': {
           'expression': '.content .sellListContent > li',
           'title': {
@@ -344,7 +346,7 @@ module.exports = [
     'description': '小白盘帮收录了大量的网盘资源,页面清新，实时检查失效资源.帮您省心快速找到想要的电影,电视剧,小说,文档,音乐,软件,种子等热门网盘资源',
     'parser': 'CSS',
     'rules': {
-      'https:\\/\\/www\\.xiaobaipan\\.com\\/list-.+-p\\d+\\.html': {
+      'https://www\\.xiaobaipan\\.com/list-.+-p\\d+\\.html': {
         'list': {
           'expression': '.main-container .category-list > .item-list:has(div[fid])',
           'title': {
@@ -371,11 +373,11 @@ module.exports = [
             'prefix': '{home}'
           },
           'extra': {
-            'view': {
-              'expression': '.info-row > .item-location:contains(查看)'
-            },
             'size': {
               'expression': '.info-row > .salary'
+            },
+            'view': {
+              'expression': '.info-row > .item-location:contains(查看)'
             }
           }
         },
@@ -392,7 +394,7 @@ module.exports = [
     'search': '{home}/list-{query}-p4.html',
     'properties': {
       'SEARCH_LITE_SUPPORT': 'true',
-      'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#author{${i.author}}#datetime{${i.datetime}}',
+      'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#author{${i.author}}#size{${i.size}}#view{${i.view}}#datetime{${i.datetime}}',
       'SEARCH_LITE_DESC_TEMPLATE': '#description{${i.description}}#link{${i.link}}',
       'SEARCH_LITE_KEYS': '小白盘'
     }
@@ -401,14 +403,14 @@ module.exports = [
     'code': '0d3e0c9f-a9c9-40c5-999a-e67519aabac4',
     'name': '小可搜搜',
     'category': '网盘',
-    'icon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAXVBMVEX///8BAQEPDw88PDzh4eH29vbs7OzZ2dn6+vqbm5stLS0jIyOvr6+kpKSRkZFKSkrx8fHJycl2dnYaGhq5ubl+fn5tbW1hYWE0NDSFhYVTU1PR0dHDw8NaWlrn5+ebffeqAAACMElEQVRIx+1UR5LcMAxkJsWkHEez/3+mwVzj2XBz+bB9UEFkN4AWCaFf/J9QYuym7QnYt9NK/hNfdNcx4wxi6DSqb9j83iu5io7u4yv+vRP8Gaj7tMpwZrqh+9pZ6/x0HXnpku98ecUG6LowrobbueXBkXi4Tcck7o1PA/1ahEJq3A2BF6JPCb6YDxLSqXd+v4RQnM3J7Hlo1pu/FcMFK6uI/OeL4WlAgJGCeEENHcEkJkN8iy1f27Yny10ksB5j2j4vOzA+05k6IGnHZMegmKWglYkCoW8FoH8RI0EhlGIyxEVrkHhNnGXGlBUBxcSmyBJ8SL5jnAToYTAVaWsvXQNwXZ2AGVU2L3hMstmbYC1LBTIlLe+xZvAgI8oY52wbiWPui0A8cncDxdfAp37l9XvoYkJJJlQdAlQFe+UWE1NJ23bc3qnS0iVeBAspFcS126GavnK4YcNeBCcuHuTcrBlsHrlW3m8WgFWlfUk2wfGolEZjnbXlotCh3IZ2DiPBJudZgVEVYqqXSUHYTlqFRO3OaMdUoC89LndGdQSkqo2Drg2OEJJjO/3UAydX5p5EaYOFhWNMCoobzJJag+0ZthtUSEHO2Ap71pGjdzjNJY6vRS/gayAcXobY0SCBmWaBHvRtQpuiS1O8W2Bx6bx7DGi4T9Cm/O+4dZ78+F9arN96U1qT6DOw0+AK0kLtB/QF5FokTag9Q9+A2aeeK3k+NvuBfsCH3TTJZtZboF/8C/wBmjIZ3LY8x4cAAAAASUVORK5CYII=',
+    'icon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAV1BMVEX///8BAQEPDw/19fUwMDA8PDzh4eHs7OzZ2dn6+vqbm5sjIyOvr6+kpKSRkZFKSkrJycl2dnYaGhq5ubl+fn5tbW1hYWGFhYVTU1PR0dHDw8NaWlrn5+f4Q0VsAAACKElEQVRIx+1UyXbkIAw0YjeLd+x29/9/54jNJOOe5DYvh9ShnxqqJJUFdL/4mdBy7KftiQjbbhX9ji/7g82kAAyfRv0Fm56hkBuA9a9/8c8A5B2402/T74VueFh7a52fDlaWDnXnqyM1wNdFUE1P55YH7eTDbSwlcTc+j/RjkbrTYzCAf4DtCgsLHyXQ6zt/WGIo9+Zk9jQ2683fCnrgyioT/0k+YkqDGDmKl66hBwKeJumWWj62LWTLfSKIgRDePq/ALvc8U4ck5oTqBRazHLUqUzD0rQD2L/OgOYZKTgZcsoaJ18xZZsJFFXACNkcWCFM0EJIF3cMQLvNWqF0jyLU6ITOpbFnwBIrZM+aqFWDKWjoQJvAHxlp8nIvtTrJ5qAL5KN1RTg5Kp2Gl7XtUE1oJeY0CgyoIF7eamGratuNCr2tLh/wkWKBWkEewzfRRwo0Y8Umwk+pBzc2aIeZRatX9ZgFZVTrUZBOOR+c0jLCirQeF0yptcxiBmJJnRcalkNN1mDSGbdI6JmpnhjmhI30ZSD0zugeU6nYd2NXgiCGwbffTgJxSmXpI0gYbD+mYFZw0mCW3htszbjfomAL21Ip4QuXzM6ZfMEU5ng10jQTmVYwdh0hhu4j0qG83tCn6fIuDjSzlvHvQjp47anP+O05Gsia9S4v122Bqa6p7B7GbZhdayOrA7lCrub+tXnRfQNjnh9d7Zpt9dd/gZTcGxcx6yu4X/wN/AHRCF2bYLuL1AAAAAElFTkSuQmCC',
     'target': 'SEARCH',
     'home': 'https://www.xiaokesoso.com',
     'author': 'lanyuanxiaoyao',
     'description': '小可搜搜，有你更方便',
     'parser': 'CSS',
     'rules': {
-      'https:\\/\\/www\\.xiaokesoso\\.com\\/s\\/search\\?q=.+&currentPage=\\d+': {
+      'https://www\\.xiaokesoso\\.com/s/search\\?q=.+&currentPage=\\d+': {
         'list': {
           'expression': '.container .result-box .row .document-piece:not(:contains(争议))',
           'title': {
@@ -495,7 +497,7 @@ module.exports = [
           'script': 'var regex = /(.+currentPage=)(\\d+)/\nvar result = params.url.match(regex)\nif (result && result.length > 2) {\n    return result[1] + (parseInt(result[2]) + 1)\n}\nreturn \'\''
         }
       },
-      'https:\\/\\/www\\.xiaokesoso\\.com\\/info\\/.+': {
+      'https://www\\.xiaokesoso\\.com/info/.+': {
         'text': {
           'expression': '.container .row .detail-box:has(h3)',
           'title': {
@@ -556,9 +558,283 @@ module.exports = [
     'search': '{home}/s/search?q={query}&currentPage=1',
     'properties': {
       'SEARCH_LITE_SUPPORT': 'true',
-      'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#author{${i.author}}#datetime{${i.datetime}}',
+      'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#author{${i.author}}#size{${i.size}}#number{${i.number}}#datetime{${i.datetime}}',
       'SEARCH_LITE_DESC_TEMPLATE': '#description{${i.description}}#link{${i.link}}',
       'SEARCH_LITE_KEYS': '小可搜搜'
+    }
+  },
+  {
+    'code': '98b54ae1-5ac4-43a9-b1e5-83cb64932952',
+    'name': '雨花阁',
+    'category': '综合',
+    'icon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAS1BMVEXmYEjmYUjtZEkAAADlYEj////2yMDxp5nvnpDtjXz76ebzsKX++Pb41M31wrnqfGn65ODodF/98vD2zcbna1Xul4j53dj0vbPzuK0SIBXqAAAABHRSTlPpphwAI2YUpwAAAOlJREFUOMudk1GqwyAQRU0619GORk2TJvtf6fPDlyo0Cj0gDnrEUbjqMU+KblDT/FCzog55e6Iuk1J94do3gCmlBbgyyuyBUMoF2BuhnCpwciisHyE4vDkPwxwiIh/AwWwvQRw80QJHlFbEjcjhrK+AO/OifcZEFjqX5N2rFmSzgCXRWvuo/+HmFRoueTToRkiADlzRCsHawwvVtIIGiPbnhXwVDC6WO4HLr/4uxFfm3RGGPRjK7H2h9HIjeBE5V6yp28OqA30TWjZguReCiAdMI7hasMh4qoSdA9WwsC3lMDjD6A3DO4z/HwguFbU4xLpUAAAAAElFTkSuQmCC',
+    'target': 'SEARCH',
+    'home': 'https://www.yhgzz.xyz',
+    'author': 'lanyuanxiaoyao',
+    'description': '简单好用的BT搜索引擎',
+    'parser': 'CSS',
+    'rules': {
+      'https://www\\.yhgzz\\.xyz/search/.+-\\d+\\.html': {
+        'list': {
+          'expression': '#wall div.search-item',
+          'title': {
+            'expression': '.item-title h3'
+          },
+          'dateTime': {
+            'expression': '.item-bar > span:contains(创建时间) b'
+          },
+          'link': {
+            'expression': '.item-title h3 > a',
+            'attribute': 'href',
+            'replace': [
+              {
+                'regex': '^',
+                'text': 'https://www.yhg222.xyz'
+              }
+            ]
+          },
+          'extra': {
+            'size': {
+              'expression': '.item-bar > span:contains(文件大小) b'
+            },
+            'view': {
+              'expression': '.item-bar > span:contains(下载热度) b'
+            },
+            'number': {
+              'expression': '.item-bar > span:contains(文件数量) b'
+            }
+          }
+        },
+        'next': {
+          'expression': '.bottom-pager > a:contains(>)',
+          'attribute': 'href',
+          'prefix': '{home}'
+        }
+      },
+      'https://www\\.yhgzz\\.xyz/hash/\\d+\\.html': {
+        'text': {
+          'expression': '#content',
+          'title': {
+            'expression': '#wall > h2'
+          },
+          'dateTime': {
+            'expression': '.fileDetail .detail-table > tbody > tr:nth-child(2) > td:nth-child(2)'
+          },
+          'extra': {
+            'size': {
+              'expression': '.fileDetail .detail-table > tbody > tr:nth-child(2) > td:nth-child(4)'
+            }
+          }
+        },
+        'list': {
+          'expression': '#wall .fileDetail .detail-panel:has(a.download)',
+          'title': {
+            'expression': '.panel-header'
+          },
+          'content': {
+            'expression': 'a.download',
+            'attribute': 'href'
+          }
+        }
+      }
+    },
+    'search': '{home}/search/{query}-1.html',
+    'properties': {
+      'SEARCH_LITE_SUPPORT': 'true',
+      'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#size{${i.size}}#view{${i.view}}#number{${i.number}}#datetime{${i.datetime}}',
+      'SEARCH_LITE_DESC_TEMPLATE': '#link{${i.link}}',
+      'SEARCH_LITE_KEYS': '雨花阁',
+      'TEST_SEARCH_KEY': 'girl'
+    }
+  },
+  {
+    'code': '2a534ba1-c675-4cd9-80e6-b6e58598ddc4',
+    'name': 'Torrent Kitty',
+    'category': '综合',
+    'icon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAANlBMVEUAAAA7PkA7PkA7PkA8P0E7PkA7PkA7PkA7PkA7PkA7PkA7PkA7PkA7PkA7PkA7PkA7PkA0Njgm/QtFAAAAEHRSTlMA9AnR39ca576Da2MzKLCgQMllEwAAAJRJREFUOMvNkMEOhCAMRKGAoKu75f9/drUBDcrUiwffwcS8gQ41b2MIvOIHoGniwkiN8Jlt8HzCpe0jgZwZIgHgjkDCPpR2yO9dXd87s7P0/Nw8FZ6HUy7rjK1PnU0vodqPAcQ6HUJlOsbKehVWbzU/S0VtgDAi/+XCj8D5g61NvBZsA+yVQL3vLmD1EUy4pPxN5hH+WAIXu01UECwAAAAASUVORK5CYII=',
+    'target': 'SEARCH',
+    'home': 'https://www.torrentkitty.app',
+    'author': 'lanyuanxiaoyao',
+    'description': 'Torrent Kitty - Free Torrent To Magnet Link Conversion Service',
+    'parser': 'CSS',
+    'rules': {
+      'https://www\\.torrentkitty\\.app/search/.+/\\d+': {
+        'list': {
+          'expression': '#archiveResult tr:has(.action > a)',
+          'title': {
+            'expression': 'td.name'
+          },
+          'dateTime': {
+            'expression': 'td.date'
+          },
+          'link': {
+            'expression': 'td.action > a:contains(Detail)',
+            'attribute': 'href',
+            'prefix': '{home}'
+          },
+          'extra': {
+            'size': {
+              'expression': 'td.size'
+            }
+          }
+        },
+        'next': {
+          'expression': '.pagination > a:contains(»)',
+          'attribute': 'href',
+          'script': 'var next = params.url.replace(/\\d+$/, text)\nreturn next ? next : \'\''
+        }
+      },
+      'https://www\\.torrentkitty\\.app/information/.+': {
+        'text': {
+          'expression': 'div.wrapper:has(.detailSummary)',
+          'title': {
+            'expression': 'h2'
+          },
+          'dateTime': {
+            'expression': 'table.detailSummary tr:nth-child(5) > td'
+          },
+          'extra': {
+            'size': {
+              'expression': 'table.detailSummary tr:nth-child(4) > td'
+            },
+            'number': {
+              'expression': 'table.detailSummary tr:nth-child(3) > td'
+            },
+            'hash': {
+              'expression': 'table.detailSummary tr:nth-child(2) > td'
+            }
+          }
+        },
+        'list': {
+          'expression': 'div.center:has(textarea.magnet-link)',
+          'content': {
+            'expression': 'textarea.magnet-link'
+          }
+        }
+      }
+    },
+    'search': '{home}/search/{query}/1',
+    'properties': {
+      'SEARCH_LITE_SUPPORT': 'true',
+      'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#size{${i.size}}#datetime{${i.datetime}}',
+      'SEARCH_LITE_DESC_TEMPLATE': '#link{${i.link}}',
+      'SEARCH_LITE_KEYS': 'Torrent Kitty',
+      'TEST_SEARCH_KEY': 'girl'
+    }
+  },
+  {
+    'code': '179363b0-2305-4732-8c7d-8ae5777fb151',
+    'name': '超人搜索',
+    'category': '综合',
+    'icon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAOVBMVEUAAADmAADoAADkAADmAADmAADnAADnAADpAADlAADmAADmAADmAAD/AADnAADnAADnAADnAADoAADDxCDgAAAAE3RSTlMA/kEZ8L/biDRzJc6qCWlLnHtZ8XpFqwAAAPtJREFUOMuFU4sOwyAIFESYj652//+xQ13UZmm4NOn1ckAVcAsplkwAlEtM7h+vyjDB9eXu8EKqEwcFdyr+Fh5Uy4L+UHiUrJ9hS4IMwHEL8bEpOON5+fec/NO88rKF/9SiUUOVwRZWnPRk1HP5lPRRYxqkV6ZWpAJEfaEEDqLCqaRcSaUIUDWAIY8CJ31cR4RzFMnAqdlk6EjnIG/AQaQlL0D4ZECC4jSNfzJ4Le8IwvFkOAKQg81QY0fZDHA3vDtuBrOE+ZPmMe2LWle9G9ZVz2YlrFAxNVJAcDZrtvuU6xLRdn06wdluY2CskbOG1hx7e3Hs1bOX11z/L9p8C57UCPCyAAAAAElFTkSuQmCC',
+    'target': 'SEARCH',
+    'home': 'https://www.sosogo.online',
+    'author': 'lanyuanxiaoyao',
+    'description': '超人搜索（www.crsoso.com）最好用的磁力链接搜索。',
+    'parser': 'CSS',
+    'rules': {
+      'https://www\\.sosogo\\.online/search/.+/page-\\d+\\.html': {
+        'list': {
+          'expression': '.container .list-view > article.item',
+          'title': {
+            'expression': 'a > h4',
+            'replace': [
+              {
+                'regex': '&nbsp;',
+                'text': ' '
+              }
+            ]
+          },
+          'dateTime': {
+            'expression': 'a:has(h4) + p',
+            'replace': [
+              {
+                'regex': '&nbsp;',
+                'text': ''
+              }
+            ],
+            'script': 'var regex = /热度：(.*?)\\s*文件大小：(.*?)\\s*创建时间：(.*?)\\s*文件数量：(.*?)\\s*$/\nvar result = text.match(regex)\nif (result) {\n    return result[3]\n}\nreturn \'\''
+          },
+          'link': {
+            'expression': 'a:has(h4)',
+            'attribute': 'href',
+            'replace': [
+              {
+                'regex': '^',
+                'text': 'https://crso.pw'
+              }
+            ]
+          },
+          'extra': {
+            'size': {
+              'expression': 'a:has(h4) + p',
+              'replace': [
+                {
+                  'regex': '&nbsp;',
+                  'text': ''
+                }
+              ],
+              'script': 'var regex = /热度：(.*?)\\s*文件大小：(.*?)\\s*创建时间：(.*?)\\s*文件数量：(.*?)\\s*$/\nvar result = text.match(regex)\nif (result) {\n    return result[2]\n}\nreturn \'\''
+            },
+            'number': {
+              'expression': 'a:has(h4) + p',
+              'replace': [
+                {
+                  'regex': '&nbsp;',
+                  'text': ''
+                }
+              ],
+              'script': 'var regex = /热度：(.*?)\\s*文件大小：(.*?)\\s*创建时间：(.*?)\\s*文件数量：(.*?)\\s*$/\nvar result = text.match(regex)\nif (result) {\n    return result[4]\n}\nreturn \'\''
+            },
+            'view': {
+              'expression': 'a:has(h4) + p',
+              'replace': [
+                {
+                  'regex': '&nbsp;',
+                  'text': ''
+                }
+              ],
+              'script': 'var regex = /热度：(.*?)\\s*文件大小：(.*?)\\s*创建时间：(.*?)\\s*文件数量：(.*?)\\s*$/\nvar result = text.match(regex)\nif (result) {\n    return result[1]\n}\nreturn \'\''
+            }
+          }
+        },
+        'next': {
+          'expression': '.pagination > li.next > a',
+          'attribute': 'href',
+          'replace': [
+            {
+              'regex': '^',
+              'text': 'https://crso.pw'
+            }
+          ]
+        }
+      },
+      'https://www\\.sosogo\\.online/hash/.+\\.html': {
+        'text': {
+          'expression': 'section.hash-view-title',
+          'title': {
+            'expression': 'h2'
+          }
+        },
+        'list': {
+          'expression': 'section.hash-view-download .panel-body .list-unstyled li',
+          'title': {
+            'expression': '.media-body h4.media-heading'
+          },
+          'content': {
+            'expression': '.media-body h4.media-heading + a',
+            'attribute': 'href'
+          }
+        }
+      }
+    },
+    'search': '{home}/search/{query}/page-1.html',
+    'properties': {
+      'SEARCH_LITE_SUPPORT': 'true',
+      'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#size{${i.size}}#view{${i.view}}#number{${i.number}}#datetime{${i.datetime}}',
+      'SEARCH_LITE_DESC_TEMPLATE': '#link{${i.link}}',
+      'SEARCH_LITE_KEYS': '超人搜索',
+      'TEST_SEARCH_KEY': 'girl'
     }
   },
   {
@@ -653,7 +929,8 @@ module.exports = [
       'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#version{${i.version}}#author{${i.author}}#datetime{${i.datetime}}',
       'SEARCH_LITE_DESC_TEMPLATE': '#description{${i.description}}#link{${i.link}}',
       'SEARCH_LITE_IMAGE_TEMPLATE': 'true',
-      'SEARCH_LITE_KEYS': 'npm,JavaScript'
+      'SEARCH_LITE_KEYS': 'npm,JavaScript',
+      'TEST_SEARCH_KEY': 'kafka'
     }
   },
   {
@@ -703,7 +980,8 @@ module.exports = [
       'SEARCH_LITE_SUPPORT': 'true',
       'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#author{${i.author}}#datetime{${i.datetime}}',
       'SEARCH_LITE_DESC_TEMPLATE': '#description{${i.description}}#link{${i.link}}',
-      'SEARCH_LITE_KEYS': 'Maven,mvn'
+      'SEARCH_LITE_KEYS': 'Maven,mvn',
+      'TEST_SEARCH_KEY': 'kafka'
     }
   },
   {
@@ -751,7 +1029,8 @@ module.exports = [
       'SEARCH_LITE_SUPPORT': 'true',
       'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#version{${i.version}}#author{${i.author}}#datetime{${i.datetime}}',
       'SEARCH_LITE_DESC_TEMPLATE': '#description{${i.description}}#link{${i.link}}',
-      'SEARCH_LITE_KEYS': 'Maven (Sonatype),mvn (Sonatype)'
+      'SEARCH_LITE_KEYS': 'Maven (Sonatype),mvn (Sonatype)',
+      'TEST_SEARCH_KEY': 'kafka'
     }
   },
   {
@@ -805,7 +1084,8 @@ module.exports = [
       'SEARCH_LITE_SUPPORT': 'true',
       'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#star{${i.star}}#language{${i.language}}#license{${i.license}}#datetime{${i.datetime}}',
       'SEARCH_LITE_DESC_TEMPLATE': '#description{${i.description}}#link{${i.link}}',
-      'SEARCH_LITE_KEYS': 'Github'
+      'SEARCH_LITE_KEYS': 'Github',
+      'TEST_SEARCH_KEY': 'kafka'
     }
   },
   {
@@ -854,7 +1134,8 @@ module.exports = [
       'SEARCH_LITE_SUPPORT': 'true',
       'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#star{${i.star}}#language{${i.language}}#datetime{${i.datetime}}',
       'SEARCH_LITE_DESC_TEMPLATE': '#description{${i.description}}#link{${i.link}}',
-      'SEARCH_LITE_KEYS': 'Gitee,码云'
+      'SEARCH_LITE_KEYS': 'Gitee,码云',
+      'TEST_SEARCH_KEY': 'kafka'
     }
   },
   {
@@ -906,7 +1187,8 @@ module.exports = [
       'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#author{${i.author}}#star{${i.star}}#datetime{${i.datetime}}',
       'SEARCH_LITE_DESC_TEMPLATE': '#description{${i.description}}#link{${i.link}}',
       'SEARCH_LITE_IMAGE_TEMPLATE': 'true',
-      'SEARCH_LITE_KEYS': 'Docker Hub'
+      'SEARCH_LITE_KEYS': 'Docker Hub',
+      'TEST_SEARCH_KEY': 'kafka'
     }
   },
   {
@@ -952,7 +1234,8 @@ module.exports = [
       'SEARCH_LITE_SUPPORT': 'true',
       'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#version{${i.version}}#datetime{${i.datetime}}',
       'SEARCH_LITE_DESC_TEMPLATE': '#description{${i.description}}#link{${i.link}}',
-      'SEARCH_LITE_KEYS': 'PyPI,Python'
+      'SEARCH_LITE_KEYS': 'PyPI,Python',
+      'TEST_SEARCH_KEY': 'kafka'
     }
   },
   {
@@ -1016,7 +1299,8 @@ module.exports = [
       'SEARCH_LITE_SUPPORT': 'true',
       'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#version{${i.version}}#star{${i.star}}',
       'SEARCH_LITE_DESC_TEMPLATE': '#description{${i.description}}#link{${i.link}}',
-      'SEARCH_LITE_KEYS': 'RubyGems'
+      'SEARCH_LITE_KEYS': 'RubyGems',
+      'TEST_SEARCH_KEY': 'kafka'
     }
   },
   {
@@ -1069,7 +1353,8 @@ module.exports = [
       'SEARCH_LITE_SUPPORT': 'true',
       'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#version{${i.version}}#star{${i.star}}#datetime{${i.datetime}}',
       'SEARCH_LITE_DESC_TEMPLATE': '#description{${i.description}}#link{${i.link}}',
-      'SEARCH_LITE_KEYS': 'pub,Flutter'
+      'SEARCH_LITE_KEYS': 'pub,Flutter',
+      'TEST_SEARCH_KEY': 'kafka'
     }
   },
   {
@@ -1122,7 +1407,8 @@ module.exports = [
       'SEARCH_LITE_SUPPORT': 'true',
       'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#version{${i.version}}#star{${i.star}}#datetime{${i.datetime}}',
       'SEARCH_LITE_DESC_TEMPLATE': '#description{${i.description}}#link{${i.link}}',
-      'SEARCH_LITE_KEYS': 'pub (CN),Flutter (CN)'
+      'SEARCH_LITE_KEYS': 'pub (CN),Flutter (CN)',
+      'TEST_SEARCH_KEY': 'kafka'
     }
   },
   {
@@ -1207,7 +1493,8 @@ module.exports = [
       'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#version{${i.version}}#author{${i.author}}#download{${i.download}}#datetime{${i.datetime}}',
       'SEARCH_LITE_DESC_TEMPLATE': '#description{${i.description}}#link{${i.link}}',
       'SEARCH_LITE_IMAGE_TEMPLATE': 'true',
-      'SEARCH_LITE_KEYS': 'Nuget,C#'
+      'SEARCH_LITE_KEYS': 'Nuget,C#',
+      'TEST_SEARCH_KEY': 'kafka'
     }
   },
   {
@@ -1260,7 +1547,8 @@ module.exports = [
       'SEARCH_LITE_SUPPORT': 'true',
       'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#version{${i.version}}#download{${i.download}}#datetime{${i.datetime}}',
       'SEARCH_LITE_DESC_TEMPLATE': '#description{${i.description}}#link{${i.link}}',
-      'SEARCH_LITE_KEYS': 'Cargo,Rust'
+      'SEARCH_LITE_KEYS': 'Cargo,Rust',
+      'TEST_SEARCH_KEY': 'kafka'
     }
   },
   {
@@ -1309,7 +1597,8 @@ module.exports = [
       'SEARCH_LITE_SUPPORT': 'true',
       'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#author{${i.author}}#download{${i.download}}',
       'SEARCH_LITE_DESC_TEMPLATE': '#description{${i.description}}#link{${i.link}}',
-      'SEARCH_LITE_KEYS': 'LuaRocks'
+      'SEARCH_LITE_KEYS': 'LuaRocks',
+      'TEST_SEARCH_KEY': 'kafka'
     }
   },
   {
@@ -1351,7 +1640,8 @@ module.exports = [
       'SEARCH_LITE_SUPPORT': 'true',
       'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#star{${i.star}}#download{${i.download}}',
       'SEARCH_LITE_DESC_TEMPLATE': '#description{${i.description}}#link{${i.link}}',
-      'SEARCH_LITE_KEYS': 'Packagist,PHP'
+      'SEARCH_LITE_KEYS': 'Packagist,PHP',
+      'TEST_SEARCH_KEY': 'kafka'
     }
   },
   {
@@ -1395,7 +1685,8 @@ module.exports = [
       'SEARCH_LITE_SUPPORT': 'true',
       'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#version{${i.version}}',
       'SEARCH_LITE_DESC_TEMPLATE': '#description{${i.description}}#link{${i.link}}',
-      'SEARCH_LITE_KEYS': 'Gradle'
+      'SEARCH_LITE_KEYS': 'Gradle',
+      'TEST_SEARCH_KEY': 'kafka'
     }
   }
 ]

@@ -109,12 +109,17 @@ const initialObserver = () => {
         html = html.replace(/#description{(\s*.*\s*)}/m, `<span class="description">$1</span>`)
 
         html = html.replace(/#star{(\s*.*?\s*)}/m, `<span class="label-tag star"><img class="label-logo" src="${icons.like}" alt=""/>$1</span>`)
+        html = html.replace(/#size{(\s*.*?\s*)}/m, `<span class="label-tag size"><img class="label-logo" src="${icons.size}" alt=""/>$1</span>`)
+        html = html.replace(/#view{(\s*.*?\s*)}/m, `<span class="label-tag view"><img class="label-logo" src="${icons.view}" alt=""/>$1</span>`)
         html = html.replace(/#author{(\s*.*?\s*)}/m, `<span class="label-tag author"><img class="label-logo" src="${icons.author}" alt=""/>$1</span>`)
-        html = html.replace(/#version{(\s*.*?\s*)}/m, `<span class="label-tag version"><img class="label-logo" src="${icons.version}" alt=""/>$1</span>`)
+        html = html.replace(/#number{(\s*.*?\s*)}/m, `<span class="label-tag number"><img class="label-logo" src="${icons.number}" alt=""/>$1</span>`)
         html = html.replace(/#license{(\s*.*?\s*)}/m, `<span class="label-tag license"><img class="label-logo" src="${icons.license}" alt=""/>$1</span>`)
+        html = html.replace(/#version{(\s*.*?\s*)}/m, `<span class="label-tag version"><img class="label-logo" src="${icons.version}" alt=""/>$1</span>`)
         html = html.replace(/#datetime{(\s*.*?\s*)}/m, `<span class="label-tag datetime"><img class="label-logo" src="${icons.time}" alt=""/>$1</span>`)
         html = html.replace(/#language{(\s*.*?\s*)}/m, `<span class="label-tag language"><img class="label-logo" src="${icons.language}" alt=""/>$1</span>`)
+        html = html.replace(/#location{(\s*.*?\s*)}/m, `<span class="label-tag location"><img class="label-logo" src="${icons.location}" alt=""/>$1</span>`)
         html = html.replace(/#download{(\s*.*?\s*)}/m, `<span class="label-tag download"><img class="label-logo" src="${icons.download}" alt=""/>$1</span>`)
+
         node.innerHTML = html
       }
     })

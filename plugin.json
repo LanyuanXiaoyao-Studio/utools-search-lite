@@ -60,6 +60,30 @@
       ]
     },
     {
+      "code": "98b54ae1-5ac4-43a9-b1e5-83cb64932952",
+      "icon": "icon/98b54ae1-5ac4-43a9-b1e5-83cb64932952.png",
+      "explain": "简单好用的BT搜索引擎",
+      "cmds": [
+        "雨花阁"
+      ]
+    },
+    {
+      "code": "2a534ba1-c675-4cd9-80e6-b6e58598ddc4",
+      "icon": "icon/2a534ba1-c675-4cd9-80e6-b6e58598ddc4.png",
+      "explain": "Torrent Kitty - Free Torrent To Magnet Link Conversion Service",
+      "cmds": [
+        "Torrent Kitty"
+      ]
+    },
+    {
+      "code": "179363b0-2305-4732-8c7d-8ae5777fb151",
+      "icon": "icon/179363b0-2305-4732-8c7d-8ae5777fb151.png",
+      "explain": "超人搜索（www.crsoso.com）最好用的磁力链接搜索。",
+      "cmds": [
+        "超人搜索"
+      ]
+    },
+    {
       "code": "21288140-5491-4aac-a827-e084bfa70ae2",
       "icon": "icon/21288140-5491-4aac-a827-e084bfa70ae2.png",
       "explain": "npm is the world’s largest software registry. Open source developers from every continent use npm to share and borrow packages, and many organizations use npm to manage development as well.",

@@ -4,9 +4,9 @@ const loadingBarCss = `
     height: 2px
   }
 
-.loading-bar .bar {
-  background-color: #c41d7f
-}
+  .loading-bar .bar {
+    background-color: #c41d7f
+  }
 `
 
 // language=CSS
@@ -32,6 +32,22 @@ const customCss = `
 
   .list-item span.star {
     background-color: #7cb30599;
+  }
+
+  .list-item span.size {
+    background-color: #0522b399;
+  }
+
+  .list-item span.number {
+    background-color: #5f471e99;
+  }
+
+  .list-item span.view {
+    background-color: #b3050599;
+  }
+
+  .list-item span.location {
+    background-color: #1fb30599;
   }
 
   .list-item span.author {
