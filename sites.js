@@ -838,6 +838,105 @@ module.exports = [
     }
   },
   {
+    'code': 'b9ad410f-d655-4880-ba06-ee0c7cab3fec',
+    'name': '搜番',
+    'category': '综合',
+    'icon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAn1BMVEUAAAD+vQDxfSNatTFfti/qQjUAq+8Eq+78vQAAq+z+vwLtQDLuvAtatTEAre9btS9htS7+vwVbtS3/vgIAq/LqQDX9vQBbtTH8vwAArO/9vQEAru//vwTsRTP9vQD+vgBZti/7uwDqQTXvPjIDq+/8vwDvQTEAq+7tQTLqQDX9vQBeti3xQC/xPTIAre/qPDfsTjD9vADqQzUAq+tctTFB0gLgAAAAMXRSTlMAbgyPF49rGNqeg3cT5tlqM+nEVFPslUc9wKqPYTwsxaqgnFopHRfq07q1fmpMNjEkZpT5TwAAAY5JREFUOMuNkOmSqjAQhU9YhEFkkU0Rdx33mRvM+z/bTdMTL4X3x3xVVLpyPjpJ4/dYe/duUfE5dh//y3dt2+4ov7Rt4b4LOtfcAbcr3ozvtuMMq+iK4nMgLFvmz6sYXuHM+/sxrxf08fS352Ds8roEwtDkiyhaeBj3hT2Ope+XFoiPpyY64P4SigdWvtTU1CR/dkQeHmcWLt846pwQXQNmTjMs3F0xtmCtJVPSDZ4/LGgcyyW9L5A94RAZ4wuUZaJZmdyfQfM1/3fILKtTIZsr59cVmMNo8UF4Vpo2Wihn2+22FF3MePmI8EIpG1/I61EIMQthGM1PT+LkIQiEFDLoLpmuxWtQTA5NXQfrLJVMfaT/TT6n3EnC0KIxMEGvwekAJBs73iTAyrTYcgdzQDxRdqyU7SDrdfB4UCNgo1QnqGmCpj8obUQ5nKkygppUyHzOeQq5B1DOAhkJwiwL0eOmWKh4nWKAM+EgdhSTvAlm/6eoMGBjOtt8CWco8CMqKvgZbzixbVddcbNvCX7NX3T6V1YuWt7EAAAAAElFTkSuQmCC',
+    'target': 'SEARCH',
+    'home': 'https://sofans.xyz',
+    'author': 'lanyuanxiaoyao',
+    'description': '搜番',
+    'parser': 'CSS',
+    'rules': {
+      'https://sofans\\.xyz/s\\?word=.+': {
+        'list': {
+          'expression': 'div.row > div.col-md-6:has(nav) > ul.list-unstyled',
+          'title': {
+            'expression': 'h3.list-title > a'
+          },
+          'dateTime': {
+            'expression': 'li.result-resource-meta-info > span.result-resource-meta-info-value:gt(2)'
+          },
+          'link': {
+            'expression': 'h3.list-title > a',
+            'attribute': 'href',
+            'prefix': '{home}'
+          },
+          'extra': {
+            'size': {
+              'expression': 'li.result-resource-meta-info > span.result-resource-meta-info-value:gt(0)'
+            },
+            'number': {
+              'expression': 'li.result-resource-meta-info > span.result-resource-meta-info-value:gt(1)'
+            },
+            'view': {
+              'expression': 'li.result-resource-meta-info > span.result-resource-meta-info-value:gt(3)'
+            }
+          }
+        },
+        'next': {
+          'expression': 'div.row > div.col-md-6:has(nav) > nav > ul.pagination > li > a:contains(»)',
+          'attribute': 'href',
+          'prefix': '{home}'
+        }
+      }
+    },
+    'search': '{home}/s?word={query}',
+    'properties': {
+      'SEARCH_LITE_SUPPORT': 'true',
+      'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#size{${i.size}}#view{${i.view}}#number{${i.number}}#datetime{${i.datetime}}',
+      'SEARCH_LITE_DESC_TEMPLATE': '#link{${i.link}}',
+      'SEARCH_LITE_KEYS': '搜番,sofan'
+    }
+  },
+  {
+    'code': 'b5a76675-1d23-468e-b6a1-6845f217b3e3',
+    'name': 'BTSOW',
+    'category': '综合',
+    'icon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAHlBMVEUAAAB+uA7/hACAQgDf398MCgBnlgsgLgTQbABgMgCwyM9EAAAAZElEQVQoz53SMQqAMBBE0THY2GULrSUewQt4Bk/iGTy5iLIbZopAfvkYSJEFDlSN4GKgk3aDQGYwgcwQE/ubGUxgYbCLwaBpJfpgYsDNAIHTISbb/uaQykpPCyQGOEg9Xynn8ADITA59HLSJegAAAABJRU5ErkJggg==',
+    'target': 'SEARCH',
+    'home': 'https://btsow.work',
+    'author': 'lanyuanxiaoyao',
+    'description': 'BTSOW - The free online torrent file to magnet link conversion, magnet link to torrent file conversion, Search magnet link and Search torrent file.',
+    'parser': 'CSS',
+    'rules': {
+      'https://btsow\\.work/search/.+': {
+        'list': {
+          'expression': '.container > .data-list > .row:has(a)',
+          'title': {
+            'expression': 'a[title]',
+            'attribute': 'title'
+          },
+          'dateTime': {
+            'expression': '.date'
+          },
+          'link': {
+            'expression': 'a[title]',
+            'attribute': 'href'
+          },
+          'extra': {
+            'size': {
+              'expression': '.size'
+            }
+          }
+        },
+        'next': {
+          'expression': 'ul.pagination a[name=nextpage]',
+          'attribute': 'href',
+          'prefix': '{home}'
+        }
+      }
+    },
+    'search': '{home}/search/{query}',
+    'properties': {
+      'SEARCH_LITE_SUPPORT': 'true',
+      'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#size{${i.size}}#datetime{${i.datetime}}',
+      'SEARCH_LITE_DESC_TEMPLATE': '#link{${i.link}}',
+      'SEARCH_LITE_KEYS': 'BTSOW',
+      'TEST_SEARCH_KEY': 'girl'
+    }
+  },
+  {
     'code': '21288140-5491-4aac-a827-e084bfa70ae2',
     'name': 'npm',
     'category': '开发',

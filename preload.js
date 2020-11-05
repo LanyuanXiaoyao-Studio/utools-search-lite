@@ -103,9 +103,7 @@ const initialObserver = () => {
         let node = m.addedNodes[0]
         let html = node.innerHTML
         html = html.replace(/#link{(\s*.*?\s*)}/m, '<span class="link">$1</span>')
-        console.log(html)
         html = html.replace(/#title{(\s*.*?\s*)}/m, '<span class="title">$1</span>')
-        console.log(html)
         html = html.replace(/#description{(\s*.*\s*)}/m, `<span class="description">$1</span>`)
 
         html = html.replace(/#star{(\s*.*?\s*)}/m, `<span class="label-tag star"><img class="label-logo" src="${icons.like}" alt=""/>$1</span>`)
