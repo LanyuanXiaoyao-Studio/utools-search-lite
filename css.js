@@ -50,6 +50,10 @@ const customCss = `
     background-color: #b3050599;
   }
 
+  .list-item span.score {
+    background-color: #e70fb299;
+  }
+
   .list-item span.location {
     background-color: #1fb30599;
   }

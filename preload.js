@@ -47,7 +47,7 @@ utools.onPluginReady(() => {
             code: code,
             search: text
           })
-          console.log(JSON.stringify(result))
+          // console.log(JSON.stringify(result))
           loadingBar.go(100)
           if (result.code === 0) {
             let data = result.data
@@ -92,7 +92,7 @@ utools.onPluginEnter(({
   utools.subInputFocus()
 })
 
-const icons = require('./icon/icons')
+const labelUtils = require('./utils/label')
 
 let observe
 // 监听节点变化
@@ -102,22 +102,7 @@ const initialObserver = () => {
       if (m.addedNodes && m.addedNodes.length > 0) {
         let node = m.addedNodes[0]
         let html = node.innerHTML
-        html = html.replace(/#link{(\s*.*?\s*)}/m, '<span class="link">$1</span>')
-        html = html.replace(/#title{(\s*.*?\s*)}/m, '<span class="title">$1</span>')
-        html = html.replace(/#description{(\s*.*\s*)}/m, `<span class="description">$1</span>`)
-
-        html = html.replace(/#star{(\s*.*?\s*)}/m, `<span class="label-tag star">${icons.like}$1</span>`)
-        html = html.replace(/#size{(\s*.*?\s*)}/m, `<span class="label-tag size">${icons.size}$1</span>`)
-        html = html.replace(/#view{(\s*.*?\s*)}/m, `<span class="label-tag view">${icons.view}$1</span>`)
-        html = html.replace(/#author{(\s*.*?\s*)}/m, `<span class="label-tag author">${icons.author}$1</span>`)
-        html = html.replace(/#number{(\s*.*?\s*)}/m, `<span class="label-tag number">${icons.number}$1</span>`)
-        html = html.replace(/#license{(\s*.*?\s*)}/m, `<span class="label-tag license">${icons.license}$1</span>`)
-        html = html.replace(/#version{(\s*.*?\s*)}/m, `<span class="label-tag version">${icons.version}"$1</span>`)
-        html = html.replace(/#datetime{(\s*.*?\s*)}/m, `<span class="label-tag datetime">${icons.time}$1</span>`)
-        html = html.replace(/#language{(\s*.*?\s*)}/m, `<span class="label-tag language">${icons.language}$1</span>`)
-        html = html.replace(/#location{(\s*.*?\s*)}/m, `<span class="label-tag location">${icons.location}$1</span>`)
-        html = html.replace(/#download{(\s*.*?\s*)}/m, `<span class="label-tag download">${icons.download}$1</span>`)
-
+        html = labelUtils.handle(html)
         node.innerHTML = html
       }
     })

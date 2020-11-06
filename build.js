@@ -1,10 +1,11 @@
 const fs = require('fs')
 const child_process = require('child_process')
 
-const getGitCommitCount = () => child_process.execSync('git rev-list HEAD --first-parent --count', {encoding: 'utf8'}).trim()
+const getGitCommitCount = () => parseInt(child_process.execSync('git rev-list HEAD --first-parent --count', {encoding: 'utf8'})
+                                                      .trim())
 
 // 构建版本号
-let version = `0.1.${getGitCommitCount()}`
+let version = `0.1.${getGitCommitCount() + 1}`
 
 // 版本号写入到 package.json 里面
 let packageConfigPath = './package.json'

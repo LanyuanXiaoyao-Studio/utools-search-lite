@@ -986,6 +986,70 @@ module.exports = [
     }
   },
   {
+    'code': '9e3d4593-c279-4e02-8891-854c96b1ebee',
+    'name': 'YTS.MS',
+    'category': '影视',
+    'icon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAA21BMVEUAAABMgiNWmygsfiBhpS9Cjh9BlhhWmidorDRrqTFGkCUsfB1ipTNnpzVmqDNvsDYrfyA1fh5rrjQnZRJiozRFgR5fojFnqjUwchpUmy1trzRWnS1foi86iB43hyIqcRszhCBvrzVmqDQ8bhpbnjAqcRdOlypsqzZkpjQhTw01hRtIliUvThAZOQdjpDR4wyoYLAYGCgApdx5Xmy9dozIveh4obBdIkihoqDdDjyU5YhdpqTVUmi9BjiRoqDctVQwSJAN5uDUkXRQxhx5QfyFrrjZSmi1Djyk4hyX4cjizAAAARXRSTlMACBH8JTosG+ndSPPEMv7v6tuxlFIj/tbNycSTaFbm4sa6rqyoqKSPeHhzb1dFRDIxF/zp6OK+saSOhYKBZF0tI9S3sKQ5W5frAAABeklEQVQ4y61TZ2/CUAy038sgSUkIgbL33nuV2fGA//+LahAJRaSRKvU+5Cz5fI4dB/4NqGJgnsksMK921OD6jAyB2GyC83JKCh6gmgk2CE9jwYLmVAJU5DjNKitXqKDqOW9wLGsM8JPXsG3YdoRgODmbc6Plzqi9IECbJ/fFsVNLcl6YO7Px3Kn1bgIpdBHIRsHhHyOUI7yFOW70APFBwIrcKFCNzo0uKHle1BE8QYIRrc5UCtA5z4YA2/w53747hMJEnVPyQFQ/JUdEyuJkH9yXTIgdUeZYuXRKEaHEIHu0h+6YUbFEeppvVzuigZaOhszKyFuUoB6spHUpHrwTDdKWpX0N76u2RANBjePF7kpMkfdELrAsLP+v4e6ib4lE2P8Qbz4NIdKST34bd6MoKZ484ivdi6WSEFqWPbTXF7mfZ00eorRTPXe9ntIf+61DJEksm7F+P5bNpCZ16enyGpoQpmm+EiZVHf1+n9i6/EKoZiX8/cQJ8Cd8A8/iIhO1pyRuAAAAAElFTkSuQmCC',
+    'target': 'SEARCH',
+    'home': 'https://yts.mx',
+    'author': 'lanyuanxiaoyao',
+    'description': 'The official YTS YIFY Movies Torrents website. Download free yify movies torrents in 720p, 1080p and 3D quality. The fastest downloads at the smallest size.',
+    'parser': 'CSS',
+    'rules': {
+      'https://yts\\.mx/browse-movies/.+?/all/all/0/latest/0/all': {
+        'list': {
+          'expression': '.container section .row > div.browse-movie-wrap',
+          'title': {
+            'expression': '.browse-movie-title'
+          },
+          'image': {
+            'expression': 'img.img-responsive',
+            'attribute': 'src'
+          },
+          'dateTime': {
+            'expression': '.browse-movie-year'
+          },
+          'link': {
+            'expression': '.browse-movie-link',
+            'attribute': 'href'
+          },
+          'extra': {
+            'location': {
+              'expression': '.browse-movie-title > span',
+              'replace': [
+                {
+                  'regex': '^\\[|',
+                  'text': ''
+                },
+                {
+                  'regex': '^\\]$',
+                  'text': ''
+                }
+              ]
+            },
+            'score': {
+              'expression': 'h4.rating',
+              'replace': [
+                {
+                  'regex': '\\s*\\/.+$',
+                  'text': ''
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    'search': '{home}/browse-movies/{query}/all/all/0/latest/0/all',
+    'properties': {
+      'SEARCH_LITE_SUPPORT': 'true',
+      'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#location{${i.location}}#score{${i.score}}#datetime{${i.datetime}}',
+      'SEARCH_LITE_DESC_TEMPLATE': '#link{${i.link}}',
+      'SEARCH_LITE_IMAGE_TEMPLATE': 'true',
+      'SEARCH_LITE_KEYS': 'YTS.MS'
+    }
+  },
+  {
     'code': '21288140-5491-4aac-a827-e084bfa70ae2',
     'name': 'npm',
     'category': '开发',
