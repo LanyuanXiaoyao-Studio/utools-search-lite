@@ -937,6 +937,55 @@ module.exports = [
     }
   },
   {
+    'code': 'c4546f52-a602-4776-8e87-f05e01343d09',
+    'name': '海盗湾',
+    'category': '综合',
+    'icon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAiCAMAAAAJbCvNAAAAq1BMVEX///+YiHuIdGN2WUT+/v1/bF35+ffz8O3///+ZZD2PVCq7o5GebUrj3Nba0MfLvLHSxrw2EwD18vCKXDvArp+FRBfq5uKwkXpfPCCRaEvDtaqQblajdVPv7eqxm4mrhmqke19wTjP29/abdlp9VDWWemaCXkNkSjV5SSe6mYGggWpVMhXMtqbIsJyiiXRpRChtMAakkoSHUClzPRdFJxBjKQEuCQCEZlAXAAC0ulqbAAAACHRSTlPy8/z85vLy8oDGrLkAAAISSURBVDjLfdGHcqMwEAZgl5RdCZUgCdHBgHuJ0+/9n+yWeOyQOyf/jBmz+xntmtHN6LdQG74iQvg/o4FQ0ZX+ABQr8TvI3kTP1E+gfNESICzFT8C0oEGsOFDCK0AdOUiVvKn+u/4HRAXYtw2ANQxxH/nD6RHhBfgSeEaFliHLefISgqJmlJ5BaEoQNGD9jMzC3nEILUBziM5AlboAAdYhRrB2GH7+OLGXGawSeiPFClndeMc8gE4h6b6GTHXjj7JgTO6RptAAbWaP8gvoIkLngfEmpy1Q0KGGBYM1G/AsYDvFc4cBBiEB5vgAgHhGejZnzoqAEYgMMjkEkoBeu1zLpnI5LcBonyHQzvuqZlwo4K6mTQPE4tsRRuwdIm8i7lXFEYfgrgGIJKcSW+/qNpXI+j6KM7hXAsTus5j7yvOKBX2f7S5HFFxLpBDIGaPxCPQ3gxm4ORXp2n9ON259AcI4hjm1amw1r7mtkZF4qc7AHk1SY5K0vjJSVpwnRltBg3N5AqLTVEsSY5JVa1VlTAZeQL/c+W2qsOxMt5rP51lXbhaLdtNl3/9qHR7iVVYe5pxai8WiW6SpGgAKjz9Sm1qfPU6ns9nsMZPjaAjU5GNWWvUUb2eP1I5n8faJyuEZ6IftNJ5P4u02jpcxhcRyLmDydD+CcLx8Xb4/9KHrJa8Pf96Xy1c9urkbT28n46u5vR3f/AVWKTzuemkL9AAAAABJRU5ErkJggg==',
+    'target': 'SEARCH',
+    'home': 'https://thepiratebay.org',
+    'author': 'lanyuanxiaoyao',
+    'description': 'Download music, movies, games, software! The Pirate Bay - The galaxy\'s most resilient BitTorrent site',
+    'parser': 'JSON',
+    'rules': {
+      'https://apibay\\.org/q\\.php\\?q=.+': {
+        'list': {
+          'expression': '$',
+          'title': {
+            'expression': '$.name'
+          },
+          'author': {
+            'expression': '$.username'
+          },
+          'dateTime': {
+            'expression': '$.added',
+            'suffix': '000',
+            'script': 'if (!text || text === \'\') return text\nlet date = new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + \'-\' + (date.getMonth() + 1) + \'-\' + date.getDate() + \' \' + date.getHours() + \':\' + date.getMinutes() + \':\' + date.getSeconds()\n}\nreturn text'
+          },
+          'link': {
+            'expression': '$.id',
+            'prefix': '{home}/description.php?id='
+          },
+          'extra': {
+            'number': {
+              'expression': '$.num_files'
+            },
+            'size': {
+              'expression': '$.size',
+              'script': 'if (!text || text === \'\') return text\nlet size = parseFloat(text)\nif (size < 1024) return size + \'B\'\nelse if (size < 1048576) return (size / 1024).toFixed(2) + \'K\'\nelse if (size < 1073741824) return (size / 1048576).toFixed(2) + \'M\'\nelse if (size < 1099511627776) return (size / 1073741824).toFixed(2) + \'G\'\nelse return \'\' + size'
+            }
+          }
+        }
+      }
+    },
+    'search': 'https://apibay.org/q.php?q={query}',
+    'properties': {
+      'SEARCH_LITE_SUPPORT': 'true',
+      'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#author{${i.author}}#size{${i.size}}#number{${i.number}}#datetime{${i.datetime}}',
+      'SEARCH_LITE_DESC_TEMPLATE': '#link{${i.link}}',
+      'SEARCH_LITE_KEYS': '海盗湾,The Pirate Bay'
+    }
+  },
+  {
     'code': '21288140-5491-4aac-a827-e084bfa70ae2',
     'name': 'npm',
     'category': '开发',
@@ -1109,7 +1158,7 @@ module.exports = [
           },
           'dateTime': {
             'expression': '$.timestamp',
-            'script': 'let date = new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + \'-\' + (date.getMonth() + 1) + \'-\' + date.getDate() + \' \' + date.getHours() + \':\' + date.getMinutes() + \':\' + date.getSeconds()\n}\nreturn text'
+            'script': 'if (!text || text === \'\') return text\nlet date = new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + \'-\' + (date.getMonth() + 1) + \'-\' + date.getDate() + \' \' + date.getHours() + \':\' + date.getMinutes() + \':\' + date.getSeconds()\n}\nreturn text'
           },
           'link': {
             'expression': '$',
@@ -1159,7 +1208,7 @@ module.exports = [
           },
           'dateTime': {
             'expression': '$.updated_at',
-            'script': 'let date = new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + \'-\' + (date.getMonth() + 1) + \'-\' + date.getDate() + \' \' + date.getHours() + \':\' + date.getMinutes() + \':\' + date.getSeconds()\n}\nreturn text'
+            'script': 'if (!text || text === \'\') return text\nlet date = new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + \'-\' + (date.getMonth() + 1) + \'-\' + date.getDate() + \' \' + date.getHours() + \':\' + date.getMinutes() + \':\' + date.getSeconds()\n}\nreturn text'
           },
           'link': {
             'expression': '$.html_url'
@@ -1209,7 +1258,7 @@ module.exports = [
           },
           'dateTime': {
             'expression': '$.updated_at',
-            'script': 'let date = new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + \'-\' + (date.getMonth() + 1) + \'-\' + date.getDate() + \' \' + date.getHours() + \':\' + date.getMinutes() + \':\' + date.getSeconds()\n}\nreturn text'
+            'script': 'if (!text || text === \'\') return text\nlet date = new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + \'-\' + (date.getMonth() + 1) + \'-\' + date.getDate() + \' \' + date.getHours() + \':\' + date.getMinutes() + \':\' + date.getSeconds()\n}\nreturn text'
           },
           'link': {
             'expression': '$.html_url'
@@ -1266,7 +1315,7 @@ module.exports = [
           },
           'dateTime': {
             'expression': '$.updated_at',
-            'script': 'let date = new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + \'-\' + (date.getMonth() + 1) + \'-\' + date.getDate() + \' \' + date.getHours() + \':\' + date.getMinutes() + \':\' + date.getSeconds()\n}\nreturn text'
+            'script': 'if (!text || text === \'\') return text\nlet date = new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + \'-\' + (date.getMonth() + 1) + \'-\' + date.getDate() + \' \' + date.getHours() + \':\' + date.getMinutes() + \':\' + date.getSeconds()\n}\nreturn text'
           },
           'link': {
             'expression': '$.slug',
@@ -1313,7 +1362,7 @@ module.exports = [
           'dateTime': {
             'expression': 'a.package-snippet h3 span.package-snippet__released time',
             'attribute': 'datetime',
-            'script': 'let date = new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + \'-\' + (date.getMonth() + 1) + \'-\' + date.getDate() + \' \' + date.getHours() + \':\' + date.getMinutes() + \':\' + date.getSeconds()\n}\nreturn text'
+            'script': 'if (!text || text === \'\') return text\nlet date = new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + \'-\' + (date.getMonth() + 1) + \'-\' + date.getDate() + \' \' + date.getHours() + \':\' + date.getMinutes() + \':\' + date.getSeconds()\n}\nreturn text'
           },
           'link': {
             'expression': 'a.package-snippet',
@@ -1618,7 +1667,7 @@ module.exports = [
           },
           'dateTime': {
             'expression': '$.updated_at',
-            'script': 'let date = new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + \'-\' + (date.getMonth() + 1) + \'-\' + date.getDate() + \' \' + date.getHours() + \':\' + date.getMinutes() + \':\' + date.getSeconds()\n}\nreturn text'
+            'script': 'if (!text || text === \'\') return text\nlet date = new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + \'-\' + (date.getMonth() + 1) + \'-\' + date.getDate() + \' \' + date.getHours() + \':\' + date.getMinutes() + \':\' + date.getSeconds()\n}\nreturn text'
           },
           'link': {
             'expression': '$.id',

@@ -22,6 +22,10 @@ const customCss = `
     font-size: 0.8rem;
   }
 
+  .list-item span.label-tag svg {
+    margin: 0 4px -4px -2px;
+  }
+
   .list-item .label-logo {
     margin: 0 3px -3px 0;
   }
