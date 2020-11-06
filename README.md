@@ -22,6 +22,10 @@
   - Torrent Kitty
   - \* 超人搜索
   - BTSOW
+  - 海盗湾
+  - 1377X
+- 影视
+  - YTS.MS
 - 开发
   - Maven
   - Maven (Sonatype)
