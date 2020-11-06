@@ -132,8 +132,7 @@ const placeholder = 'Enter(回车): 搜索/选择  Ctrl + T: 打开设置'
 
 let exportList = {}
 sites
-    .filter(s => s.properties !== null)
-    .filter(s => s.properties.SEARCH_LITE_SUPPORT !== null && s.properties.SEARCH_LITE_SUPPORT === 'true')
+    // 插件依赖两组模板, 没有模板的规则都被过滤掉
     .filter(s => s.properties.SEARCH_LITE_TITLE_TEMPLATE !== null && s.properties.SEARCH_LITE_TITLE_TEMPLATE !== '')
     .filter(s => s.properties.SEARCH_LITE_DESC_TEMPLATE !== null && s.properties.SEARCH_LITE_DESC_TEMPLATE !== '')
     .forEach(s => {

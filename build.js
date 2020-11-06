@@ -3,8 +3,10 @@ const child_process = require('child_process')
 
 const getGitCommitCount = () => child_process.execSync('git rev-list HEAD --first-parent --count', {encoding: 'utf8'}).trim()
 
+// 构建版本号
 let version = `0.1.${getGitCommitCount()}`
 
+// 版本号写入到 package.json 里面
 let packageConfigPath = './package.json'
 let packageConfig = JSON.parse(fs.readFileSync(packageConfigPath))
 packageConfig['version'] = version
@@ -12,6 +14,7 @@ let description = packageConfig['description']
 let author = packageConfig['author']
 fs.writeFileSync(packageConfigPath, JSON.stringify(packageConfig, null, 2))
 
+// plugin.json 模板
 let pluginConfigTemplate = {
   'pluginName': '资源搜索 Lite',
   'version': version,
@@ -34,10 +37,12 @@ const defaultIcon = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAA
 
 const sites = require('./sites')
 sites
+    // 不支持 search-lite 的, 没有写 key 的都被过滤掉
     .filter(s => !isNil(s.properties))
     .filter(s => !isNil(s.properties.SEARCH_LITE_SUPPORT) && s.properties.SEARCH_LITE_SUPPORT === 'true')
     .filter(s => !isNil(s.properties.SEARCH_LITE_KEYS) && !isEmpty(s.properties.SEARCH_LITE_KEYS))
     .forEach(s => {
+      // 没有图标的就用默认图标
       let icon = defaultIcon
       if (startWith(s.icon, 'data:image/png;base64,')) {
         icon = s.icon
