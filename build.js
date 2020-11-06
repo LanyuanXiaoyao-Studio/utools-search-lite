@@ -1,9 +1,16 @@
 const fs = require('fs')
+const child_process = require('child_process')
 
-let packageConfig = JSON.parse(fs.readFileSync('./package.json'))
-let version = packageConfig['version']
+const getGitCommitCount = () => child_process.execSync('git rev-list HEAD --first-parent --count', {encoding: 'utf8'}).trim()
+
+let version = `0.1.${getGitCommitCount()}`
+
+let packageConfigPath = './package.json'
+let packageConfig = JSON.parse(fs.readFileSync(packageConfigPath))
+packageConfig['version'] = version
 let description = packageConfig['description']
 let author = packageConfig['author']
+fs.writeFileSync(packageConfigPath, JSON.stringify(packageConfig, null, 2))
 
 let pluginConfigTemplate = {
   'pluginName': '资源搜索 Lite',

@@ -8,19 +8,20 @@
 
 [![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=LanyuanXiaoyao-Studio&repo=utools-search-lite&theme=dracula&locale=cn&hide_border=false)](https://github.com/LanyuanXiaoyao-Studio/utools-search-lite)
 
-在模板插件里直接搜索资源, 目前支持
+在模板插件里直接搜索资源, 目前支持以下站点(标记`*`的为纯主观认定的三流站点, 如果崩了就随缘修复)
 - ACG
   - 東京 図書館
   - Nyaa
 - 网盘
-  - 罗马盘
-  - 56网盘
-  - 小白盘
-  - 小可搜搜
+  - \* 罗马盘
+  - \* 56网盘
+  - \* 小白盘
+  - \* 小可搜搜
 - 磁力链接
-  - 雨花阁
+  - \* 雨花阁
   - Torrent Kitty
-  - 超人搜索
+  - \* 超人搜索
+  - BTSOW
 - 开发
   - Maven
   - Maven (Sonatype)
