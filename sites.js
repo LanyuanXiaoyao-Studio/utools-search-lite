@@ -986,6 +986,50 @@ module.exports = [
     }
   },
   {
+    'code': 'aa9c4d00-b805-412f-8bc5-10ce12ea78a2',
+    'name': '1377X',
+    'category': '综合',
+    'icon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAilBMVEUAAADdSxPiUR7ePQndPQffPQjhRRPdPwjpZTrqckrbPAfgQxHlZULePgfjVSbgUiXnbUnlYjXlWSvdPQbmYjDjVzHdOwfjVyjhQQvpZzfoXCnZOwPcNwXcRAvfXy7cXjzoajbjXTHgShnZSDPQNQXkTyfjVSLiPgjoYjXqbkXsdUvpaD3jTRvkVSN7xPrAAAAAJ3RSTlMADjyxU/QZ2rWviyrpnW1O+/Lw6uXizsq4qJp3Nfu0oZSJYcLCl37Q8/yTAAABCElEQVQ4y82RWXLCMAxAJWejhCwsKQlpga42Ddz/epUlZwyJD8D70+jN82gMzwKW3YLoPpBHdX6xdApG0r0ZCLOuWF9c/iyGJ6FqDHNAG1iJ8IXgKTcs7BQCnmsWVgruwOOYQApYof60AY8yY+I0sHCSvedHjGO5JuFCD0yFfCcG7YmaLp7yy/thYKHJYUa694IpIUBlT7X7wUT0QCghgrnqHkKoxgrmprUugoWDIa7aslWhwMbcaC208wRG79qTxDMhTmTzKkaUTgOtLPq3zCVwEpB9luMymEhdeQkwJh6+G/vEBWigxOzUeOsCCJRw53yjD7gHEsVTpoX4rlBERMsBmYgihyfhH9RqLgNr+maMAAAAAElFTkSuQmCC',
+    'target': 'SEARCH',
+    'home': 'https://1337x.to',
+    'author': 'lanyuanxiaoyao',
+    'description': 'Download verified torrents: movies, music, games, software',
+    'parser': 'CSS',
+    'rules': {
+      'https://1337x\\.to/search/.+?/\\d+/': {
+        'list': {
+          'expression': '.box-info .table-list tbody > tr',
+          'title': {
+            'expression': 'td.name > .icon + a'
+          },
+          'author': {
+            'expression': 'td.user'
+          },
+          'dateTime': {
+            'expression': 'td.coll-date'
+          },
+          'link': {
+            'expression': 'td.name > .icon + a',
+            'attribute': 'href',
+            'prefix': '{home}'
+          },
+          'extra': {
+            'size': {
+              'expression': 'td.size'
+            }
+          }
+        }
+      }
+    },
+    'search': '{home}/search/{query}/1/',
+    'properties': {
+      'SEARCH_LITE_SUPPORT': 'true',
+      'SEARCH_LITE_TITLE_TEMPLATE': '#title{${i.title}}#author{${i.author}}#size{${i.size}}#datetime{${i.datetime}}',
+      'SEARCH_LITE_DESC_TEMPLATE': '#link{${i.link}}',
+      'SEARCH_LITE_KEYS': '1377X'
+    }
+  },
+  {
     'code': '9e3d4593-c279-4e02-8891-854c96b1ebee',
     'name': 'YTS.MS',
     'category': '影视',

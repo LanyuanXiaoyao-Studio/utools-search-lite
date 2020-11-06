@@ -19,19 +19,23 @@ const labels = [
 ]
 
 const handleMeta = (name, html) => {
-  if (!emptyLabelRegex(name)
-      .test(html)) {
+  let emptyRegex = emptyLabelRegex(name)
+  if (!emptyRegex.test(html)) {
     return html.replace(replaceLabelRegex(name), `<span class="${name}">$1</span>`)
   }
-  return html
+  else {
+    return html.replace(emptyRegex, '')
+  }
 }
 
 const handleLabel = (name, html) => {
-  if (!emptyLabelRegex(name)
-      .test(html)) {
+  let emptyRegex = emptyLabelRegex(name)
+  if (!emptyRegex.test(html)) {
     return html.replace(replaceLabelRegex(name), `<span class="label-tag ${name}">${icons[name]}$1</span>`)
   }
-  return html
+  else {
+    return html.replace(emptyRegex, '')
+  }
 }
 
 module.exports = {

@@ -44,9 +44,8 @@ sites
     .filter(s => !isNil(s.properties.SEARCH_LITE_KEYS) && !isEmpty(s.properties.SEARCH_LITE_KEYS))
     .forEach(s => {
       // 没有图标的就用默认图标
-      let icon = defaultIcon
+      if (isEmpty(s.icon)) s.icon = defaultIcon
       if (startWith(s.icon, 'data:image/png;base64,')) {
-        icon = s.icon
         let data = s.icon.replace(/^data:image\/png;base64,/, '')
         fs.writeFileSync(`./icon/${s.code}.png`, data, 'base64')
       }
