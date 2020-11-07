@@ -3,6 +3,9 @@ const MouseTrap = require('mousetrap')
 const squirrel = require('./utils/squirrel')
 const cssList = require('./css')
 const sites = require('./sites')
+    // 插件依赖两组模板, 没有模板的规则都被过滤掉
+    .filter(s => s.properties.SEARCH_LITE_TITLE_TEMPLATE !== null && s.properties.SEARCH_LITE_TITLE_TEMPLATE !== '')
+    .filter(s => s.properties.SEARCH_LITE_DESC_TEMPLATE !== null && s.properties.SEARCH_LITE_DESC_TEMPLATE !== '')
 const settings = require('./settings')
 
 let loadingBar, input
@@ -23,6 +26,40 @@ utools.onPluginReady(() => {
     head.appendChild(style)
     style.appendChild(css)
   })
+})
+
+utools.onPluginEnter(({
+                        code,
+                        type,
+                        payload,
+                        optional
+                      }) => {
+  utools.subInputFocus()
+})
+
+const labelUtils = require('./utils/label')
+
+let observe
+// 监听节点变化
+const initialObserver = () => {
+  observe = new MutationObserver((mutations, observer) => {
+    mutations.forEach(m => {
+      console.log(m)
+      if (m.addedNodes && m.addedNodes.length > 0) {
+        let node = m.addedNodes[0]
+        let html = node.innerHTML
+        html = labelUtils.handle(html)
+        node.innerHTML = html
+      }
+    })
+  })
+  let el = document.querySelector('#root .list div:nth-child(1)')
+  observe.observe(el, {
+    'childList': true
+  })
+}
+
+const initialKeyBinding = () => {
   // 初始化按键绑定
   MouseTrap.bind('enter', async () => {
     if (document.hasFocus()) {
@@ -81,50 +118,52 @@ utools.onPluginReady(() => {
     settings.open()
     utools.subInputBlur()
   })
-})
-
-utools.onPluginEnter(({
-                        code,
-                        type,
-                        payload,
-                        optional
-                      }) => {
-  utools.subInputFocus()
-})
-
-const labelUtils = require('./utils/label')
-
-let observe
-// 监听节点变化
-const initialObserver = () => {
-  observe = new MutationObserver((mutations, observer) => {
-    mutations.forEach(m => {
-      if (m.addedNodes && m.addedNodes.length > 0) {
-        let node = m.addedNodes[0]
-        let html = node.innerHTML
-        html = labelUtils.handle(html)
-        node.innerHTML = html
-      }
-    })
-  })
-  let el = document.querySelector('#root .list div:nth-child(1)')
-  observe.observe(el, {
-    'childList': true
-  })
 }
 
 const placeholder = 'Enter(回车): 搜索/选择  Ctrl + T: 打开设置'
 
 let exportList = {}
+
+const filterSites = text => sites
+    .filter(site => {
+      if (text && text !== '') {
+        return site.name.toLowerCase()
+                   .indexOf(text.toLowerCase()) > -1
+      }
+      return true
+    })
+    .map(site => {
+      return {
+        site: site,
+        title: `#title{${site.name}}#other{${site.category}}`,
+        description: site.description,
+        icon: site.icon,
+      }
+    })
+
+exportList['list'] = {
+  mode: 'list',
+  args: {
+    enter: (action, callbackSetList) => {
+      0
+      initialObserver()
+      callbackSetList(filterSites(''))
+    },
+    select: (action, itemData, callbackSetList) => {
+      utools.redirect(itemData.site.name)
+    }
+  }
+}
+
 sites
-    // 插件依赖两组模板, 没有模板的规则都被过滤掉
-    .filter(s => s.properties.SEARCH_LITE_TITLE_TEMPLATE !== null && s.properties.SEARCH_LITE_TITLE_TEMPLATE !== '')
-    .filter(s => s.properties.SEARCH_LITE_DESC_TEMPLATE !== null && s.properties.SEARCH_LITE_DESC_TEMPLATE !== '')
     .forEach(s => {
       exportList[s.code] = {
         mode: 'list',
         args: {
-          enter: () => initialObserver(),
+          enter: () => {
+            initialObserver()
+            initialKeyBinding()
+          },
           search: async (action, text, callbackSetList) => {
             input = {
               code: s.code,

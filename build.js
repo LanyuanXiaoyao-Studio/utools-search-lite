@@ -5,7 +5,7 @@ const getGitCommitCount = () => parseInt(child_process.execSync('git rev-list HE
                                                       .trim())
 
 // 构建版本号
-let version = `0.1.${getGitCommitCount() + 1}`
+let version = `0.2.${getGitCommitCount() + 1}`
 
 // 版本号写入到 package.json 里面
 let packageConfigPath = './package.json'
@@ -27,7 +27,13 @@ let pluginConfigTemplate = {
   'pluginSetting': {
     'single': true
   },
-  'features': []
+  'features': [
+    {
+      code: 'list',
+      explain: '展示所有支持的站点',
+      cmds: ['All Site', '所有站点', '全部站点']
+    }
+  ]
 }
 
 const isNil = require('licia/isNil')

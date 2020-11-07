@@ -1,4 +1,4 @@
-![](https://s1.ax1x.com/2020/11/02/BBLuU1.png)
+![](https://s1.ax1x.com/2020/11/07/B4UCFS.png)
 # 资源搜索 Lite
 > 原插件「开发者搜索」更名为「资源搜索 Lite」, 其实际上为 [资源搜索](https://yuanliao.info/d/1875-0-0-3) 插件的简化版, 后续将不局限于开发者仓库搜索
 
@@ -8,7 +8,8 @@
 
 [![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=LanyuanXiaoyao-Studio&repo=utools-search-lite&theme=dracula&locale=cn&hide_border=false)](https://github.com/LanyuanXiaoyao-Studio/utools-search-lite)
 
-在模板插件里直接搜索资源, 目前支持以下站点(标记`*`的为纯主观认定的三流站点, 如果崩了就随缘修复)
+> 在模板插件里直接搜索资源, 目前支持以下站点(标记`*`的为纯主观认定的三流站点, 如果崩了就随缘修复)
+
 - ACG
   - 東京 図書館
   - Nyaa

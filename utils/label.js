@@ -15,7 +15,8 @@ const labels = [
   'datetime',
   'language',
   'location',
-  'download'
+  'download',
+  'other',
 ]
 
 const handleMeta = (name, html) => {

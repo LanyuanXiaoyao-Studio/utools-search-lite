@@ -85,6 +85,10 @@ const customCss = `
     background-color: #c2496199;
     padding-bottom: 2px;
   }
+
+  .list-item span.other {
+    background-color: #6949c299;
+  }
 `
 
 // language=CSS

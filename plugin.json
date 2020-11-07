@@ -1,6 +1,6 @@
 {
   "pluginName": "资源搜索 Lite",
-  "version": "0.1.32",
+  "version": "0.2.33",
   "description": "海纳百川, 搜遍天下, 轻量版的资源搜索",
   "author": "lanyuanxiaoyao",
   "homepage": "http://lanyuanxiaoyao.com",
@@ -10,6 +10,15 @@
     "single": true
   },
   "features": [
+    {
+      "code": "list",
+      "explain": "展示所有支持的站点",
+      "cmds": [
+        "All Site",
+        "所有站点",
+        "全部站点"
+      ]
+    },
     {
       "code": "97542cba-e5d3-41fd-b990-46e9a4a5c5d4",
       "icon": "icon/97542cba-e5d3-41fd-b990-46e9a4a5c5d4.png",
