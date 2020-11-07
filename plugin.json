@@ -1,6 +1,6 @@
 {
   "pluginName": "资源搜索 Lite",
-  "version": "0.2.33",
+  "version": "0.2.34",
   "description": "海纳百川, 搜遍天下, 轻量版的资源搜索",
   "author": "lanyuanxiaoyao",
   "homepage": "http://lanyuanxiaoyao.com",
@@ -132,6 +132,22 @@
       "explain": "The official YTS YIFY Movies Torrents website. Download free yify movies torrents in 720p, 1080p and 3D quality. The fastest downloads at the smallest size.",
       "cmds": [
         "YTS.MS"
+      ]
+    },
+    {
+      "code": "13e17cb5-ab9d-470d-8a59-13123f5897c8",
+      "icon": "icon/13e17cb5-ab9d-470d-8a59-13123f5897c8.png",
+      "explain": "Download torrents at Zooqle",
+      "cmds": [
+        "Zooqle"
+      ]
+    },
+    {
+      "code": "6d939c65-4f9c-47b7-864d-6d185b0d5bcd",
+      "icon": "icon/6d939c65-4f9c-47b7-864d-6d185b0d5bcd.png",
+      "explain": "EZTV, your one stop source for all your favorite TV shows. FREE downloads! Watch more TV Series than ever. EZTV is releasing daily new episodes. SAFE!",
+      "cmds": [
+        "EZTV"
       ]
     },
     {

@@ -11,38 +11,39 @@
 > 在模板插件里直接搜索资源, 目前支持以下站点(标记`*`的为纯主观认定的三流站点, 如果崩了就随缘修复)
 
 - ACG
-  - 東京 図書館
-  - Nyaa
+  - 東京 図書館 [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B4BuRS.png)
+  - Nyaa [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B4BnG8.png)
 - 网盘
-  - \* 罗马盘
-  - \* 56网盘
-  - \* 小白盘
-  - \* 小可搜搜
+  - \* 罗马盘 [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B4BKxg.png)
+  - \* 56网盘 [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B4BmPf.png)
+  - \* 小白盘 [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B4BZIP.png)
+  - \* 小可搜搜 [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B4BQMQ.png)
 - 磁力链接
-  - \* 雨花阁
+  - \* 雨花阁 [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B4DKFx.png)
   - Torrent Kitty
-  - \* 超人搜索
-  - BTSOW
-  - 海盗湾
-  - 1377X
+  - \* 超人搜索 [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B4DMY6.png)
+  - BTSOW [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B4DmwR.png)
+  - 海盗湾 [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B4DnT1.png)
+  - 1377X [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B4Dem9.png)
 - 影视
-  - YTS.MS
+  - YTS.MS [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B4D1SO.png)
+  - Zooqle
 - 开发
-  - Maven
-  - Maven (Sonatype)
-  - npm
-  - Github
-  - Gitee(码云)
-  - Docker Hub
-  - PyPI
-  - RubyGems
-  - pub
-  - pub (CN)
-  - Nuget
-  - cartes.io
-  - LuaRocks
-  - Packagist
-  - Gradle Plugins
+  - npm [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B5PX3d.png)
+  - Maven [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B5PjgA.png)
+  - Maven (Sonatype) [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B5PvjI.png)
+  - Github [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B5Pzut.png)
+  - Gitee(码云) [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B5iSDP.png)
+  - Docker Hub [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B5iCE8.png)
+  - PyPI [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B5iPUS.png)
+  - RubyGems [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B5ii4g.png)
+  - pub [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B5ikCQ.png)
+  - pub (CN) [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B5iA3j.png)
+  - Nuget [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B5iEgs.png)
+  - cartes.io [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B5iVvn.png)
+  - LuaRocks [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B5ieuq.png)
+  - Packagist [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B5imD0.png)
+  - Gradle Plugins [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B5inbV.png)
 
 # 使用
 `enter(回车)` 搜索/选择  

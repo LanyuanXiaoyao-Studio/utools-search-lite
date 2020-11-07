@@ -84,7 +84,7 @@ const initialKeyBinding = () => {
             code: code,
             search: text
           })
-          // console.log(JSON.stringify(result))
+          console.log(JSON.stringify(result))
           loadingBar.go(100)
           if (result.code === 0) {
             let data = result.data
