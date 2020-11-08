@@ -10,7 +10,6 @@ file_name_list=(
   preload.js
   README.md
   settings.js
-  sites.js
 )
 for name in "${file_name_list[@]}" ; do
   cp -r "${name}" ./build
@@ -26,6 +25,7 @@ node ./build.js
 file_name_list=(
   icon
   plugin.json
+  sites.js
 )
 for name in "${file_name_list[@]}" ; do
   cp -r "${name}" ./build

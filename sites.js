@@ -1015,7 +1015,13 @@ module.exports = [
           },
           "extra": {
             "size": {
-              "expression": "td.size"
+              "expression": "td.size",
+              "replace": [
+                {
+                  "regex": "\\d+$",
+                  "text": ""
+                }
+              ]
             }
           }
         }
@@ -1175,6 +1181,54 @@ module.exports = [
       "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
       "SEARCH_LITE_KEYS": "EZTV",
       "TEST_SEARCH_KEY": "girl"
+    }
+  },
+  {
+    "code": "5bfd545b-9cc5-47df-a515-15f7f0d0f68a",
+    "name": "iBit",
+    "category": "影视",
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAS1BMVEUAAADJLinJLinJLirJLinLLifJKCjJLinJLSrHLinJLyjJLSjVXln99fXwxMLRTEf////NPznbdnL34ODz09HmnJn67e3rsrDgiIW/Nh+5AAAAC3RSTlMA38+ydScT840yTKAyIHgAAAFaSURBVDjLjZPbkoMgDIYFtNoCwZAAvv+TLq0RcZ2dboYLBj7Cn9Nw2uO1GK2UNsvrMdxtGvVsxWY9Tr+uH6OyF1PjxctkrA3VsENM5+SprXWUM8XeiX6299pWwK/rGu2FmOR/YzugN7PrGO1fgB0/AlQP4EWqestY7AmkQtlnTuEglqpQdcDqIaXCvoWjJlEgALjgXMDIfmsqTAckjAWAiwvgxYcZ1AkUTFC2mCjHQIz7H8PcgOw2SvjeMoVNXMyDbQAEBpR9Cjnt5x2Q3CENGeoSYO6BIzrgA5g7kaW5RSp1icgzTEagPYVVofM7bFqiUo7WZXb1/ZYBk3eSKEn1RtEiRsoA7CHEXI5UD0u7BwghAZdYQflskXIjJxuAPG0BEV3x5M5yf1Q4iFAd05qZydeApFRnyzmCevguFkNyreX6ppVH96aVtr+bfl4G52Zm+jZ6/xzer+P/A+esKFy50Uo8AAAAAElFTkSuQmCC",
+    "target": "SEARCH",
+    "home": "https://ibit.am",
+    "author": "lanyuanxiaoyao",
+    "description": "IBit - Verified Torrent Search Engine. find &amp; download torrents, movies, music, games, software, tv shows, &amp; other downloads. download a verified bittorrent for free.",
+    "parser": "CSS",
+    "rules": {
+      "https://ibit\\.am/torrent-search/.+": {
+        "list": {
+          "expression": "table.torrents > tbody > tr",
+          "title": {
+            "expression": "td:nth-child(1) > a",
+            "attribute": "title"
+          },
+          "dateTime": {
+            "expression": "td:nth-child(4)",
+            "attribute": "title"
+          },
+          "link": {
+            "expression": "td:nth-child(1) > a",
+            "attribute": "href",
+            "prefix": "{home}"
+          },
+          "extra": {
+            "type": {
+              "expression": "td:nth-child(3) > a",
+              "attribute": "title"
+            },
+            "size": {
+              "expression": "td:nth-child(5) > a",
+              "attribute": "title"
+            }
+          }
+        }
+      }
+    },
+    "search": "{home}/torrent-search/{query}",
+    "properties": {
+      "SEARCH_LITE_SUPPORT": "true",
+      "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#size{${i.size}}#datetime{${i.datetime}}",
+      "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
+      "SEARCH_LITE_KEYS": "iBit"
     }
   },
   {

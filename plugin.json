@@ -1,6 +1,6 @@
 {
   "pluginName": "资源搜索 Lite",
-  "version": "0.2.34",
+  "version": "0.2.35",
   "description": "海纳百川, 搜遍天下, 轻量版的资源搜索",
   "author": "lanyuanxiaoyao",
   "homepage": "http://lanyuanxiaoyao.com",
@@ -148,6 +148,14 @@
       "explain": "EZTV, your one stop source for all your favorite TV shows. FREE downloads! Watch more TV Series than ever. EZTV is releasing daily new episodes. SAFE!",
       "cmds": [
         "EZTV"
+      ]
+    },
+    {
+      "code": "5bfd545b-9cc5-47df-a515-15f7f0d0f68a",
+      "icon": "icon/5bfd545b-9cc5-47df-a515-15f7f0d0f68a.png",
+      "explain": "IBit - Verified Torrent Search Engine. find &amp; download torrents, movies, music, games, software, tv shows, &amp; other downloads. download a verified bittorrent for free.",
+      "cmds": [
+        "iBit"
       ]
     },
     {
