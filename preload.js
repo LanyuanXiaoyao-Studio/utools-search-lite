@@ -44,7 +44,6 @@ let observe
 const initialObserver = () => {
   observe = new MutationObserver((mutations, observer) => {
     mutations.forEach(m => {
-      console.log(m)
       if (m.addedNodes && m.addedNodes.length > 0) {
         let node = m.addedNodes[0]
         let html = node.innerHTML
@@ -174,7 +173,7 @@ sites
                   description: eval('`' + s.properties.SEARCH_LITE_DESC_TEMPLATE + '`'),
                 }
                 if (s.properties.SEARCH_LITE_IMAGE_TEMPLATE !== null && s.properties.SEARCH_LITE_IMAGE_TEMPLATE !== '') {
-                  item.icon = i.image
+                  item.icon = eval('`' + s.properties.SEARCH_LITE_IMAGE_TEMPLATE + '`')
                 }
                 return item
               }))

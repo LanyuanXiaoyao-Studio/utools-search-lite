@@ -93,6 +93,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#author{${i.author}}#size{${i.size}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "東京 図書館,tokyotosho",
       "TEST_SEARCH_KEY": "girl"
     }
@@ -173,6 +174,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#size{${i.size}}#view{${i.view}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.link}}#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "Nyaa",
       "TEST_SEARCH_KEY": "girl"
     }
@@ -282,6 +284,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#size{${i.size}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "罗马盘"
     }
   },
@@ -332,6 +335,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#author{${i.author}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "56网盘"
     }
   },
@@ -396,6 +400,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#author{${i.author}}#size{${i.size}}#view{${i.view}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "小白盘"
     }
   },
@@ -560,6 +565,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#author{${i.author}}#size{${i.size}}#number{${i.number}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "小可搜搜"
     }
   },
@@ -643,6 +649,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#size{${i.size}}#view{${i.view}}#number{${i.number}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "雨花阁",
       "TEST_SEARCH_KEY": "girl"
     }
@@ -718,6 +725,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#size{${i.size}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "Torrent Kitty",
       "TEST_SEARCH_KEY": "girl"
     }
@@ -833,6 +841,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#size{${i.size}}#view{${i.view}}#number{${i.number}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "超人搜索",
       "TEST_SEARCH_KEY": "girl"
     }
@@ -886,6 +895,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#size{${i.size}}#view{${i.view}}#number{${i.number}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "搜番,sofan"
     }
   },
@@ -932,6 +942,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#size{${i.size}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "BTSOW",
       "TEST_SEARCH_KEY": "girl"
     }
@@ -982,6 +993,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#author{${i.author}}#size{${i.size}}#number{${i.number}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "海盗湾,The Pirate Bay"
     }
   },
@@ -1032,6 +1044,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#author{${i.author}}#size{${i.size}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "1377X"
     }
   },
@@ -1095,7 +1108,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#location{${i.location}}#score{${i.score}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
-      "SEARCH_LITE_IMAGE_TEMPLATE": "true",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "${i.image}",
       "SEARCH_LITE_KEYS": "YTS.MS"
     }
   },
@@ -1137,6 +1150,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#size{${i.size}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "Zooqle",
       "TEST_SEARCH_KEY": "girl"
     }
@@ -1179,6 +1193,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#size{${i.size}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "EZTV",
       "TEST_SEARCH_KEY": "girl"
     }
@@ -1228,6 +1243,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#size{${i.size}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "iBit"
     }
   },
@@ -1251,7 +1267,7 @@ module.exports = [
           "description": {
             "expression": "div.w-80 h4:contains(Description) + p"
           },
-          "image": {
+          "avatar": {
             "expression": "div.w-80 h4:contains(Publisher) + div div:nth-child(1) > div > a > img",
             "attribute": "src"
           },
@@ -1322,7 +1338,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#version{${i.version}}#author{${i.author}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
-      "SEARCH_LITE_IMAGE_TEMPLATE": "true",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "${i.avatar}",
       "SEARCH_LITE_KEYS": "npm,JavaScript",
       "TEST_SEARCH_KEY": "kafka"
     }
@@ -1374,6 +1390,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#author{${i.author}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "Maven,mvn",
       "TEST_SEARCH_KEY": "kafka"
     }
@@ -1423,6 +1440,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#version{${i.version}}#author{${i.author}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "Maven (Sonatype),mvn (Sonatype)",
       "TEST_SEARCH_KEY": "kafka"
     }
@@ -1478,6 +1496,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#star{${i.star}}#language{${i.language}}#license{${i.license}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "Github",
       "TEST_SEARCH_KEY": "kafka"
     }
@@ -1528,6 +1547,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#star{${i.star}}#language{${i.language}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "Gitee,码云",
       "TEST_SEARCH_KEY": "kafka"
     }
@@ -1552,7 +1572,7 @@ module.exports = [
           "description": {
             "expression": "$.short_description"
           },
-          "image": {
+          "avatar": {
             "expression": "$.logo_url.small",
             "script": "return text === '' ? 'icon/docker.png' : text"
           },
@@ -1580,7 +1600,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#author{${i.author}}#star{${i.star}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
-      "SEARCH_LITE_IMAGE_TEMPLATE": "true",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "${i.avatar}",
       "SEARCH_LITE_KEYS": "Docker Hub",
       "TEST_SEARCH_KEY": "kafka"
     }
@@ -1628,6 +1648,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#version{${i.version}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "PyPI,Python",
       "TEST_SEARCH_KEY": "kafka"
     }
@@ -1693,6 +1714,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#version{${i.version}}#star{${i.star}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "RubyGems",
       "TEST_SEARCH_KEY": "kafka"
     }
@@ -1747,6 +1769,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#version{${i.version}}#star{${i.star}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "pub,Flutter",
       "TEST_SEARCH_KEY": "kafka"
     }
@@ -1801,6 +1824,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#version{${i.version}}#star{${i.star}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "pub (CN),Flutter (CN)",
       "TEST_SEARCH_KEY": "kafka"
     }
@@ -1831,7 +1855,7 @@ module.exports = [
               }
             ]
           },
-          "image": {
+          "avatar": {
             "expression": ".col-package-icon > img",
             "attribute": "src"
           },
@@ -1886,7 +1910,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#version{${i.version}}#author{${i.author}}#download{${i.download}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
-      "SEARCH_LITE_IMAGE_TEMPLATE": "true",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "${i.avatar}",
       "SEARCH_LITE_KEYS": "Nuget,C#",
       "TEST_SEARCH_KEY": "kafka"
     }
@@ -1941,6 +1965,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#version{${i.version}}#download{${i.download}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "Cargo,Rust",
       "TEST_SEARCH_KEY": "kafka"
     }
@@ -1991,6 +2016,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#author{${i.author}}#download{${i.download}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "LuaRocks",
       "TEST_SEARCH_KEY": "kafka"
     }
@@ -2034,6 +2060,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#star{${i.star}}#download{${i.download}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "Packagist,PHP",
       "TEST_SEARCH_KEY": "kafka"
     }
@@ -2079,6 +2106,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#version{${i.version}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "Gradle",
       "TEST_SEARCH_KEY": "kafka"
     }
