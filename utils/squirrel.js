@@ -109,7 +109,7 @@ const sites = require('../sites')
 module.exports = {
   initial() {
     if (SquirrelWrapper) {
-      Squirrel.debug('true')
+      // Squirrel.debug('true')
       Squirrel.load(window.get())
       Squirrel.imports(JSON.stringify(sites))
     }
