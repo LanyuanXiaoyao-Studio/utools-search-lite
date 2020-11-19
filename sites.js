@@ -1364,7 +1364,7 @@ module.exports = [
             "expression": ".im-description",
             "script": "let regex = /(.*?)\\s*Last Release on\\s*(.*?)$/m\nlet result = text.match(regex)\nif (result && result.length > 1) {\n    return result[1]\n}\nreturn ''"
           },
-          "image": {
+          "avatar": {
             "expression": "img.im-logo",
             "attribute": "src",
             "prefix": "{home}"
@@ -1425,7 +1425,7 @@ module.exports = [
           },
           "link": {
             "expression": "$",
-            "script": "let data = JSON.parse(text)\nreturn 'https://ossindex.sonatype.org/component/pkg:maven/' + data.g + '/' + data.a + '@' + data.latestVersion"
+            "script": "let data = JSON.parse(text)\nreturn 'https://search.maven.org/artifact/' + data.g + '/' + data.a + '/' + data.latestVersion + '/jar'"
           },
           "extra": {
             "version": {
