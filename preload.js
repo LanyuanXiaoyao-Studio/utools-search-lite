@@ -117,9 +117,28 @@ const initialKeyBinding = () => {
     settings.open()
     utools.subInputBlur()
   })
+  MouseTrap.bind('ctrl+s', () => {
+    if (input) {
+      let {
+        code,
+        text,
+        callback
+      } = input
+      let site = sites.find(s => s.code === code)
+      if (site && text !== '' && site.search) {
+        let result = squirrel.parseUrl({
+          code: code,
+          search: text
+        })
+        if (result.code === 0) {
+          utools.shellOpenExternal(result.data)
+        }
+      }
+    }
+  })
 }
 
-const placeholder = 'Enter(回车): 搜索/选择  Ctrl + T: 打开设置'
+const placeholder = 'Enter(回车): 搜索/选择 Ctrl + s: 直接搜索 Ctrl + t: 打开设置'
 
 let exportList = {}
 

@@ -94,13 +94,14 @@ window.scriptExecutor = (script, text, paramsJson) => {
   return result ? JSON.stringify(result) : '';
 };
 
-const SquirrelUtools = require('./squirrel-utools-0.3.100-SNAPSHOT')
+const SquirrelUtools = require('./squirrel-utools-0.3.104-SNAPSHOT')
 const Squirrel = SquirrelUtools.com.lanyuanxiaoyao.squirrel.utools
 const SquirrelWrapper = {
   info: () => JSON.parse(Squirrel.info('default')),
   sites: () => JSON.parse(Squirrel.sites('SEARCH')),
   categories: () => JSON.parse(Squirrel.categories('SEARCH')),
   page: async request => eval(`(${await Squirrel.page(JSON.stringify(request))})`),
+  parseUrl: request => JSON.parse(Squirrel.parseUrl(JSON.stringify(request))),
   fetch: () => JSON.parse(Squirrel.fetch()),
   save: information => Squirrel.save(JSON.stringify(information))
 }
