@@ -905,12 +905,12 @@ module.exports = [
     "category": "综合",
     "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAHlBMVEUAAAB+uA7/hACAQgDf398MCgBnlgsgLgTQbABgMgCwyM9EAAAAZElEQVQoz53SMQqAMBBE0THY2GULrSUewQt4Bk/iGTy5iLIbZopAfvkYSJEFDlSN4GKgk3aDQGYwgcwQE/ubGUxgYbCLwaBpJfpgYsDNAIHTISbb/uaQykpPCyQGOEg9Xynn8ADITA59HLSJegAAAABJRU5ErkJggg==",
     "target": "SEARCH",
-    "home": "https://btsow.work",
+    "home": "https://btsow.surf",
     "author": "lanyuanxiaoyao",
     "description": "BTSOW - The free online torrent file to magnet link conversion, magnet link to torrent file conversion, Search magnet link and Search torrent file.",
     "parser": "CSS",
     "rules": {
-      "https://btsow\\.work/search/.+": {
+      "https://btsow\\.surf/search/.+": {
         "list": {
           "expression": ".container > .data-list > .row:has(a)",
           "title": {
