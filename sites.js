@@ -45,6 +45,10 @@ module.exports = [
             "size": {
               "expression": "\\s*Size: (.+?)\\s+",
               "attribute": "1"
+            },
+            "magnet": {
+              "expression": "href=\"(magnet.+?)\"",
+              "attribute": "1"
             }
           }
         },
@@ -130,6 +134,10 @@ module.exports = [
             },
             "view": {
               "expression": "td:nth-child(8)"
+            },
+            "magnet": {
+              "expression": "td:nth-child(3) > a:has(i.fa-magnet)",
+              "attribute": "href"
             }
           }
         },
@@ -575,12 +583,12 @@ module.exports = [
     "category": "综合",
     "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAS1BMVEXmYEjmYUjtZEkAAADlYEj////2yMDxp5nvnpDtjXz76ebzsKX++Pb41M31wrnqfGn65ODodF/98vD2zcbna1Xul4j53dj0vbPzuK0SIBXqAAAABHRSTlPpphwAI2YUpwAAAOlJREFUOMudk1GqwyAQRU0619GORk2TJvtf6fPDlyo0Cj0gDnrEUbjqMU+KblDT/FCzog55e6Iuk1J94do3gCmlBbgyyuyBUMoF2BuhnCpwciisHyE4vDkPwxwiIh/AwWwvQRw80QJHlFbEjcjhrK+AO/OifcZEFjqX5N2rFmSzgCXRWvuo/+HmFRoueTToRkiADlzRCsHawwvVtIIGiPbnhXwVDC6WO4HLr/4uxFfm3RGGPRjK7H2h9HIjeBE5V6yp28OqA30TWjZguReCiAdMI7hasMh4qoSdA9WwsC3lMDjD6A3DO4z/HwguFbU4xLpUAAAAAElFTkSuQmCC",
     "target": "SEARCH",
-    "home": "https://www.yhgzz.xyz",
+    "home": "https://www.yhg66a.xyz",
     "author": "lanyuanxiaoyao",
     "description": "简单好用的BT搜索引擎",
     "parser": "CSS",
     "rules": {
-      "https://www\\.yhgzz\\.xyz/search/.+-\\d+\\.html": {
+      "https://www\\.yhg66a\\.xyz/search/.+-\\d+\\.html": {
         "list": {
           "expression": "#wall div.search-item",
           "title": {
@@ -617,7 +625,7 @@ module.exports = [
           "prefix": "{home}"
         }
       },
-      "https://www\\.yhgzz\\.xyz/hash/\\d+\\.html": {
+      "https://www\\.yhg66a\\.xyz/hash/\\d+\\.html": {
         "text": {
           "expression": "#content",
           "title": {
@@ -651,82 +659,6 @@ module.exports = [
       "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
       "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "雨花阁",
-      "TEST_SEARCH_KEY": "girl"
-    }
-  },
-  {
-    "code": "2a534ba1-c675-4cd9-80e6-b6e58598ddc4",
-    "name": "Torrent Kitty",
-    "category": "综合",
-    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAANlBMVEUAAAA7PkA7PkA7PkA8P0E7PkA7PkA7PkA7PkA7PkA7PkA7PkA7PkA7PkA7PkA7PkA7PkA0Njgm/QtFAAAAEHRSTlMA9AnR39ca576Da2MzKLCgQMllEwAAAJRJREFUOMvNkMEOhCAMRKGAoKu75f9/drUBDcrUiwffwcS8gQ41b2MIvOIHoGniwkiN8Jlt8HzCpe0jgZwZIgHgjkDCPpR2yO9dXd87s7P0/Nw8FZ6HUy7rjK1PnU0vodqPAcQ6HUJlOsbKehVWbzU/S0VtgDAi/+XCj8D5g61NvBZsA+yVQL3vLmD1EUy4pPxN5hH+WAIXu01UECwAAAAASUVORK5CYII=",
-    "target": "SEARCH",
-    "home": "https://www.torrentkitty.app",
-    "author": "lanyuanxiaoyao",
-    "description": "Torrent Kitty - Free Torrent To Magnet Link Conversion Service",
-    "parser": "CSS",
-    "rules": {
-      "https://www\\.torrentkitty\\.app/search/.+/\\d+": {
-        "list": {
-          "expression": "#archiveResult tr:has(.action > a)",
-          "title": {
-            "expression": "td.name"
-          },
-          "dateTime": {
-            "expression": "td.date"
-          },
-          "link": {
-            "expression": "td.action > a:contains(Detail)",
-            "attribute": "href",
-            "prefix": "{home}"
-          },
-          "extra": {
-            "size": {
-              "expression": "td.size"
-            }
-          }
-        },
-        "next": {
-          "expression": ".pagination > a:contains(»)",
-          "attribute": "href",
-          "script": "var next = params.url.replace(/\\d+$/, text)\nreturn next ? next : ''"
-        }
-      },
-      "https://www\\.torrentkitty\\.app/information/.+": {
-        "text": {
-          "expression": "div.wrapper:has(.detailSummary)",
-          "title": {
-            "expression": "h2"
-          },
-          "dateTime": {
-            "expression": "table.detailSummary tr:nth-child(5) > td"
-          },
-          "extra": {
-            "size": {
-              "expression": "table.detailSummary tr:nth-child(4) > td"
-            },
-            "number": {
-              "expression": "table.detailSummary tr:nth-child(3) > td"
-            },
-            "hash": {
-              "expression": "table.detailSummary tr:nth-child(2) > td"
-            }
-          }
-        },
-        "list": {
-          "expression": "div.center:has(textarea.magnet-link)",
-          "content": {
-            "expression": "textarea.magnet-link"
-          }
-        }
-      }
-    },
-    "search": "{home}/search/{query}/1",
-    "properties": {
-      "SEARCH_LITE_SUPPORT": "true",
-      "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#size{${i.size}}#datetime{${i.datetime}}",
-      "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
-      "SEARCH_LITE_IMAGE_TEMPLATE": "",
-      "SEARCH_LITE_KEYS": "Torrent Kitty",
       "TEST_SEARCH_KEY": "girl"
     }
   },
@@ -900,54 +832,6 @@ module.exports = [
     }
   },
   {
-    "code": "b5a76675-1d23-468e-b6a1-6845f217b3e3",
-    "name": "BTSOW",
-    "category": "综合",
-    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAHlBMVEUAAAB+uA7/hACAQgDf398MCgBnlgsgLgTQbABgMgCwyM9EAAAAZElEQVQoz53SMQqAMBBE0THY2GULrSUewQt4Bk/iGTy5iLIbZopAfvkYSJEFDlSN4GKgk3aDQGYwgcwQE/ubGUxgYbCLwaBpJfpgYsDNAIHTISbb/uaQykpPCyQGOEg9Xynn8ADITA59HLSJegAAAABJRU5ErkJggg==",
-    "target": "SEARCH",
-    "home": "https://btsow.surf",
-    "author": "lanyuanxiaoyao",
-    "description": "BTSOW - The free online torrent file to magnet link conversion, magnet link to torrent file conversion, Search magnet link and Search torrent file.",
-    "parser": "CSS",
-    "rules": {
-      "https://btsow\\.surf/search/.+": {
-        "list": {
-          "expression": ".container > .data-list > .row:has(a)",
-          "title": {
-            "expression": "a[title]",
-            "attribute": "title"
-          },
-          "dateTime": {
-            "expression": ".date"
-          },
-          "link": {
-            "expression": "a[title]",
-            "attribute": "href"
-          },
-          "extra": {
-            "size": {
-              "expression": ".size"
-            }
-          }
-        },
-        "next": {
-          "expression": "ul.pagination a[name=nextpage]",
-          "attribute": "href",
-          "prefix": "{home}"
-        }
-      }
-    },
-    "search": "{home}/search/{query}",
-    "properties": {
-      "SEARCH_LITE_SUPPORT": "true",
-      "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#size{${i.size}}#datetime{${i.datetime}}",
-      "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
-      "SEARCH_LITE_IMAGE_TEMPLATE": "",
-      "SEARCH_LITE_KEYS": "BTSOW",
-      "TEST_SEARCH_KEY": "girl"
-    }
-  },
-  {
     "code": "c4546f52-a602-4776-8e87-f05e01343d09",
     "name": "海盗湾",
     "category": "综合",
@@ -970,7 +854,7 @@ module.exports = [
           "dateTime": {
             "expression": "$.added",
             "suffix": "000",
-            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text)) : new Date(text)\nconsole.log(date)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
+            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
           },
           "link": {
             "expression": "$.id",
@@ -1344,58 +1228,6 @@ module.exports = [
     }
   },
   {
-    "code": "1f5443c7-9b0a-43e8-9420-83b7d49e16eb",
-    "name": "Maven",
-    "category": "开发",
-    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAARVBMVEUAAADyO2/yO2/xPG/yPG/yPG/yO2/yO2/yPG/yO2/xPG/yO2/xPG/xPG/yPG/yO2/yO2/yPG/xPG/yPG/yPG/yO2/xPG9/RIhNAAAAFnRSTlMAFkPavpFrDZ8j5zDw0rJ/WE/GiDp1QDIvygAAANVJREFUOMu1kEt2gzAMReUPNjbQACF3/0vtaXxSGddk1NyZfk/Sk//CWPMnleooMDb1yZ0yA9jzvONex3caiRHWOt4cOdULZpw5KY4wVOGuoTZkHfmivSkOwEN/omyseAC7HvDaoFiAo6h5gK1pOABuvwtYYmtsBnyxqPQqevicimeoCcoNnuZZ+gKy8Tz9yCrQeWM3nh+CXDTkUl9UQJlQgnRIMy+89IgLBTWxYwTllT4DBR+lzzSXetJUb4c3ckkAt8bregzjEuQN62StvMNIivIJvgHGYREYjV73PQAAAABJRU5ErkJggg==",
-    "target": "SEARCH",
-    "home": "https://mvnrepository.com",
-    "author": "lanyuanxiaoyao",
-    "description": "Apache Maven is a software project management and comprehension tool",
-    "parser": "CSS",
-    "rules": {
-      "https://mvnrepository\\.com/search\\?q=.+": {
-        "list": {
-          "expression": "#maincontent > .im",
-          "title": {
-            "expression": "h2.im-title > a:nth-child(2)"
-          },
-          "description": {
-            "expression": ".im-description",
-            "script": "let regex = /(.*?)\\s*Last Release on\\s*(.*?)$/m\nlet result = text.match(regex)\nif (result && result.length > 1) {\n    return result[1]\n}\nreturn ''"
-          },
-          "avatar": {
-            "expression": "img.im-logo",
-            "attribute": "src",
-            "prefix": "{home}"
-          },
-          "author": {
-            "expression": "p.im-subtitle",
-            "script": "let regex = /(.*?)\\s*»\\s*(.*?)$/m\nlet result = text.match(regex)\nif (result && result.length > 1) {\n    return result[1]\n}\nreturn ''"
-          },
-          "dateTime": {
-            "expression": ".im-description",
-            "script": "let regex = /(.*?)\\s*Last Release on\\s*(.*?)$/m\nlet result = text.match(regex)\nif (result && result.length > 1) {\n    return result[2]\n}\nreturn ''"
-          },
-          "link": {
-            "expression": "h2.im-title > a:nth-child(2)",
-            "attribute": "href",
-            "prefix": "{home}"
-          }
-        }
-      }
-    },
-    "search": "{home}/search?q={query}",
-    "properties": {
-      "SEARCH_LITE_SUPPORT": "true",
-      "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#author{${i.author}}#datetime{${i.datetime}}",
-      "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
-      "SEARCH_LITE_IMAGE_TEMPLATE": "",
-      "SEARCH_LITE_KEYS": "Maven,mvn",
-      "TEST_SEARCH_KEY": "kafka"
-    }
-  },
-  {
     "code": "a2387be5-1b9d-41df-b28a-246c972e492f",
     "name": "Maven (Sonatype)",
     "category": "开发",
@@ -1406,7 +1238,7 @@ module.exports = [
     "description": "Official search of Maven Central Repository.",
     "parser": "JSON",
     "rules": {
-      "https://search\\.maven.org/solrsearch/select\\?q=.+&start=0&rows=20": {
+      "https://search\\.maven\\.org/solrsearch/select\\?q=.+": {
         "list": {
           "expression": "$.response.docs",
           "title": {
@@ -1421,7 +1253,7 @@ module.exports = [
           },
           "dateTime": {
             "expression": "$.timestamp",
-            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text)) : new Date(text)\nconsole.log(date)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
+            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
           },
           "link": {
             "expression": "$",
@@ -1432,7 +1264,32 @@ module.exports = [
               "expression": "$.latestVersion"
             }
           }
+        },
+        "next": {
+          "expression": "$.response.start",
+          "script": "let result = /(.+start=)\\d+(&.+)/g.exec(params.url)\nif (result) {\n    return result[1] + (parseInt(text) + 1) + result[2]\n}\nreturn \"\""
         }
+      },
+      "https://search\\.maven\\.org/artifact/.+/jar": {
+        "parser": "JS",
+        "text": {
+          "expression": "return text",
+          "title": {
+            "script": "let result = /https:\\/\\/search\\.maven\\.org\\/artifact\\/(.+?)\\/(.+?)\\/(.+?)\\/jar/g.exec(params.url)\nif (result) {\n    return result[1] + ':' + result[2] + ':' + result[3]\n}\nreturn ''"
+          }
+        },
+        "list": {
+          "expression": "let result = /https:\\/\\/search\\.maven\\.org\\/artifact\\/(.+?)\\/(.+?)\\/(.+?)\\/jar/g.exec(params.url)\nif (result) {\n    let groupId = result[1]\n    let name = result[2]\n    let version = result[3]\n    return [\n        JSON.stringify({\n            title: 'Apache Maven',\n            content: '<dependency>\\n' +\n                '  <groupId>' + groupId + '</groupId>\\n' +\n                '  <artifactId>' + name + '</artifactId>\\n' +\n                '  <version>' + version + '</version>\\n' +\n                '</dependency>'\n        }),\n        JSON.stringify({\n            title: 'Gradle Groovy DSL',\n            content: 'implementation \\'' + groupId + ':' + name + ':' + version + '\\''\n        }),\n        JSON.stringify({\n            title: 'Gradle Kotlin DSL',\n            content: 'implementation(\"' + groupId + ':' + name + ':' + version + '\")'\n        }),\n        JSON.stringify({\n            title: 'Scala SBT',\n            content: 'libraryDependencies += \"' + groupId + '\" % \"' + name + '\" % \"' + version + '\"'\n        }),\n        JSON.stringify({\n            title: 'Apache Ivy',\n            content: '<dependency org=\"' + groupId + '\" name=\"' + name + '\" rev=\"' + version + '\" />'\n        }),\n        JSON.stringify({\n            title: 'Groovy Grape',\n            content: '@Grapes(\\n' +\n                '  @Grab(group=\\'' + groupId + '\\', module=\\'' + name + '\\', version=\\'' + version + '\\')\\n' +\n                ')'\n        }),\n        JSON.stringify({\n            title: 'Leiningen',\n            content: '[' + groupId + '/' + name + ' \"' + version + '\"]'\n        }),\n        JSON.stringify({\n            title: 'Apache Buildr',\n            content: '\\'' + groupId + ':' + name + ':jar:' + version + '\\''\n        }),\n        JSON.stringify({\n            title: 'PURL',\n            content: 'pkg:maven/' + groupId + '/' + name + '@' + version\n        }),\n        JSON.stringify({\n            title: 'Bazel',\n            content: 'maven_jar(\\n' +\n                '    name = \"' + name + '\",\\n' +\n            '    artifact = \"'+groupId + ':' + name + ':' + version + '\",\\n' +\n                ')'\n        })\n    ]\n}\nreturn ''",
+          "title": {
+            "expression": "return JSON.parse(text)['title']"
+          },
+          "content": {
+            "expression": "return JSON.parse(text)['content']"
+          }
+        },
+        "options": [
+          "OPEN_WITHOUT_DOWNLOAD"
+        ]
       }
     },
     "search": "{home}/solrsearch/select?q={query}&start=0&rows=20",
@@ -1472,7 +1329,7 @@ module.exports = [
           },
           "dateTime": {
             "expression": "$.updated_at",
-            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text)) : new Date(text)\nconsole.log(date)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
+            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
           },
           "link": {
             "expression": "$.html_url"
@@ -1488,7 +1345,10 @@ module.exports = [
               "expression": "$.license.name"
             }
           }
-        }
+        },
+        "options": [
+          "OPEN_DIRECTLY"
+        ]
       }
     },
     "search": "https://api.github.com/search/repositories?q={query}",
@@ -1523,7 +1383,7 @@ module.exports = [
           },
           "dateTime": {
             "expression": "$.updated_at",
-            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text)) : new Date(text)\nconsole.log(date)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
+            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
           },
           "link": {
             "expression": "$.html_url"
@@ -1539,7 +1399,10 @@ module.exports = [
               "expression": "$.license"
             }
           }
-        }
+        },
+        "options": [
+          "OPEN_DIRECTLY"
+        ]
       }
     },
     "search": "{home}/api/v5/search/repositories?q={query}",
@@ -1562,8 +1425,12 @@ module.exports = [
     "author": "lanyuanxiaoyao",
     "description": "Docker Hub is the world's easiest way to create, manage, and deliver your teams' container applications.",
     "parser": "JSON",
+    "headers": {
+      "Search-Version": "v3",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+    },
     "rules": {
-      "https://hub\\.docker\\.com/api/content/v1/products/search\\?q=.+": {
+      "https://(store|hub)\\.docker\\.com/api/content/v1/products/search/\\?.*q=.+": {
         "list": {
           "expression": "$.summaries",
           "title": {
@@ -1574,28 +1441,67 @@ module.exports = [
           },
           "avatar": {
             "expression": "$.logo_url.small",
-            "script": "return text === '' ? 'icon/docker.png' : text"
+            "script": "return text === '' ? 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAOVBMVEUAAAC2ub2IjpJWYGe0uLtkbXOQnJ21urymq6yXnaKHj5Klqq65vLxXY2i3ub5tdnpXYmeGjpOIjZNaR/7aAAAAE3RSTlMATU1NRT0KOhg/OzkrJiISNTAmrZQjMwAAANpJREFUSMft0dESgiAQRmEQBFTS6v0ftimcGDuybPf+99+4R8z5ks/mr4VorQWSQZlflSLvQI1Wbw/zqQOSt1hMEigRREGu1qOQrbgMkb0I+EyrDPjHE0APoVra8iHDov/K6AoZhkUnZud28l7sg2l0BzJMvnuTq6SMSQSVfJEQQVI2xUbEOUESbgJBEgBIXUSEQOp1iAAhwk0g2AIAgrmLXOSUhIee3IMp22YdGTdTlzTkZo57ggBwP0mIwJCECAxJwk2tJBU4vlIjQko6jZCTujcxCaCbNLcjXuTzEQfgzjnGAAAAAElFTkSuQmCC' : text"
           },
           "author": {
             "expression": "$.publisher.name"
           },
           "dateTime": {
             "expression": "$.updated_at",
-            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text)) : new Date(text)\nconsole.log(date)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
+            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
           },
           "link": {
             "expression": "$.slug",
-            "prefix": "https://hub.docker.com/_/"
+            "prefix": "https://hub.docker.com/r/"
           },
           "extra": {
             "star": {
               "expression": "$.star_count"
             }
           }
+        },
+        "prev": {
+          "expression": "$.previous",
+          "replace": [
+            {
+              "regex": "store",
+              "text": "hub"
+            }
+          ]
+        },
+        "next": {
+          "expression": "$.next",
+          "replace": [
+            {
+              "regex": "store",
+              "text": "hub"
+            }
+          ]
         }
+      },
+      "https://hub\\.docker\\.com/r/.+": {
+        "parser": "JS",
+        "text": {
+          "expression": "return text",
+          "title": {
+            "expression": "let result = /https:\\/\\/hub\\.docker\\.com\\/r\\/(.+)$/g.exec(params.url)\nif (result) {\n    return result[1]\n}\nreturn \"\"\n"
+          }
+        },
+        "list": {
+          "expression": "let result = /https:\\/\\/hub\\.docker\\.com\\/r\\/(.+)$/g.exec(params.url)\nif (result) {\n    return [result[1]]\n}\nreturn \"\"\n",
+          "title": {
+            "expression": "return 'Pull'"
+          },
+          "content": {
+            "expression": "return 'docker pull ' + text"
+          }
+        },
+        "options": [
+          "OPEN_WITHOUT_DOWNLOAD"
+        ]
       }
     },
-    "search": "{home}/api/content/v1/products/search?q={query}&type=image&page_size=50",
+    "search": "{home}/api/content/v1/products/search/?type=image&q={query}&page=1&page_size=50",
     "properties": {
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#author{${i.author}}#star{${i.star}}#datetime{${i.datetime}}",
@@ -1628,7 +1534,7 @@ module.exports = [
           "dateTime": {
             "expression": "a.package-snippet h3 span.package-snippet__released time",
             "attribute": "datetime",
-            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text)) : new Date(text)\nconsole.log(date)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
+            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
           },
           "link": {
             "expression": "a.package-snippet",
@@ -1639,6 +1545,36 @@ module.exports = [
             "version": {
               "expression": "a.package-snippet h3 span.package-snippet__version"
             }
+          }
+        },
+        "next": {
+          "expression": "#content .button-group--pagination > a:contains(Next)",
+          "attribute": "href",
+          "prefix": "{home}"
+        }
+      },
+      "https://pypi\\.org/project/.+": {
+        "text": {
+          "expression": "#content",
+          "title": {
+            "expression": ".banner h1.package-header__name"
+          },
+          "description": {
+            "expression": ".site-container p.package-description__summary"
+          },
+          "dateTime": {
+            "expression": ".banner .package-header__date time",
+            "attribute": "datetime",
+            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
+          }
+        },
+        "list": {
+          "expression": "#content .banner",
+          "title": {
+            "script": "return 'Install'"
+          },
+          "content": {
+            "expression": "#pip-command"
           }
         }
       }
@@ -1664,7 +1600,7 @@ module.exports = [
     "description": "RubyGems.org 是 Ruby 社区的 Gem 托管服务。让你能便捷、快速的发布、管理你的 Gem 以及安装它们。提供 API 查阅可用 Gem 的详细资料。",
     "parser": "XPATH",
     "rules": {
-      "https://rubygems\\.org/search\\?query=.+": {
+      "https://rubygems\\.org/search\\?.*query=.+": {
         "list": {
           "expression": "//main[@class='main--interior']//a[@class='gems__gem']",
           "title": {
@@ -1680,7 +1616,8 @@ module.exports = [
             "expression": "//p[@class='gems__gem__desc t-text']"
           },
           "link": {
-            "expression": "./@href"
+            "expression": "./@href",
+            "prefix": "{home}"
           },
           "extra": {
             "version": {
@@ -1705,6 +1642,24 @@ module.exports = [
                 }
               ]
             }
+          }
+        },
+        "next": {
+          "expression": "//main[@class='main--interior']//nav[@class='pagination']/span[@class='next']/a/@href",
+          "prefix": "{home}"
+        }
+      },
+      "https://rubygems\\.org/gems/.+": {
+        "text": {
+          "expression": "//main[@class='main--interior']",
+          "title": {
+            "expression": "//h1[@class='t-display page__heading']/text()"
+          }
+        },
+        "list": {
+          "expression": "//main[@class='main--interior']//div[@class='gem__aside l-col--r--pad']//input[@class='gem__code']",
+          "content": {
+            "expression": "./@value"
           }
         }
       }
@@ -1937,7 +1892,7 @@ module.exports = [
           },
           "dateTime": {
             "expression": "$.updated_at",
-            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text)) : new Date(text)\nconsole.log(date)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
+            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
           },
           "link": {
             "expression": "$.id",
@@ -2052,6 +2007,9 @@ module.exports = [
               "expression": "$.favers"
             }
           }
+        },
+        "next": {
+          "expression": "$.next"
         }
       }
     },
@@ -2097,6 +2055,41 @@ module.exports = [
             "version": {
               "expression": ".version > .latest-version"
             }
+          }
+        },
+        "prev": {
+          "expression": ".page-link a:contains(Previous)",
+          "attribute": "href",
+          "prefix": "{home}"
+        },
+        "next": {
+          "expression": ".page-link a:contains(Next)",
+          "attribute": "href",
+          "prefix": "{home}"
+        }
+      },
+      "https://plugins\\.gradle\\.org/plugin/.+": {
+        "text": {
+          "expression": ".plugin-detail > .detail",
+          "title": {
+            "expression": "h1"
+          },
+          "description": {
+            "expression": ".plugin-info p.description-text"
+          },
+          "author": {
+            "expression": ".plugin-owner p > a",
+            "script": "if (text) return text.trim()\nreturn \"\""
+          }
+        },
+        "list": {
+          "expression": ".tabpanel .tab-content .tab-pane",
+          "title": {
+            "expression": "pre:nth-child(1)",
+            "attribute": "class"
+          },
+          "content": {
+            "expression": "pre:nth-child(1) > code"
           }
         }
       }

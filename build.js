@@ -42,7 +42,7 @@ const startWith = require('licia/startWith')
 
 
 // 规则文件所在位置, 在这里我是通过其他工具生成的规则文件
-let sitesJsonPath = '/Users/lanyuanxiaoyao/Project/squirrel/squirrel-data/result.json'
+let sitesJsonPath = '/Users/lanyuanxiaoyao/Project/utools-plugin/utools-data/utools-torrent/sites/ALL.json'
 
 let sitesSource = JSON.parse(fs.readFileSync(sitesJsonPath))
 let sitesJsText = `module.exports = ${JSON.stringify(sitesSource, null, 2)}`
