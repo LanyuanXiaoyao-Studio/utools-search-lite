@@ -9,7 +9,7 @@ let version = `0.2.${getGitCommitCount() + 1}`
 
 // 版本号写入到 package.json 里面
 let packageConfigPath = './package.json'
-let packageConfig = JSON.parse(fs.readFileSync(packageConfigPath))
+let packageConfig = JSON.parse(fs.readFileSync(packageConfigPath, {encoding: 'utf8'}))
 packageConfig['version'] = version
 let description = packageConfig['description']
 let author = packageConfig['author']
@@ -44,8 +44,9 @@ const startWith = require('licia/startWith')
 // 规则文件所在位置, 在这里我是通过其他工具生成的规则文件
 let sitesJsonPath = '/Users/lanyuanxiaoyao/Project/utools-plugin/utools-data/utools-torrent/sites/ALL.json'
 
-let sitesSource = JSON.parse(fs.readFileSync(sitesJsonPath))
+let sitesSource = JSON.parse(fs.readFileSync(sitesJsonPath, {encoding: 'utf8'}))
 let sitesJsText = `module.exports = ${JSON.stringify(sitesSource, null, 2)}`
+// 往当前目录复制一份, 保持稳定, 避免源文件删了影响这里重新打包
 fs.writeFileSync('./sites.js', sitesJsText)
 
 const defaultIcon = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAkFBMVEUAAAA/RFFESlM6P0g5P0c5PUU9Qkk5QEg7QkpARlFBRk48P0ZES1X///9xxP9mvv9AR09KU13R7P90zv+x3/+Z1f+K0P9ko9Fduv/l9f/d8f/Iys1OaYHp6uvf4OLNz9FXXWXs9//G5/+kp6tvdX32+/+p2/+Byf+ws7dekbd4fYO+5P9ksOhhi6u+x82CuOK007hMAAAADXRSTlMAaBnQ7bqumok9DtoolNF8hgAAAYRJREFUOMuVUwmSgjAQ3Mgt5gQCAooCouCx///dTghodK2y7KI4qic9TWfy8w2WAfI9z0fB8i29QI7N+G7Hme2gxX8eWaxtiu1msy2aloXodbnLhgLPEGnJ3CeRlcVP+AERkZ5bK2O9xStsoKMkSrn10HBNfn1OCAAq3Ls/ZugLQikhcEU9Q1ODcDDkkwyWHyUBlOFiEqjMArVerImyoSWWTosN1JRQifGZAkpHZRrYjab2dQ73A/RQT9F1ydUOxg46ofxIiVB1Z+A1bmMPn//KWLvLOvyELfehwOOXTII0CND6uWCz83SBkhZgPsbvCnx+kfr3TF7EYm6BWBrFeQz57aes61wkJIPPYjQZ2NeIjJDafpypqGmCcWMHY1Al0aBkPSrIDPgjvLcQ1NRD8XeX+wTCBL5iaNqsu8RsU9QHuA9qs7REryWowAZODD0GZmxC5cHgK+4aIwcVLwKVGjlzaHsSmUmd9NCaY1+mVM50MeixN4FCVl5v88Gx0Kej9+nwfoE/h9gtUp11ZxUAAAAASUVORK5CYII='

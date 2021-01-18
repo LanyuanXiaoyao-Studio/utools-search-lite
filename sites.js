@@ -663,6 +663,82 @@ module.exports = [
     }
   },
   {
+    "code": "2a534ba1-c675-4cd9-80e6-b6e58598ddc4",
+    "name": "Torrent Kitty",
+    "category": "综合",
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAANlBMVEUAAAA7PkA7PkA7PkA8P0E7PkA7PkA7PkA7PkA7PkA7PkA7PkA7PkA7PkA7PkA7PkA7PkA0Njgm/QtFAAAAEHRSTlMA9AnR39ca576Da2MzKLCgQMllEwAAAJRJREFUOMvNkMEOhCAMRKGAoKu75f9/drUBDcrUiwffwcS8gQ41b2MIvOIHoGniwkiN8Jlt8HzCpe0jgZwZIgHgjkDCPpR2yO9dXd87s7P0/Nw8FZ6HUy7rjK1PnU0vodqPAcQ6HUJlOsbKehVWbzU/S0VtgDAi/+XCj8D5g61NvBZsA+yVQL3vLmD1EUy4pPxN5hH+WAIXu01UECwAAAAASUVORK5CYII=",
+    "target": "SEARCH",
+    "home": "http://www.torkitty.com",
+    "author": "lanyuanxiaoyao",
+    "description": "Torrent Kitty - Free Torrent To Magnet Link Conversion Service",
+    "parser": "CSS",
+    "rules": {
+      "http://www\\.torkitty\\.com/search/.+/\\d+": {
+        "list": {
+          "expression": "#archiveResult tr:has(.action > a)",
+          "title": {
+            "expression": "td.name"
+          },
+          "dateTime": {
+            "expression": "td.date"
+          },
+          "link": {
+            "expression": "td.action > a:contains(Detail)",
+            "attribute": "href",
+            "prefix": "{home}"
+          },
+          "extra": {
+            "size": {
+              "expression": "td.size"
+            }
+          }
+        },
+        "next": {
+          "expression": ".pagination > a:contains(»)",
+          "attribute": "href",
+          "script": "var next = params.url.replace(/\\d+$/, text)\nreturn next ? next : ''"
+        }
+      },
+      "http://www\\.torkitty\\.com/information/.+": {
+        "text": {
+          "expression": "div.wrapper:has(.detailSummary)",
+          "title": {
+            "expression": "h2"
+          },
+          "dateTime": {
+            "expression": "table.detailSummary tr:nth-child(5) > td"
+          },
+          "extra": {
+            "size": {
+              "expression": "table.detailSummary tr:nth-child(4) > td"
+            },
+            "number": {
+              "expression": "table.detailSummary tr:nth-child(3) > td"
+            },
+            "hash": {
+              "expression": "table.detailSummary tr:nth-child(2) > td"
+            }
+          }
+        },
+        "list": {
+          "expression": "div.center:has(textarea.magnet-link)",
+          "content": {
+            "expression": "textarea.magnet-link"
+          }
+        }
+      }
+    },
+    "search": "{home}/search/{query}/1",
+    "properties": {
+      "SEARCH_LITE_SUPPORT": "true",
+      "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#size{${i.size}}#datetime{${i.datetime}}",
+      "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
+      "SEARCH_LITE_KEYS": "Torrent Kitty",
+      "TEST_SEARCH_KEY": "girl"
+    }
+  },
+  {
     "code": "179363b0-2305-4732-8c7d-8ae5777fb151",
     "name": "超人搜索",
     "category": "综合",
@@ -784,12 +860,12 @@ module.exports = [
     "category": "综合",
     "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAn1BMVEUAAAD+vQDxfSNatTFfti/qQjUAq+8Eq+78vQAAq+z+vwLtQDLuvAtatTEAre9btS9htS7+vwVbtS3/vgIAq/LqQDX9vQBbtTH8vwAArO/9vQEAru//vwTsRTP9vQD+vgBZti/7uwDqQTXvPjIDq+/8vwDvQTEAq+7tQTLqQDX9vQBeti3xQC/xPTIAre/qPDfsTjD9vADqQzUAq+tctTFB0gLgAAAAMXRSTlMAbgyPF49rGNqeg3cT5tlqM+nEVFPslUc9wKqPYTwsxaqgnFopHRfq07q1fmpMNjEkZpT5TwAAAY5JREFUOMuNkOmSqjAQhU9YhEFkkU0Rdx33mRvM+z/bTdMTL4X3x3xVVLpyPjpJ4/dYe/duUfE5dh//y3dt2+4ov7Rt4b4LOtfcAbcr3ozvtuMMq+iK4nMgLFvmz6sYXuHM+/sxrxf08fS352Ds8roEwtDkiyhaeBj3hT2Ope+XFoiPpyY64P4SigdWvtTU1CR/dkQeHmcWLt846pwQXQNmTjMs3F0xtmCtJVPSDZ4/LGgcyyW9L5A94RAZ4wuUZaJZmdyfQfM1/3fILKtTIZsr59cVmMNo8UF4Vpo2Wihn2+22FF3MePmI8EIpG1/I61EIMQthGM1PT+LkIQiEFDLoLpmuxWtQTA5NXQfrLJVMfaT/TT6n3EnC0KIxMEGvwekAJBs73iTAyrTYcgdzQDxRdqyU7SDrdfB4UCNgo1QnqGmCpj8obUQ5nKkygppUyHzOeQq5B1DOAhkJwiwL0eOmWKh4nWKAM+EgdhSTvAlm/6eoMGBjOtt8CWco8CMqKvgZbzixbVddcbNvCX7NX3T6V1YuWt7EAAAAAElFTkSuQmCC",
     "target": "SEARCH",
-    "home": "https://sofans.xyz",
+    "home": "https://soufan.xyz",
     "author": "lanyuanxiaoyao",
     "description": "搜番",
     "parser": "CSS",
     "rules": {
-      "https://sofans\\.xyz/s\\?word=.+": {
+      "https://soufan\\.xyz/s\\?word=.+": {
         "list": {
           "expression": "div.row > div.col-md-6:has(nav) > ul.list-unstyled",
           "title": {
@@ -829,6 +905,54 @@ module.exports = [
       "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
       "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "搜番,sofan"
+    }
+  },
+  {
+    "code": "b5a76675-1d23-468e-b6a1-6845f217b3e3",
+    "name": "BTSOW",
+    "category": "综合",
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAHlBMVEUAAAB+uA7/hACAQgDf398MCgBnlgsgLgTQbABgMgCwyM9EAAAAZElEQVQoz53SMQqAMBBE0THY2GULrSUewQt4Bk/iGTy5iLIbZopAfvkYSJEFDlSN4GKgk3aDQGYwgcwQE/ubGUxgYbCLwaBpJfpgYsDNAIHTISbb/uaQykpPCyQGOEg9Xynn8ADITA59HLSJegAAAABJRU5ErkJggg==",
+    "target": "SEARCH",
+    "home": "https://btsow.cam",
+    "author": "lanyuanxiaoyao",
+    "description": "BTSOW - The free online torrent file to magnet link conversion, magnet link to torrent file conversion, Search magnet link and Search torrent file.",
+    "parser": "CSS",
+    "rules": {
+      "https://btsow\\.cam/search/.+": {
+        "list": {
+          "expression": ".container > .data-list > .row:has(a)",
+          "title": {
+            "expression": "a[title]",
+            "attribute": "title"
+          },
+          "dateTime": {
+            "expression": ".date"
+          },
+          "link": {
+            "expression": "a[title]",
+            "attribute": "href"
+          },
+          "extra": {
+            "size": {
+              "expression": ".size"
+            }
+          }
+        },
+        "next": {
+          "expression": "ul.pagination a[name=nextpage]",
+          "attribute": "href",
+          "prefix": "{home}"
+        }
+      }
+    },
+    "search": "{home}/search/{query}",
+    "properties": {
+      "SEARCH_LITE_SUPPORT": "true",
+      "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#size{${i.size}}#datetime{${i.datetime}}",
+      "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
+      "SEARCH_LITE_KEYS": "BTSOW",
+      "TEST_SEARCH_KEY": "girl"
     }
   },
   {
@@ -1175,7 +1299,8 @@ module.exports = [
           }
         },
         "next": {
-          "expression": "main .center aside + div > section + div > a:contains(»)",
+          "expression": "main .center aside + div > section + div a:contains(»)",
+          "attribute": "href",
           "prefix": "{home}"
         }
       },
@@ -1318,7 +1443,7 @@ module.exports = [
       "Trending This Month": "{home}/trending?since=monthly"
     },
     "rules": {
-      "https://api\\.github\\.com/search/repositories\\?q=.+": {
+      "https://api\\.github\\.com/search/repositories\\?q=.+?&per_page=20&page=\\d+": {
         "list": {
           "expression": "$.items",
           "title": {
@@ -1346,12 +1471,15 @@ module.exports = [
             }
           }
         },
+        "next": {
+          "script": "let result = /(.*page=)(\\d+)$/g.exec(params.url)\nif (result) return result[1] + (parseInt(result[2]) + 1)\nreturn ''\n"
+        },
         "options": [
           "OPEN_DIRECTLY"
         ]
       }
     },
-    "search": "https://api.github.com/search/repositories?q={query}",
+    "search": "https://api.github.com/search/repositories?q={query}&per_page=20&page=1",
     "properties": {
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#star{${i.star}}#language{${i.language}}#license{${i.license}}#datetime{${i.datetime}}",
@@ -1372,7 +1500,7 @@ module.exports = [
     "description": "Gitee.com 是 OSCHINA.NET 推出的代码托管平台，支持 Git 和 SVN，提供免费的私有仓库托管。目前已有超过 500 万的开发者选择 Gitee。",
     "parser": "JSON",
     "rules": {
-      "https://gitee\\.com/api/v5/search/repositories\\?q=.+": {
+      "https://gitee\\.com/api/v5/search/repositories\\?q=.+?&per_page=20&page=\\d+": {
         "list": {
           "expression": "$",
           "title": {
@@ -1400,12 +1528,15 @@ module.exports = [
             }
           }
         },
+        "next": {
+          "script": "let result = /(.*page=)(\\d+)$/g.exec(params.url)\nif (result) return result[1] + (parseInt(result[2]) + 1)\nreturn ''\n"
+        },
         "options": [
           "OPEN_DIRECTLY"
         ]
       }
     },
-    "search": "{home}/api/v5/search/repositories?q={query}",
+    "search": "{home}/api/v5/search/repositories?q={query}&per_page=20&page=1",
     "properties": {
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#star{${i.star}}#language{${i.language}}#datetime{${i.datetime}}",
@@ -1716,6 +1847,11 @@ module.exports = [
               "expression": "p.packages-metadata > span.packages-metadata-block a"
             }
           }
+        },
+        "next": {
+          "expression": "ul.pagination > li > a[rel=next]",
+          "attribute": "href",
+          "prefix": "{home}"
         }
       }
     },
@@ -1771,6 +1907,11 @@ module.exports = [
               "expression": "p.packages-metadata > span.packages-metadata-block a"
             }
           }
+        },
+        "next": {
+          "expression": "ul.pagination > li > a[rel=next]",
+          "attribute": "href",
+          "prefix": "{home}"
         }
       }
     },
@@ -1795,7 +1936,7 @@ module.exports = [
     "description": "The NuGet Gallery is the central package repository for NuGet, the package manager for .NET.",
     "parser": "CSS",
     "rules": {
-      "https://www\\.nuget\\.org/packages\\?q=.+": {
+      "https://www\\.nuget\\.org/packages\\?.*q=.+": {
         "list": {
           "expression": "section[role=main] > .list-packages > article.package",
           "title": {
@@ -1857,6 +1998,11 @@ module.exports = [
               ]
             }
           }
+        },
+        "next": {
+          "expression": "ul.pager > li.next > a",
+          "attribute": "href",
+          "prefix": "{home}"
         }
       }
     },
@@ -1912,6 +2058,10 @@ module.exports = [
               "expression": "$.downloads"
             }
           }
+        },
+        "next": {
+          "expression": "$.meta.next_page",
+          "script": "if (text === null || text === '') return ''\nreturn 'https://crates.io/api/v1/crates' + text"
         }
       }
     },

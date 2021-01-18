@@ -1,6 +1,6 @@
 {
   "pluginName": "资源搜索 Lite",
-  "version": "0.2.41",
+  "version": "0.2.42",
   "description": "海纳百川, 搜遍天下, 轻量版的资源搜索",
   "author": "lanyuanxiaoyao",
   "homepage": "http://lanyuanxiaoyao.com",
@@ -77,6 +77,14 @@
       ]
     },
     {
+      "code": "2a534ba1-c675-4cd9-80e6-b6e58598ddc4",
+      "icon": "icon/2a534ba1-c675-4cd9-80e6-b6e58598ddc4.png",
+      "explain": "Torrent Kitty - Free Torrent To Magnet Link Conversion Service",
+      "cmds": [
+        "Torrent Kitty"
+      ]
+    },
+    {
       "code": "179363b0-2305-4732-8c7d-8ae5777fb151",
       "icon": "icon/179363b0-2305-4732-8c7d-8ae5777fb151.png",
       "explain": "超人搜索（www.crsoso.com）最好用的磁力链接搜索。",
@@ -91,6 +99,14 @@
       "cmds": [
         "搜番",
         "sofan"
+      ]
+    },
+    {
+      "code": "b5a76675-1d23-468e-b6a1-6845f217b3e3",
+      "icon": "icon/b5a76675-1d23-468e-b6a1-6845f217b3e3.png",
+      "explain": "BTSOW - The free online torrent file to magnet link conversion, magnet link to torrent file conversion, Search magnet link and Search torrent file.",
+      "cmds": [
+        "BTSOW"
       ]
     },
     {
