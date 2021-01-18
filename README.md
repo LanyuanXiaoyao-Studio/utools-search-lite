@@ -20,14 +20,17 @@
   - \* 小可搜搜 [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B4BQMQ.png)
 - 磁力链接
   - \* 雨花阁 [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B4DKFx.png)
-  - Torrent Kitty
   - \* 超人搜索 [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B4DMY6.png)
   - BTSOW [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B4DmwR.png)
   - 海盗湾 [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B4DnT1.png)
   - 1377X [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B4Dem9.png)
 - 影视
   - YTS.MS [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B4D1SO.png)
-  - Zooqle
+  - Zooqle [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s3.ax1x.com/2021/01/18/s6PMjJ.png)
+  - EZTV [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s3.ax1x.com/2021/01/18/s6Pn9U.png)
+  - iBit [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s3.ax1x.com/2021/01/18/s6Pp9S.png)
+  - 哔哩哔哩弹幕网 [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s3.ax1x.com/2021/01/18/s6C6l4.png)
+  - 爱奇艺 [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s3.ax1x.com/2021/01/18/s6CfTx.png)
 - 开发
   - npm [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B5PX3d.png)
   - Maven [![](https://img.icons8.com/material/15/000000/preview-pane.png)](https://s1.ax1x.com/2020/11/07/B5PjgA.png)
