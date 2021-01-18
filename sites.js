@@ -978,7 +978,7 @@ module.exports = [
           "dateTime": {
             "expression": "$.added",
             "suffix": "000",
-            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
+            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text) < 10000000000 ? parseInt(text) * 1000 : parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
           },
           "link": {
             "expression": "$.id",
@@ -1256,6 +1256,116 @@ module.exports = [
     }
   },
   {
+    "code": "bbf01d3b-55d8-4a62-9928-58caf01f32df",
+    "name": "哔哩哔哩弹幕网",
+    "category": "影视",
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAJ1BMVEUAAAAAoNkAodkAotgAodwAoNoAoNkAoNgAotkAodkAn9kAodkAoNmhO5srAAAADHRSTlMA58YZDs/2bkm2pGGZWlcAAAAAm0lEQVQoz2PABhYugdBeUhCa+8whBxDNonNmA1TgjAqIdjoDFWDQASthAVJADlRKBUqCALvaGThIKmBgYI45gwSOGjCwnkEBAQw1qALHgVZMRjjREmhRzhkDhADzmWMMZ84geQLIwy7QKAFkA0m4gMxBIB9IwgTAGERiCGBowWkoHJApgOE5DO9jBBBGEGIGMgN7GIKfWsBAGAAAAgyoA4E9r5MAAAAASUVORK5CYII=",
+    "target": "SEARCH",
+    "home": "https://bilibili.com",
+    "author": "lanyuanxiaoyao",
+    "description": "bilibili是国内知名的视频弹幕网站，这里有最及时的动漫新番，最棒的ACG氛围，最有创意的Up主。大家可以在这里找到许多欢乐。",
+    "parser": "JSON",
+    "rules": {
+      "http://api\\.bilibili\\.com/x/web-interface/search/all/v2\\?keyword=.+": {
+        "list": {
+          "expression": "$.data.result[?(@.result_type==='video')].data",
+          "title": {
+            "expression": "$.title",
+            "replace": [
+              {
+                "regex": "<em.*?>",
+                "text": ""
+              },
+              {
+                "regex": "</em>",
+                "text": ""
+              }
+            ]
+          },
+          "description": {
+            "expression": "$.description",
+            "replace": [
+              {
+                "regex": "\n",
+                "text": ""
+              }
+            ]
+          },
+          "image": {
+            "expression": "$.pic",
+            "prefix": "http:"
+          },
+          "author": {
+            "expression": "$.author"
+          },
+          "dateTime": {
+            "expression": "$.pubdate",
+            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text) < 10000000000 ? parseInt(text) * 1000 : parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
+          },
+          "link": {
+            "expression": "$.arcurl"
+          },
+          "extra": {
+            "view": {
+              "expression": "$.play"
+            }
+          }
+        }
+      }
+    },
+    "search": "http://api.bilibili.com/x/web-interface/search/all/v2?keyword={query}",
+    "properties": {
+      "SEARCH_LITE_SUPPORT": "true",
+      "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#author{${i.author}}#view{${i.view}}#datetime{${i.datetime}}",
+      "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "${i.image}",
+      "SEARCH_LITE_KEYS": "哔哩哔哩弹幕网,Bilibili"
+    }
+  },
+  {
+    "code": "904562ca-18e3-4e45-87f6-339b50a44879",
+    "name": "爱奇艺",
+    "category": "影视",
+    "icon": "data:image/png;base64,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",
+    "target": "SEARCH",
+    "home": "https://www.iqiyi.com/",
+    "author": "lanyuanxiaoyao",
+    "description": "爱奇艺（iQIYI.COM）是拥有海量、优质、高清的网络视频的大型视频网站，专业的网络视频播放平台。爱奇艺影视内容丰富多元，涵盖电影、电视剧、动漫、综艺、生活、音乐、搞笑、财经、军事、体育、片花、资讯、微电影、儿童、母婴、教育、科技、时尚、原创、公益、游戏、旅游、拍客、汽车、纪录片、爱奇艺自制剧等剧目。视频播放清晰流畅，操作界面简单友好，真正为用户带来“悦享品质”的在线观看体验。",
+    "parser": "CSS",
+    "rules": {
+      "https://so\\.iqiyi\\.com/so/q_.+": {
+        "list": {
+          "expression": ".qy-search-main .layout-main div[desc] > div[desc=card]",
+          "title": {
+            "expression": "a.qy-mod-link",
+            "attribute": "title"
+          },
+          "description": {
+            "expression": ".qy-search-result-info > .info-lbl:contains(简介) + .info-des"
+          },
+          "image": {
+            "expression": "a.qy-mod-link > img",
+            "attribute": "src",
+            "prefix": "https:"
+          },
+          "link": {
+            "expression": "a.qy-mod-link",
+            "attribute": "href",
+            "prefix": "https:"
+          }
+        }
+      }
+    },
+    "search": "https://so.iqiyi.com/so/q_{query}",
+    "properties": {
+      "SEARCH_LITE_SUPPORT": "true",
+      "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}",
+      "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "${i.image}",
+      "SEARCH_LITE_KEYS": "iqiyi, 爱奇艺"
+    }
+  },
+  {
     "code": "21288140-5491-4aac-a827-e084bfa70ae2",
     "name": "npm",
     "category": "开发",
@@ -1378,7 +1488,7 @@ module.exports = [
           },
           "dateTime": {
             "expression": "$.timestamp",
-            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
+            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text) < 10000000000 ? parseInt(text) * 1000 : parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
           },
           "link": {
             "expression": "$",
@@ -1454,7 +1564,7 @@ module.exports = [
           },
           "dateTime": {
             "expression": "$.updated_at",
-            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
+            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text) < 10000000000 ? parseInt(text) * 1000 : parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
           },
           "link": {
             "expression": "$.html_url"
@@ -1511,7 +1621,7 @@ module.exports = [
           },
           "dateTime": {
             "expression": "$.updated_at",
-            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
+            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text) < 10000000000 ? parseInt(text) * 1000 : parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
           },
           "link": {
             "expression": "$.html_url"
@@ -1579,7 +1689,7 @@ module.exports = [
           },
           "dateTime": {
             "expression": "$.updated_at",
-            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
+            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text) < 10000000000 ? parseInt(text) * 1000 : parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
           },
           "link": {
             "expression": "$.slug",
@@ -1665,7 +1775,7 @@ module.exports = [
           "dateTime": {
             "expression": "a.package-snippet h3 span.package-snippet__released time",
             "attribute": "datetime",
-            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
+            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text) < 10000000000 ? parseInt(text) * 1000 : parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
           },
           "link": {
             "expression": "a.package-snippet",
@@ -1696,7 +1806,7 @@ module.exports = [
           "dateTime": {
             "expression": ".banner .package-header__date time",
             "attribute": "datetime",
-            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
+            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text) < 10000000000 ? parseInt(text) * 1000 : parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
           }
         },
         "list": {
@@ -2038,7 +2148,7 @@ module.exports = [
           },
           "dateTime": {
             "expression": "$.updated_at",
-            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
+            "script": "if (!text || text === '') return text\nlet date = /^\\d+$/.test(text) ? new Date(parseInt(text) < 10000000000 ? parseInt(text) * 1000 : parseInt(text)) : new Date(text)\nif (date.getFullYear()) {\n    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()\n}\nreturn text"
           },
           "link": {
             "expression": "$.id",

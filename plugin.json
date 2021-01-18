@@ -1,6 +1,6 @@
 {
   "pluginName": "资源搜索 Lite",
-  "version": "0.2.43",
+  "version": "0.2.44",
   "description": "海纳百川, 搜遍天下, 轻量版的资源搜索",
   "author": "lanyuanxiaoyao",
   "homepage": "http://lanyuanxiaoyao.com",
@@ -156,6 +156,24 @@
       "explain": "IBit - Verified Torrent Search Engine. find &amp; download torrents, movies, music, games, software, tv shows, &amp; other downloads. download a verified bittorrent for free.",
       "cmds": [
         "iBit"
+      ]
+    },
+    {
+      "code": "bbf01d3b-55d8-4a62-9928-58caf01f32df",
+      "icon": "icon/bbf01d3b-55d8-4a62-9928-58caf01f32df.png",
+      "explain": "bilibili是国内知名的视频弹幕网站，这里有最及时的动漫新番，最棒的ACG氛围，最有创意的Up主。大家可以在这里找到许多欢乐。",
+      "cmds": [
+        "哔哩哔哩弹幕网",
+        "Bilibili"
+      ]
+    },
+    {
+      "code": "904562ca-18e3-4e45-87f6-339b50a44879",
+      "icon": "icon/904562ca-18e3-4e45-87f6-339b50a44879.png",
+      "explain": "爱奇艺（iQIYI.COM）是拥有海量、优质、高清的网络视频的大型视频网站，专业的网络视频播放平台。爱奇艺影视内容丰富多元，涵盖电影、电视剧、动漫、综艺、生活、音乐、搞笑、财经、军事、体育、片花、资讯、微电影、儿童、母婴、教育、科技、时尚、原创、公益、游戏、旅游、拍客、汽车、纪录片、爱奇艺自制剧等剧目。视频播放清晰流畅，操作界面简单友好，真正为用户带来“悦享品质”的在线观看体验。",
+      "cmds": [
+        "iqiyi",
+        " 爱奇艺"
       ]
     },
     {
