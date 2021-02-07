@@ -1624,6 +1624,158 @@ module.exports = [
     }
   },
   {
+    "code": "c0de6c06-ca67-474b-8a8d-23bf14d88866",
+    "name": "91影院",
+    "category": "影视",
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAWlBMVEUAAAD/NTX/Ozj/Ozb/Ojf/Ozf/Ojj/Ozj/Ojf/Pj7/PjX/OTn/PT3/Ojf/Ozj/Ozj/Ojf/Ozj/Ozf/Ojj/PDf/OTf/Ozj/Ozb/Ojf/Ozj/Pzj/Ojf/Ozj/Ozh40/PzAAAAHXRSTlMABfe3S9HA7tsPGjcUmeXIqqSQQCm/iW1cUyJ9Y+qa0+YAAAEDSURBVDjLvdJJbsQgEAXQKkKFydCeZ+5/zRhot0Vi5F3+wvDFAyRk+L/gaozGq1YVZstdLYWQ1qSq54Zkq+DK4nyM5EHPxI4526/1lfw7sgfgIs2b65LNf9ICNu/p1weoV+gsbiQdWw6MCOvTEgZhbsDCwu0ah+A42D9gD/WlsE6gty+WgykHgJpyMIdK1XnFIb5z0IUTBTeuBNKJTvoSgNHHlEFPDwC4fADQt+REEaQ/pO+oCNRspwqwLgFlj4dosQx4fKjOyDjcgN2HOBe+ci2ccKbB0lOnCA43AKbzCLZhBMMvgGMSYlOp29BGuIJLQzS05tyzWqJRQ/6SWmW1Svg5P6akKKA3yo9QAAAAAElFTkSuQmCC",
+    "target": "SEARCH",
+    "home": "https://www.91cinema.cn",
+    "author": "lanyuanxiaoyao",
+    "description": "91影院,91视频,91,91视频在线观看,91福利视频,福利在线,手机电影院,免费影院,神马影院,福利区,国产影院",
+    "parser": "CSS",
+    "rules": {
+      "https://www\\.91cinema\\.cn/vsearch/.+?----------\\d+?---\\.html": {
+        "list": {
+          "expression": "body .item",
+          "title": {
+            "expression": "h2 > a",
+            "attribute": "title"
+          },
+          "image": {
+            "expression": ".ff-img",
+            "attribute": "src"
+          },
+          "author": {
+            "expression": ".txtList li:contains(主演：)",
+            "replace": [
+              {
+                "regex": "主演：",
+                "text": ""
+              }
+            ]
+          },
+          "dateTime": {
+            "expression": ".sTime"
+          },
+          "link": {
+            "expression": "h2 > a",
+            "attribute": "href"
+          },
+          "extra": {
+            "other": {
+              "expression": ".sStyle"
+            }
+          }
+        },
+        "next": {
+          "expression": ".list-pager-v2 .page-item a[title=下一页]",
+          "attribute": "href",
+          "prefix": "{home}"
+        },
+        "options": [
+          "OPEN_DIRECTLY"
+        ]
+      }
+    },
+    "search": "https://www.91cinema.cn/vsearch/{query}----------1---.html",
+    "properties": {
+      "SEARCH_LITE_SUPPORT": "true",
+      "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#author{${i.author}}#datetime{${i.datetime}}#other{${i.other}}",
+      "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "${i.image}",
+      "SEARCH_LITE_KEYS": "91影院"
+    }
+  },
+  {
+    "code": "caac0d94-29f4-4a70-afbf-7c71239d6732",
+    "name": "豆角电影网",
+    "category": "影视",
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAABwlBMVEX+///1///k9f/e+/+s1P7Z+P/V8fxQdJ622/6lyfHS6fF5n8dkk8FWgK7j/f/R8P+/5P9ojbTo/f/V9f/K7f/P7fnG5fC/4O1HbZrG6P/F5fnn9fit0fOcwelVg7bc8/rZ7vXL6PCv2+uQueeNr82Bqsxum8ZrkrtOfLHt//+64P+73OePtNR0mb5dhrRFdq9JcaA/aJdNbZPs+v/q9v7w+f3h9Pq34Oy13Omo0+awyuaz0+KfyuGrzuCexd6ivNl3odSIstF2pMuApMZtk8JbjsFWh7thirZMd6Y6YI7y+/+ly/m31fji7/PX6u+21e/D1u2cxe2mxenE4Oi7z+eXuuKlx92YxdyWvtuJtNucvNJ8pdKftc9wms2HosFgha1Xe6bb7v/C3PycxvfK6vXB5fC74/DO3vCv0+zM4+uKtemEsOKkzeCdvd+FrdyRv9mHq9aJt9Wjw9R/rdCSs8xtmcB7nb5NgbhykLZ4lLFxjq5fgKpmhKk6bKMsYqI3YpU/YYotWIe03O+40O+82u6myui21+W61OB4pdt/qteWuNaXsMeKqsaTqL98l7dAcahZep8gWZowXpI4WoayxdpUhsaiOXTKAAADLUlEQVQ4y22TZVsbQRRG1yWr8Y27ewoJxF0KheLu7hQpFKfu3v/bTfps/Xw9M/Pcufe9gAQIQT6ybtJtzVDONeBfwPuPUnlhPxgXwrukDoI6/vbD8X1HjPGXg4R/aSrciM0N3/lNd0JcHEdqEfOA3+iU4w1vla6cTt/9dX16p3BNIeZalXZ75A9fG/1+BCF7IVDyXy+Qkw9TvJueKR2OEzr+mTMkn8fxs+HOHx6Lh5DICU3wudF+Fcdnii7qWD43H21+ed+uAxy5LRK1qrv4WMWpNc+z27kx04ARQXqWdi/uAyK+yucyf+w+fDDWbbd3dWk1aqVSxRtNjs2BxdYLdxe8l3WedLV8MrmiRmGLWpudfBuSM1H5E7HO/KA5Yp5Q6dNPNcsYCqOYbUgbCKQPjh7WvZexFAiETTORqntcr4RhGLL0yWw2qwWDFQpWR+6ar+Mc8OllD0OXHozZV1c0NpnVYDCAbRQwjKKmm33gU4QYpIrj3WJ1ssQdsN2cu/fuWV+8eVve6R2pAFdXMxwLbcisibZs676NocBokKK9jLEf+HbVcOl9YAtpMvegBIbps07PyaUcBXqESC2U06sxLGHolJrfwqd4Wv8QQwDlCBM+dk2mA0MbfQZJGyxWmVXhI5jPWwCFLk7OOg9eDCUM4A+tkNm0SXsu6ByEnjRfAs2QUsHCrMIHtuk0iK1YWU127x265/KsfAoo3DIOUgezLCYiE7FaLGILVNkybZ5T5lOACr9uMCHn5Gg6ENBqbEpRqpc1Wi1npL3C4MIdMa2neCPsKR8dpDXipNDl1eRj+/a4K6hyRGM7YDswiGNrwmTkOVSp1mi7uuzdmb2Jkockos3e1oGOi8oSQhAE+SyTyWxnn+vVnD5Xos2v/ELc0v5X6uaLMH8u91Cu4t66jtP3p/pVEzVvAbl5A0o7g+P4vBjndZ3OGHSV3B4SYQTHyBkk5V6BEiRC8Pz60ftHFEVXmSkkivfOLgA/6ZilCgWa+XiWX2PRV96oY7M5DXb8sXmzuIBTJiWLTS+aYuckfirpn/ODRLiBinBOhvHRd+8g4D+sfbw1b/Z46ipW3DqJ75d9oF5XMPkAAAAAAElFTkSuQmCC",
+    "target": "SEARCH",
+    "home": "https://m.tvb52.com",
+    "author": "lanyuanxiaoyao",
+    "description": "豆角电影网为您提供最新免费高清电影,迅雷下载,最新电视剧在线观看,视频格式有720P 1024p高清rmvb,及mkv等影音资源-豆角电影网。",
+    "parser": "CSS",
+    "rules": {
+      "https://m\\.doujiaow\\.com/index\\.php\\?m=vod-search-pg-\\d+?-wd-.+?\\.html": {
+        "list": {
+          "expression": ".ulPicTxt li",
+          "title": {
+            "expression": ".sTit"
+          },
+          "image": {
+            "expression": "img",
+            "attribute": "data-src"
+          },
+          "author": {
+            "expression": ".sTit .sDes:contains(主演：)",
+            "replace": [
+              {
+                "regex": "主演：",
+                "text": ""
+              }
+            ]
+          },
+          "dateTime": {
+            "expression": ".sDes:contains(地区：)",
+            "replace": [
+              {
+                "regex": "地区：",
+                "text": ""
+              }
+            ],
+            "script": "if (!text || text === '') return ''\nlet array = text.split('/')\nreturn array[1].trim()"
+          },
+          "link": {
+            "expression": "a",
+            "attribute": "href",
+            "prefix": "{home}"
+          },
+          "extra": {
+            "other": {
+              "expression": ".pic a .sStyle"
+            },
+            "score": {
+              "expression": ".sTit .sDes:contains(评分)",
+              "replace": [
+                {
+                  "regex": "评分：",
+                  "text": ""
+                }
+              ]
+            },
+            "location": {
+              "expression": ".sDes:contains(地区：)",
+              "replace": [
+                {
+                  "regex": "地区：",
+                  "text": ""
+                }
+              ],
+              "script": "if (!text || text === '') return ''\nlet array = text.split('/')\nreturn array[0].trim()"
+            }
+          }
+        },
+        "next": {
+          "expression": ".fenye a.pagelink_a:contains(下一页)",
+          "attribute": "href",
+          "prefix": "{home}"
+        },
+        "options": [
+          "OPEN_DIRECTLY"
+        ]
+      }
+    },
+    "search": "https://m.doujiaow.com/index.php?m=vod-search-pg-1-wd-{query}.html",
+    "properties": {
+      "SEARCH_LITE_SUPPORT": "true",
+      "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#author{${i.author}}#location{${i.location}}#score{${i.score}}#datetime{${i.datetime}}#other{${i.other}}",
+      "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "${i.image}",
+      "SEARCH_LITE_KEYS": "豆角电影网"
+    }
+  },
+  {
     "code": "21288140-5491-4aac-a827-e084bfa70ae2",
     "name": "npm",
     "category": "开发",

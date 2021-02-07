@@ -1,6 +1,6 @@
 {
   "pluginName": "资源搜索 Lite",
-  "version": "0.2.47",
+  "version": "0.2.48",
   "description": "海纳百川, 搜遍天下, 轻量版的资源搜索",
   "author": "lanyuanxiaoyao",
   "homepage": "http://lanyuanxiaoyao.com",
@@ -206,6 +206,22 @@
       "explain": "91美剧网，一个可在线观看美剧的视频网站，美剧爱好者的在线美剧天堂。提供高清、流畅、无广告的观看体验。",
       "cmds": [
         "91美剧"
+      ]
+    },
+    {
+      "code": "c0de6c06-ca67-474b-8a8d-23bf14d88866",
+      "icon": "icon/c0de6c06-ca67-474b-8a8d-23bf14d88866.png",
+      "explain": "91影院,91视频,91,91视频在线观看,91福利视频,福利在线,手机电影院,免费影院,神马影院,福利区,国产影院",
+      "cmds": [
+        "91影院"
+      ]
+    },
+    {
+      "code": "caac0d94-29f4-4a70-afbf-7c71239d6732",
+      "icon": "icon/caac0d94-29f4-4a70-afbf-7c71239d6732.png",
+      "explain": "豆角电影网为您提供最新免费高清电影,迅雷下载,最新电视剧在线观看,视频格式有720P 1024p高清rmvb,及mkv等影音资源-豆角电影网。",
+      "cmds": [
+        "豆角电影网"
       ]
     },
     {
