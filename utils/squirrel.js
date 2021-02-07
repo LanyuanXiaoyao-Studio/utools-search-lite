@@ -94,7 +94,7 @@ window.scriptExecutor = (script, text, paramsJson) => {
   return result ? JSON.stringify(result) : '';
 };
 
-const SquirrelUtools = require('./squirrel-utools-0.3.129-SNAPSHOT')
+const SquirrelUtools = require('./squirrel-utools-0.3.153-SNAPSHOT')
 const Squirrel = SquirrelUtools.com.lanyuanxiaoyao.squirrel.utools
 // Squirrel.debug('true')
 const SquirrelWrapper = {

@@ -1268,7 +1268,7 @@ module.exports = [
     "rules": {
       "http://api\\.bilibili\\.com/x/web-interface/search/all/v2\\?keyword=.+": {
         "list": {
-          "expression": "$.data.result[?(@.result_type==='video')].data",
+          "expression": "$.data.result[?(@.result_type=='video')].data",
           "title": {
             "expression": "$.title",
             "replace": [
@@ -1310,7 +1310,10 @@ module.exports = [
               "expression": "$.play"
             }
           }
-        }
+        },
+        "options": [
+          "OPEN_DIRECTLY"
+        ]
       }
     },
     "search": "http://api.bilibili.com/x/web-interface/search/all/v2?keyword={query}",
@@ -1353,7 +1356,10 @@ module.exports = [
             "attribute": "href",
             "prefix": "https:"
           }
-        }
+        },
+        "options": [
+          "OPEN_DIRECTLY"
+        ]
       }
     },
     "search": "https://so.iqiyi.com/so/q_{query}",
@@ -1363,6 +1369,70 @@ module.exports = [
       "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
       "SEARCH_LITE_IMAGE_TEMPLATE": "${i.image}",
       "SEARCH_LITE_KEYS": "iqiyi, 爱奇艺"
+    }
+  },
+  {
+    "code": "9777491c-2a30-43e3-9008-60fb0a0d24a6",
+    "name": "100影视网",
+    "category": "影视",
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAfCAMAAACxiD++AAACglBMVEUAAAAqU6/OqZ2Jnr2WpbzNUBNIabLguZHQWBnZjlrKWlLbn3Nki8Fph7hOd7iFoMLXwrLIlI/CbWnSuajImJGkqrvYjIjAGRJAZK8xWbDHMSk+ZbRNb7LGNCzCKSPDNzHShVJIbLPagUbSd0VTdbXVjF3XhU5WeLhqiLjOWlFMb7XUnHTZkWBdf7jnqnZTfLmkrrpvi7fDXFfCNSzftYjhtY7EdG+ruceBmby9ZGDXvZ/btJNmhLbPn5rBsK94krrl0LTEcm3TrJV5mcF9m8C9FRPUXxpIZqzDHRY3XrLINirQIhUkS6nSUCPJaze+GRTTazFkf67CiW3PYSk3YLLDKCHFIxleerHNcT5AZrTfhkjKamXTdD3RSTvRZy7CTEfiiUtQcbNbfbfScDqtoJ3JT0vUlWVzirM/aLNUdLKho6vOX0hlfrN2irPSnJjLRD3KZFzhkViSo7i5MSvYmHCxur3GTkjhfGrHYVnARkFfgLeTo7bIa2fMe3NbfLbfqHW9V1Bkgriisb/YnHi/SkTfjXDatpO9MSx4kLnto3W9UU3Me3K5SEZigbNOc7HBf3yzPTp2q9S3nZXbnIvv0Ki4Pjimucy/c3PJkYudrsCRqMOgjJrauKCnsL7FIBskS6/FIx3DDgfFGBHEFA4zWLAwVbDDCgTFHBUgR65KaKweRqzEGxzDGBfBBQL7//8rUbAqT6vCEAnEGQe8AQC/AAAoT681WaxEY6vHLgJObLDOZF+/f1jGQDrGOTPDIxzEHhrDExTEHhDJNQvJJQnGHwfQSgXMRQS8CgL09PLq2dnpyMbnv71Sc7NlgbI/Ya06W61WcKnipaLQdnK1h2XQglLLIRg8QaegAAAAnnRSTlMA/hAuC/3VYvauopBWUEtKIB8dGQwG+/r58Ovp5+PZ2NLMxsTBubazsayqppuXjouEhIKBdWxqY2JYVj8+OTY1MjEwHBT8+ff29PT08vLu7uzr5ubk4+Pg4N/f3tva2dfT0c/PzsrDv7u4t7eurauooqGdnJuYkpGQj42GhYGAf354d3Nxb25tbGppZ2FgXVdXVVVSUU1LREE+PDgnIoDUgrUAAAItSURBVCjPrZHlW9tQFIdv6l5Gi7szXDdg+Ji7u7u7u7u7xZO2oa7YgKFz3/+zJHuePU8D7Sfeb/e853eSey4IgdEAwvPoXnjfHF8e1o9b47kGwOOIUP55ig2/Da6uN4SIl03HsCl1BkWG0NTdbIpsqj6ehBEondyobJOD18EN9TPnpSShGGZCYduuGqmisahSMOKYByMIVsNWd4F8SKleLfzLiHgaRWGW3r4KtVQ9/xIQMp42cb7VvUi+KSMrPQoIOe3iG6xtysq12SsngRFMwHFuwDtpRcHy1BtgJLdMBD8gXT7390MwCmdcOD/gXFbnZo3urlYs3OEWdgc91r7s/IUl+u1OiIrLeflfRj45v3eVC0dha79i6+F6AN4kmB0II/tnRfcPrYt+/+GtDUZb+wc780Vs7UUcQpKO2Xy4LLnrh93+kfcDQ7+OcF68GKFIiMnk7rbE22G3f+oY9sJor3swdSIX0icwFOlgYp8CkYqgY35Gdw17CJiwDUwt4uItJyE27zNbLrLb9dJwt8vjxXCccM85wG1PUiVDEJJCnN9PsSdVTDdO01jPn1lL911pZguTr6dBZohCzP4F/MeMzy6f2K86Wl79ysieomqLVyBmH+VgnF8OCtbEZjWFG/xOxP/Nh0A5JTVBTvSgePfGxHaLJRCwBMgZedqgl5aIq3ITP7dPk+UVLrN8jU0728AWgxu0d3QN+tLcbZmyHRdqJWB0JJo9O0t1LWDM+QtNRs09tXOTNQAAAABJRU5ErkJggg==",
+    "target": "SEARCH",
+    "home": "https://www.100yingshi.com",
+    "author": "lanyuanxiaoyao",
+    "description": "100影视网（100yingshi.com），每天搜集互联网最新电影和电视剧，为广大用户免费提供无广告在线观看电影和电视剧服务，及时收录最新、最热、最全的电影大片,高清正版免费看。",
+    "parser": "CSS",
+    "rules": {
+      "https://www\\.100yingshi\\.com/yssearch/.+?----------\\d+---\\.html": {
+        "list": {
+          "expression": ".index-area li",
+          "title": {
+            "expression": "p.name"
+          },
+          "image": {
+            "expression": "img",
+            "attribute": "src",
+            "prefix": "{home}"
+          },
+          "author": {
+            "expression": "p.name + p.actor"
+          },
+          "dateTime": {
+            "expression": "p.actor:nth-child(4)",
+            "script": "if (text) {\n    return text.split('/')[0]\n}\nreturn text"
+          },
+          "link": {
+            "expression": "a.link-hover",
+            "attribute": "href",
+            "prefix": "{home}"
+          },
+          "extra": {
+            "location": {
+              "expression": "p.actor:nth-child(4)",
+              "script": "if (text) {\n    return text.split('/')[1]\n}\nreturn text"
+            },
+            "other": {
+              "expression": ".other"
+            }
+          }
+        },
+        "next": {
+          "expression": ".page > a.page_link[title=下一页]",
+          "attribute": "href",
+          "prefix": "{home}",
+          "script": "if (text === params.url) {\n    return ''\n}\nreturn text"
+        },
+        "options": [
+          "OPEN_DIRECTLY"
+        ]
+      }
+    },
+    "search": "{home}/yssearch/{query}----------1---.html",
+    "properties": {
+      "SEARCH_LITE_SUPPORT": "true",
+      "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#author{${i.author}}#datetime{${i.datetime}}#other{${i.other}}",
+      "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "${i.image}",
+      "SEARCH_LITE_KEYS": "100影视网"
     }
   },
   {
@@ -2345,11 +2415,11 @@ module.exports = [
         "list": {
           "expression": ".tabpanel .tab-content .tab-pane",
           "title": {
-            "expression": "pre:nth-child(1)",
+            "expression": "pre:eq(0)",
             "attribute": "class"
           },
           "content": {
-            "expression": "pre:nth-child(1) > code"
+            "expression": "pre:eq(0) > code"
           }
         }
       }
