@@ -1436,6 +1436,194 @@ module.exports = [
     }
   },
   {
+    "code": "404af31f-0fe6-42e8-922b-9f45d628ea99",
+    "name": "1231d电影网",
+    "category": "影视",
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAABTVBMVEX7AAD/AADcAAD/6ejhAAD/zM3vcHDmAADrAADscnH/sLDWAwD0AADOKCX/i4f/tbTvAAD/0Mz/y8f/jo7/wL3ODQH/y8P/qqe/FxP/5erNLy7VKSLJEAH/+P//3+T/18//xcb6pan/pp/pbGr8amjQKyjIKyTPDw/hCwD+/P//6+7/7ur/5OX/4uL+wML/yL//urr/vbj/sKn/hYnndXP/eHLzb3DHNTDRKCzELSvIFg69GQjSDwDSAwD/9fz/8Pf/9PL/6eL/4Nz/3Nb/qq38nqD/lJbvg4P/cm//bGb/ZGL/X17/UVT/QDv6NiyuLivaJiWmIyLVEw7YFAH/xcr/u8Xsjo3hi4rRdHL/WFjdU1H/R0rXRkT/OkH+LCqfIyDRKh7YGxjfDg/qGwvtl5bYiI7win/YiX3EeHPkZWnJZmW4X1/MVlr2T0npGx54B7kcAAACVklEQVQ4y32T1XbjMBBAZUWOXMkUs8PUBhposA2VmWHL3C7T/z+unCZnd5um1y/jOdej8cwRyEUWp31vUSj4phcjORBZWK3736Tpr9sL82B6o40ghGgEyHA28iDWQtxY8GwMBKYQB8bAoakA4CU8VgBY4t8VOKEvCH1BFMEQcRBz/wiciLGXAqKAIaUUg5cmJa8HJOInSLcaNEuhqN7WZFnXt73/xAKasgDfonvrpzyvWZalyVmYjhJdtuyHzVQqvZtpsQrB3k70NJHQAnZSCWyZfpd8/KFUO9WVlVjpscWzOdBL99PRvbF8cPR1yXYmouT8bEWmz/v7d3do7gMIBNFvwhuNynJ6hviIc7W2NlNKhbOY9aCiuf4c1H27kjY8wSXOjX5mKPrmyXG7fayiIBMmsWB2Ovel4sHRhbvqXFWJopDGo21UZm6hJwS7W8lkMhF1q2uJaC2TWlLOv5Ttkz1ZlreZwJo018tGnI+XAhppZjKpIvl+Ud6mJ12z1z/CkpAKIZUMcuA4jhme/fYzQW6OIe2aVEShMtBCKpspeDa0X7I3Q71W4zd3rnd1WW4I+MFiAgYMNXu5oxCiEKVi6Lvre0mFtXoNJX4osC0h2jMz4bDZpU8wS81wuCegyTjg5/DfPauqIIiqKL58oQIhZDFB4AbbB8OARQwWCSGNDcoThsogGADwYXwgDOG8539Bk4YCB15VYEccsm1KeEwF9oYneRCbRdxYELs4vo02hRDBUViu83kJzC/YdX+z6Z94hZ9l6qv5eRBh179QLBZ8I7huPp/L/QHCck4q64kFlQAAAABJRU5ErkJggg==",
+    "target": "SEARCH",
+    "home": "https://www.1231d.com",
+    "author": "lanyuanxiaoyao",
+    "description": "最好的迅雷电影下载网，分享最新电影，高清电影、综艺、动漫、电视剧、韩剧、港剧、台剧、泰剧、欧美剧、日剧等下载！",
+    "parser": "CSS",
+    "rules": {
+      "https://www\\.1231d\\.com/search/page/\\d+/wd/.+\\.html": {
+        "list": {
+          "expression": ".vodlist li.searchlist_item",
+          "title": {
+            "expression": "h4.vodlist_title",
+            "replace": [
+              {
+                "regex": "&nbsp;",
+                "text": " "
+              }
+            ]
+          },
+          "description": {
+            "expression": "p.vodlist_sub:contains(简介)",
+            "replace": [
+              {
+                "regex": "^简介：",
+                "text": ""
+              }
+            ]
+          },
+          "image": {
+            "expression": ".searchlist_img a",
+            "attribute": "data-original"
+          },
+          "author": {
+            "expression": "p.vodlist_sub:contains(导演)",
+            "replace": [
+              {
+                "regex": "^导演：",
+                "text": ""
+              }
+            ]
+          },
+          "link": {
+            "expression": "h4.vodlist_title a",
+            "attribute": "href",
+            "prefix": "{home}"
+          },
+          "extra": {
+            "other": {
+              "expression": ".searchlist_img .pic_text"
+            }
+          }
+        },
+        "next": {
+          "expression": "ul.page > a:contains(下一页)",
+          "attribute": "href",
+          "prefix": "{home}"
+        },
+        "options": [
+          "OPEN_DIRECTLY"
+        ]
+      }
+    },
+    "search": "{home}/search/page/1/wd/{query}.html",
+    "properties": {
+      "SEARCH_LITE_SUPPORT": "true",
+      "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#author{${i.author}}#other{${i.other}}",
+      "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "${i.image}",
+      "SEARCH_LITE_KEYS": "1231d电影网"
+    }
+  },
+  {
+    "code": "9792b981-b78a-4afe-8657-6fb1cb5ba385",
+    "name": "蜗牛影院",
+    "category": "影视",
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAABPlBMVEUAAAD1W1D/xgDtU3rwcorwmZ3/AF//AF3aAF63GWH/wwD/AWX1PIP1Pnzla4X/eia1GWH/AGD/AGG7JGG3ImbbDWH/giz/AGO4KGj/CWr/DGrgJmz/iEX2LXXAQHj/wAD/rgD/eyS1Fl//AF3kAF3cAGD/fin/FFncAV//gCrgRlf3d0P+qgD/xADrAmO4I2XcFWb/hDL/XUzeGWf/gzS5LG3/xgDdG2jEKWz/pRzDRX7/H3H/hjm7M23/zjn/k1P/zCn/AF3bAF3/eyL2TkL/wACzE162El3VAF33VT77YDT+ai7/owC7Dl3uAFziFFf/NUXyR0T/dSj/hRX/uAD/lgDEBl3gAF3MAF32AFzlAFzlIVTbMU/pLU/tOUrwQEf/QkD3Wzn8cSj+ngDUDVvBHln/FVLeO0z/WDf/jgCK96zvAAAAQXRSTlMAu7sVCAPm+PfTxYMvIBDp4sy/vbq3qqCJc2JMPTgy9/fz8PDw4dnV0767u7uxo6Gbk4eDdW5raWNbWVFQSz8oGbngW2kAAAFaSURBVDjLbZPnVsIwGECjlY2AoDJU3HvvPUJoCy0gIG5UhvP9X8CQQdJx/9578n05OQHgLKb1CBwqwJVsQGMkLofcgpTWZ24763EGo5pELKW4BgI9cBKxBQlJl58KBf/YhHWVNV3oHMG/E5ZXGWjSQn8o5DiL+8NSkP/50vUy0YKV44gI8rXmJ9MCsgoLMB+vOTuPC1tTHhoQ3m+tugIh9IYUElBqb1KCNSGp0IAnTL88Q05aBHQVqgUjigjYKhUo4w3bAsNs2YN1Sbc7CCGzKgVxBWwYXBdNRBGFLwPAYLdNtVFHjPo396EhHKilTrFINafFrpDBHgeqWrpDFgyyXwg/KQvUhjX5hXA+iV+CByS5l4KqL36OT+cBQxTmclphVg4afEp0jwwXgfWI2fFJD3APSj2/emH/Xpv9oIvQ0oHz4xxN8+AvunsNnNwEmZ+hw51c0SJ4GnHV/2thsQoatoZfAAAAAElFTkSuQmCC",
+    "target": "SEARCH",
+    "home": "https://www.snailok.com",
+    "author": "lanyuanxiaoyao",
+    "description": "蜗牛视频为您提供最新电影,好看的电影,新电视剧大全，经典动漫，推荐好看的热门综艺大全全集等免费高清视频在线观看。",
+    "parser": "CSS",
+    "rules": {
+      "https://www\\.snailok\\.com/vodsearch/.+?----------\\d+?---\\.html": {
+        "list": {
+          "expression": ".col-lg-wide-75 .stui-vodlist__media li",
+          "title": {
+            "expression": "h3.title"
+          },
+          "image": {
+            "expression": ".lazyload",
+            "attribute": "data-original"
+          },
+          "author": {
+            "expression": ".detail p:contains(主演：)",
+            "replace": [
+              {
+                "regex": "主演：",
+                "text": ""
+              }
+            ]
+          },
+          "link": {
+            "expression": "a",
+            "attribute": "href",
+            "prefix": "{home}"
+          },
+          "extra": {
+            "other": {
+              "expression": ".pic-text"
+            }
+          }
+        },
+        "next": {
+          "expression": "ul.stui-page li a:contains(下一页)",
+          "attribute": "href",
+          "prefix": "{home}"
+        },
+        "options": [
+          "OPEN_DIRECTLY"
+        ]
+      }
+    },
+    "search": "https://www.snailok.com/vodsearch/{query}----------1---.html",
+    "properties": {
+      "SEARCH_LITE_SUPPORT": "true",
+      "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#author{${i.author}}#other{${i.other}}",
+      "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "${i.image}",
+      "SEARCH_LITE_KEYS": "蜗牛影院"
+    }
+  },
+  {
+    "code": "90b35a14-d7af-4171-bdae-f9ff3c98e8b7",
+    "name": "91美剧",
+    "category": "影视",
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAABMlBMVEUAAADopQDopgDnpwDnpgDnpgDnpwDnpwDnpQDpngDnpwDmpwDrpADppADnpwDnpwDnpwDnpgDmpgDlowDnpgDxqgDopgDtnQDsoQDopwDnpgDopQDmpgDppQDnpgDnpwDnpgDnpwDpqADppgDlpADkowDqogDoqADnpwDopwDopgDnpwDopQDnpgDmpgDppgDppQDmpQDmpQDmpgDqpAD4jADmpwDppADsoADmpgD2jwD1kgDtnwDnqADsnwDrnwDlpgDnpwDnpgDmpQDmqADoqgr////++/X78trqsyT//vv99+r447LuwErsuTfnpwX99uX679P67Mz457z236f125v01ITz0HnyzW/wxl/prxvprxjprRPorAz9+e788+D346/01IrvxFnvxE/tvUXrtCnKxEhAAAAAQXRSTlMAZQOvwqL99T8g5GtOM/neyMW/Uh8VExAM6Z6HaVtI7dynlZEjGQbWzrayqoJ5Xy8Iu2NaNxfSw6yaRjsvJru7jLs07YsAAAHCSURBVDjLfZPXeoJAEIUVVEDAgiIWRMWWGHtMr7BiL+nFkp73f4W4sPqpQc8l5+fM7uyMZS6sHAykqRR1IAQzmMVEgQuWlHw+5vTs3B/8b2N+phDOcTbv0dVxkibT63aapE88IYcyU93l3o0UWX7FT+2Hd5yEovv1uiMW5yIMv+RTxYSzrizLdShLPLYov487V2xYJysvMgI+O/pfBTOpKsq4ZjO6L7BJt0MxAF0ohOCqlF6kFLUhG6jaeDQZAmAwTlkSIBCNxOfAdPD12v+dohSXp5CCQH4vZNha+/vpoff4/DMeGhGhcA0CCY/eAADaL71Wt3tz+9ifGBmuigQBDh5RVYDW/2g2mm/NRutpoBlFvD5BCFh2Yvr5h+2X20anddfqNHuvIwAg4KmWSNKSJXRAG3y+N7r3D/c3nbvnNgJEhi5sA7x0VbZvKIEAMZHbdkibKO7tml8TAVarHd/cKARsbjUC4GOppo+FANPnXgaMgVGWB2YdwPxRPKSsyQFDvTqAhnbFVgl3nECA+dhX5CSejXEijVfMFydaK0n5XLgIO7m+epdw9fjZF9ZqJZl8ZPPylv3UAcXWtqx/ppwJ8vwf4cyqvs/d/6IAAAAASUVORK5CYII=",
+    "target": "SEARCH",
+    "home": "https://91mjw.com",
+    "author": "lanyuanxiaoyao",
+    "description": "91美剧网，一个可在线观看美剧的视频网站，美剧爱好者的在线美剧天堂。提供高清、流畅、无广告的观看体验。",
+    "parser": "CSS",
+    "rules": {
+      "https://91mjw\\.com/page/\\d+?\\?s=.+": {
+        "list": {
+          "expression": ".list-content article",
+          "title": {
+            "expression": "a",
+            "attribute": "title"
+          },
+          "image": {
+            "expression": "img",
+            "attribute": "data-original"
+          },
+          "link": {
+            "expression": "a",
+            "attribute": "href"
+          },
+          "extra": {
+            "other": {
+              "expression": ".zhuangtai"
+            },
+            "score": {
+              "expression": ".pingfen"
+            }
+          }
+        },
+        "next": {
+          "expression": ".pagination .next-page a",
+          "attribute": "href"
+        },
+        "options": [
+          "OPEN_DIRECTLY"
+        ]
+      }
+    },
+    "search": "https://91mjw.com/page/1?s={query}",
+    "properties": {
+      "SEARCH_LITE_SUPPORT": "true",
+      "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#author{${i.author}}#score{${i.score}}#other{${i.other}}",
+      "SEARCH_LITE_DESC_TEMPLATE": "#link{${i.link}}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "${i.image}",
+      "SEARCH_LITE_KEYS": "91美剧"
+    }
+  },
+  {
     "code": "21288140-5491-4aac-a827-e084bfa70ae2",
     "name": "npm",
     "category": "开发",
