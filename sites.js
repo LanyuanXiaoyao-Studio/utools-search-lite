@@ -1790,30 +1790,26 @@ module.exports = [
         "list": {
           "expression": "main .center aside + div > section",
           "title": {
-            "expression": "div.w-80 div:nth-child(1) h3"
+            "expression": "div.w-60-l div:nth-child(1) h3"
           },
           "description": {
-            "expression": "div.w-80 h4:contains(Description) + p"
-          },
-          "avatar": {
-            "expression": "div.w-80 h4:contains(Publisher) + div div:nth-child(1) > div > a > img",
-            "attribute": "src"
+            "expression": "div.w-60-l h4:contains(Description) + p"
           },
           "author": {
-            "expression": "div.w-80 h4:contains(Publisher) + div div:nth-child(1) > a[href]"
+            "expression": "div.w-60-l h4:contains(Publisher) + div div:nth-child(1) > a[href]"
           },
           "dateTime": {
-            "expression": "div.w-80 h4:contains(Publisher) + div span[title]",
+            "expression": "div.w-60-l h4:contains(Publisher) + div span[title]",
             "script": "let regex = /published\\s*(.+?)\\s*•\\s*(.+)$/\nlet result = text.match(regex)\nif (result && result.length > 1) {\n    return result[2]\n}\nreturn ''"
           },
           "link": {
-            "expression": "div.w-80 div:nth-child(1) > a",
+            "expression": "div.w-60-l div:nth-child(1) > a",
             "attribute": "href",
             "prefix": "{home}"
           },
           "extra": {
             "version": {
-              "expression": "div.w-80 h4:contains(Publisher) + div span[title]",
+              "expression": "div.w-60-l h4:contains(Publisher) + div span[title]",
               "script": "let regex = /published\\s*(.+?)\\s*•\\s*(.+)$/\nlet result = text.match(regex)\nif (result && result.length > 1) {\n    return result[1]\n}\nreturn ''"
             }
           }
@@ -1867,7 +1863,7 @@ module.exports = [
       "SEARCH_LITE_SUPPORT": "true",
       "SEARCH_LITE_TITLE_TEMPLATE": "#title{${i.title}}#version{${i.version}}#author{${i.author}}#datetime{${i.datetime}}",
       "SEARCH_LITE_DESC_TEMPLATE": "#description{${i.description}}#link{${i.link}}",
-      "SEARCH_LITE_IMAGE_TEMPLATE": "${i.avatar}",
+      "SEARCH_LITE_IMAGE_TEMPLATE": "",
       "SEARCH_LITE_KEYS": "npm,JavaScript",
       "TEST_SEARCH_KEY": "kafka"
     }
